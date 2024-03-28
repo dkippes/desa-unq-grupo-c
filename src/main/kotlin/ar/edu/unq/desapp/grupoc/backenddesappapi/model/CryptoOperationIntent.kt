@@ -1,8 +1,5 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 
-import ar.edu.unq.desapp.grupoc.backenddesappapi.OPERATION
-import ar.edu.unq.desapp.grupoc.backenddesappapi.SYMBOLS
-
 class CryptoOperationIntent {
     var id: Long? = null
     var symbol: SYMBOLS? = null

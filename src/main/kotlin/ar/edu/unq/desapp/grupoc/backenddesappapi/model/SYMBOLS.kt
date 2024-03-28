@@ -1,4 +1,4 @@
-package ar.edu.unq.desapp.grupoc.backenddesappapi
+package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 
 enum class SYMBOLS {
     ALICEUSDT,
