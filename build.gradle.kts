@@ -6,6 +6,7 @@ plugins {
     kotlin("jvm") version "1.9.22"
     kotlin("plugin.spring") version "1.9.22"
     kotlin("plugin.jpa") version "1.9.22"
+    id("jacoco")
 }
 
 group = "ar.edu.unq.desapp.grupoc"
@@ -39,4 +40,23 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+val generateJacocoReport = tasks.register("generateJacocoReport", JacocoReport::class) {
+    dependsOn("test")
+
+    val coverageSourceDirs = subprojects.map { it.sourceSets.getByName("main").java.srcDirs }
+    sourceDirectories.setFrom(coverageSourceDirs)
+
+    classDirectories.setFrom(files(subprojects.map { it.tasks.getByName("compileKotlin").outputs }))
+    executionData.setFrom(files(subprojects.map { it.tasks.getByName("test").outputs.files }))
+
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+}
+
+tasks.named("check") {
+    dependsOn(generateJacocoReport)
 }
