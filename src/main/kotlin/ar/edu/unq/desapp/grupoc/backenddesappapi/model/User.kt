@@ -1,7 +1,7 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 
 class User {
-var id: Long? = null
+    var id: Long? = null
     var name: String? = null
     var lastName: String? = null
     var email: String? = null
