@@ -6,13 +6,15 @@ plugins {
     kotlin("jvm") version "1.9.22"
     kotlin("plugin.spring") version "1.9.22"
     kotlin("plugin.jpa") version "1.9.22"
-    id("org.sonarqube") version "4.0.0.2929"
+    id("org.sonarqube") version "4.3.1.3277"
 }
 
-sonarqube.properties {
-    property("sonar.projectKey", "dkippes_desa-unq-grupo-c")
-    property("sonar.organization", "dkippes")
-    property("sonar.host.url", "https://sonarcloud.io")
+sonar {
+    properties {
+        property("sonar.projectKey", "dkippes_desa-unq-grupo-c")
+        property("sonar.organization", "dkippes")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }
 
 group = "ar.edu.unq.desapp.grupoc"
