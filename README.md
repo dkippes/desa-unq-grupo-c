@@ -1,4 +1,4 @@
-# Desarollo de aplicaciones - Grupo C
+# Desarrollo de aplicaciones - Grupo C
 
 ## Integrantes:
 - Juan Manuel Sanchez Diaz
