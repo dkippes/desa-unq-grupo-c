@@ -75,6 +75,8 @@ jobs:
     needs: [ "build", "test", "sonarcloud_analysis" ]
     runs-on: ubuntu-latest
     steps:
+      - name: Build Docker image
+        run: docker build -t desapp .
       - name: Check Docker availability
         run: |
           docker --version
