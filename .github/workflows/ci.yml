@@ -75,6 +75,8 @@ jobs:
     needs: [ "build", "test", "sonarcloud_analysis" ]
     runs-on: ubuntu-latest
     steps:
+      - name: Docker login
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker image
         run: docker build -t desapp .
       - name: Check Docker availability
