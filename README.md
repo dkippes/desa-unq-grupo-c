@@ -51,3 +51,8 @@
 | Segurizar el acceso a la API (JWT) | 🔴 |
 | Mostrar las cotizaciones de las últimas 24hs para un cripto activo dado | 🔴 |
 | Listado de cotizaciones (alta performance - implementar cache) | 🔴 |
+---
+## Correr docker
+
+1. docker build -t desapp .
+2. docker run -p 8080:8080 desapp

@@ -70,3 +70,20 @@ jobs:
         run: ./gradlew sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  check_docker_availability:
+    needs: [ "build", "test", "sonarcloud_analysis" ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Docker availability
+        run: |
+          docker --version
+          docker run -d -p 8080:8080 desapp
+          sleep 10 # Esperar unos segundos para que el contenedor se inicie
+          response=$(curl -sSf http://localhost:8080/ping)
+          if [[ "$response" == "pong" ]]; then
+            echo "Docker is available and responding to ping."
+          else
+            echo "Failed to start Docker or Docker container is not responding correctly."
+            exit 1
+          fi
