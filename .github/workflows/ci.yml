@@ -87,6 +87,9 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
+      - name: Ensure build/libs directory exists
+        run: mkdir -p build/libs
+
       - name: Check Docker availability
         run: |
           docker --version
