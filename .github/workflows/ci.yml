@@ -47,21 +47,26 @@ jobs:
       - name: Run tests
         run: ./gradlew test
 
-  jacoco_report:
-    needs: test
+  sonarcloud_analysis:
+    needs: ["build", "test"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout project sources
         uses: actions/checkout@v3
 
+      # Configura JDK 17
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
           java-version: '17'
 
+      # Concede permisos de ejecución a gradlew
       - name: Grant execute permission to gradlew
         run: chmod +x ./gradlew
 
-      - name: Generate Jacoco Report
-        run: ./gradlew generateJacocoReport
+      # Ejecuta el análisis de SonarCloud
+      - name: SonarCloud analysis
+        run: ./gradlew sonarqube
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
