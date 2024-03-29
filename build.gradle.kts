@@ -6,16 +6,13 @@ plugins {
     kotlin("jvm") version "1.9.22"
     kotlin("plugin.spring") version "1.9.22"
     kotlin("plugin.jpa") version "1.9.22"
-    id("jacoco")
-    id("org.sonarqube") version "4.3.1.3277"
+    id("org.sonarqube") version "4.0.0.2929"
 }
 
-sonar {
-    properties {
-        property("sonar.projectKey", "dkippes_desa-unq-grupo-c")
-        property("sonar.organization", "dkippes")
-        property("sonar.host.url", "https://sonarcloud.io")
-    }
+sonarqube.properties {
+    property("sonar.projectKey", "dkippes_desa-unq-grupo-c")
+    property("sonar.organization", "dkippes")
+    property("sonar.host.url", "https://sonarcloud.io")
 }
 
 group = "ar.edu.unq.desapp.grupoc"
@@ -49,23 +46,4 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
-}
-
-val generateJacocoReport = tasks.register("generateJacocoReport", JacocoReport::class) {
-    dependsOn("test")
-
-    val coverageSourceDirs = subprojects.map { it.sourceSets.getByName("main").java.srcDirs }
-    sourceDirectories.setFrom(coverageSourceDirs)
-
-    classDirectories.setFrom(files(subprojects.map { it.tasks.getByName("compileKotlin").outputs }))
-    executionData.setFrom(files(subprojects.map { it.tasks.getByName("test").outputs.files }))
-
-    reports {
-        xml.required.set(true)
-        html.required.set(true)
-    }
-}
-
-tasks.named("check") {
-    dependsOn(generateJacocoReport)
 }

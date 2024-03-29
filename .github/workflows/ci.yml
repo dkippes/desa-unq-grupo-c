@@ -67,6 +67,6 @@ jobs:
 
       # Ejecuta el análisis de SonarCloud
       - name: SonarCloud analysis
-        run: ./gradlew sonarqube
+        run: ./gradlew sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
