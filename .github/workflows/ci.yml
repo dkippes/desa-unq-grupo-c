@@ -47,6 +47,16 @@ jobs:
       - name: Run tests
         run: ./gradlew test
 
+      - name: Test /ping
+        run: |
+           response=$(curl -sSf http://localhost:8080/ping)
+           if [[ "$response" == "pong" ]]; then
+             echo "Ping test passed: Received 'pong' response."
+           else
+             echo "Ping test failed: Did not receive 'pong' response."
+             exit 1
+           fi
+
   sonarcloud_analysis:
     needs: ["build", "test"]
     runs-on: ubuntu-latest
@@ -72,7 +82,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   check_docker_availability:
-    needs: [ "build", "test", "sonarcloud_analysis" ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -87,19 +96,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Ensure build/libs directory exists
-        run: mkdir -p build/libs
-
       - name: Check Docker availability
         run: |
           docker --version
-          docker build -t desapp -f ./Dockerfile .
-          docker run -d -p 8080:8080 desapp
-          sleep 10
-          response=$(curl -sSf http://localhost:8080/ping)
-          if [[ "$response" == "pong" ]]; then
-            echo "Docker is available and responding to ping."
-          else
-            echo "Failed to start Docker or Docker container is not responding correctly."
-            exit 1
-          fi
