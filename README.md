@@ -56,3 +56,7 @@
 
 1. docker build -t desapp .
 2. docker run -p 8080:8080 desapp
+
+## Swagger
+* Debe estar corriendo la aplicacion en el puerto 8080
+[Documentacion](http://localhost:8080/swagger-ui/index.html)
