@@ -1,31 +1,22 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 
-class User() {
-    var id: Long? = null
-    var name: String? = null
-    var lastName: String? = null
-    var email: String? = null
-    var password: String? = null
-    var cvu: String? = null
-    var address: String? = null
-    var walletAddress: String? = null
-    var reputation: Int = 0
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
 
-    constructor(
-        name: String?,
-        lastName: String?,
-        email: String?,
-        password: String?,
-        cvu: String?,
-        address: String?,
-        walletAddress: String?
-    ) : this() {
-        this.name = name
-        this.lastName = lastName
-        this.email = email
-        this.password = password
-        this.cvu = cvu
-        this.address = address
-        this.walletAddress = walletAddress
-    }
+@Entity
+class User(
+    var name: String,
+    var lastName: String,
+    var email: String,
+    var password: String,
+    var cvu: String,
+    var address: String,
+    var walletAddress: String,
+    var reputation: Int = 0
+) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null
 }
