@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component
 class Factory {
 
     companion object {
-        fun createUserFromDTO(dto: RegisterUserDTO): User {
+        fun createUserFromRequestUserDTO(dto: RegisterUserDTO): User {
             return User(
-                dto.name!!,
+                dto.name,
                 dto.lastName,
                 dto.email,
                 dto.password,
