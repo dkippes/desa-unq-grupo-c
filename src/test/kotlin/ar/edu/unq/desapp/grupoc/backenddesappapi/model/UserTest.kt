@@ -15,7 +15,7 @@ class UserTest {
             name = "Jose",
             cvu = "0123456789012345678912",
             email = "jose@gmail.com",
-            lastName = "Espert",
+            lastName = "Del ñoca",
             password = "Se!23456",
             address = "Wilde 2034",
             walletAddress = "12345678"
@@ -28,7 +28,7 @@ class UserTest {
             Assertions.assertEquals(user.name, "Jose");
             Assertions.assertEquals(user.cvu, "0123456789012345678912");
             Assertions.assertEquals(user.email, "jose@gmail.com");
-            Assertions.assertEquals(user.lastName, "Espert");
+            Assertions.assertEquals(user.lastName, "Del ñoca");
             Assertions.assertEquals(user.password, "Se!23456");
             Assertions.assertEquals(user.address, "Wilde 2034");
             Assertions.assertEquals(user.walletAddress, "12345678")

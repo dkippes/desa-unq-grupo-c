@@ -1,5 +1,7 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
@@ -21,31 +23,11 @@ class User(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
     @OneToMany
-    var intents: MutableList<CryptoOperationIntent> = mutableListOf<CryptoOperationIntent>()
+    var intents: MutableList<OperationIntent> = mutableListOf<OperationIntent>()
 
-    fun buy(crypto: SYMBOLS, quantity: Double, price: Double, localPrice: Double) {
-        intents.add(
-            CryptoOperationIntent(
-                crypto,
-                quantity,
-                price,
-                localPrice,
-                OPERATION.BUY,
-                this
-            )
-        )
-    }
-
-    fun sell(crypto: SYMBOLS, quantity: Double, price: Double, localPrice: Double) {
-        intents.add(
-            CryptoOperationIntent(
-                crypto,
-                quantity,
-                price,
-                localPrice,
-                OPERATION.SELL,
-                this
-            )
-        )
-    }
+    fun buy() {}
+    fun sell() {}
+    fun confirmReception() {}
+    fun sendTransfer() {}
+    fun cancel() {}
 }
