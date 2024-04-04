@@ -5,9 +5,10 @@ import jakarta.persistence.*
 
 @Entity
 class Transaction (
-    @OneToOne val intention: OperationIntent? = null,
-    @OneToOne val user: User? = null,
-    val status: TransactionStatus = TransactionStatus.WAITING_ACTION
+    @OneToOne var intention: OperationIntent? = null,
+    @OneToOne var seller: User? = null,
+    @OneToOne var buyer: User? = null,
+    var status: TransactionStatus = TransactionStatus.WAITING_ACTION
 ){
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -7,6 +7,12 @@
 ## [Sonarcloud](https://sonarcloud.io/summary/new_code?id=dkippes_desa-unq-grupo-c)
 
 ---
+## TODO
+
+- [ ] Agregar excepciones personalizadas en el modelo
+- [ ] Armar test unitarios
+
+---
 ## Entrega Nro 1
 
 | Entregable | Estado |

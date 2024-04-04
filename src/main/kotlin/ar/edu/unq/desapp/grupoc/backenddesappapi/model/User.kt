@@ -2,11 +2,8 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.OneToMany
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
+import jakarta.persistence.*
 
 @Entity
 class User(
@@ -25,9 +22,44 @@ class User(
     @OneToMany
     var intents: MutableList<OperationIntent> = mutableListOf<OperationIntent>()
 
-    fun buy() {}
-    fun sell() {}
-    fun confirmReception() {}
-    fun sendTransfer() {}
-    fun cancel() {}
+    fun publish(symbol: SYMBOL, nominalQuantity: Double, nominalPrice: Double, localPrice: Double, operation: OPERATION): OperationIntent {
+        val operationIntent = OperationIntent(
+            symbol = symbol,
+            nominalQuantity = nominalQuantity,
+            nominalPrice = nominalPrice,
+            localPrice = localPrice,
+            operation,
+            this
+        )
+        this.intents.add(operationIntent)
+        return operationIntent
+    }
+
+    fun confirmReception(transaction: Transaction, hasCurrencyChanged: Boolean) {
+        if (hasCurrencyChanged) {
+            transaction.status = TransactionStatus.CANCELED
+            throw RuntimeException()
+        }
+        if (transaction.status != TransactionStatus.TRANSFER_SENT) {
+            throw RuntimeException()
+        }
+        transaction.status = TransactionStatus.TRANSFER_RECEIVE
+    }
+    fun sendTransfer(transaction: Transaction, hasCurrencyChanged: Boolean) {
+        if (hasCurrencyChanged) {
+            transaction.status = TransactionStatus.CANCELED
+            throw RuntimeException()
+        }
+        if (transaction.status != TransactionStatus.WAITING_ACTION) {
+            throw RuntimeException()
+        }
+        transaction.status = TransactionStatus.TRANSFER_SENT
+    }
+    fun cancel(transaction: Transaction) {
+        if (transaction.status == TransactionStatus.TRANSFER_RECEIVE) {
+            throw RuntimeException()
+        }
+        // Restar puntos al usuario...
+        transaction.status = TransactionStatus.CANCELED
+    }
 }
