@@ -3,15 +3,12 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
+import java.time.LocalDateTime
 
 @Entity
-class CryptoCurrency {
+class CryptoCurrency(
     @Id
-    var symbol: SYMBOL? = null
-    var price: Float? = null
-    var lastUpdateDateAndTime: String? = null
-
-    fun setLastUpdateDateAndTime(lastUpdateDateAndTime: String?) {
-        this.lastUpdateDateAndTime = lastUpdateDateAndTime
-    }
-}
+    var symbol: SYMBOL,
+    var price: Double,
+    var lastUpdateDateAndTime: LocalDateTime = LocalDateTime.now()
+)

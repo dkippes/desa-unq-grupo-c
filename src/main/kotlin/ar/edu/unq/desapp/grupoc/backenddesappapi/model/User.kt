@@ -3,6 +3,7 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.*
 import jakarta.persistence.*
 
 @Entity
@@ -38,28 +39,53 @@ class User(
     fun confirmReception(transaction: Transaction, hasCurrencyChanged: Boolean) {
         if (hasCurrencyChanged) {
             transaction.status = TransactionStatus.CANCELED
-            throw RuntimeException()
+            throw PriceChangedOutOfLimitsException()
         }
+        if(transaction.status === TransactionStatus.CANCELED) {
+            throw OperationCancelledException()
+        }
+
         if (transaction.status != TransactionStatus.TRANSFER_SENT) {
-            throw RuntimeException()
+            throw TransferNotSentException()
         }
         transaction.status = TransactionStatus.TRANSFER_RECEIVE
+        this.increasePoints(transaction.getPointsForFinish())
     }
+
+
+
     fun sendTransfer(transaction: Transaction, hasCurrencyChanged: Boolean) {
         if (hasCurrencyChanged) {
             transaction.status = TransactionStatus.CANCELED
-            throw RuntimeException()
+            throw PriceChangedOutOfLimitsException()
         }
+
+        if(transaction.status === TransactionStatus.CANCELED) {
+            throw OperationCancelledException()
+        }
+
         if (transaction.status != TransactionStatus.WAITING_ACTION) {
-            throw RuntimeException()
+            throw TransferAlreadySentException()
         }
         transaction.status = TransactionStatus.TRANSFER_SENT
     }
     fun cancel(transaction: Transaction) {
-        if (transaction.status == TransactionStatus.TRANSFER_RECEIVE) {
-            throw RuntimeException()
+        if(transaction.status === TransactionStatus.CANCELED) {
+            throw OperationCancelledException()
         }
-        // Restar puntos al usuario...
+
+        if (transaction.status == TransactionStatus.TRANSFER_RECEIVE) {
+            throw OperationFinishedException()
+        }
+
+        this.decreaseReputationPoints(transaction.getPointsPenalizationForCancel())
         transaction.status = TransactionStatus.CANCELED
+    }
+
+    private fun increasePoints(points: Int) {
+        this.reputation += points
+    }
+    private fun decreaseReputationPoints(points: Int) {
+        this.reputation -= points
     }
 }
