@@ -52,8 +52,6 @@ class User(
         this.increasePoints(transaction.getPointsForFinish())
     }
 
-
-
     fun sendTransfer(transaction: Transaction, hasCurrencyChanged: Boolean) {
         if (hasCurrencyChanged) {
             transaction.status = TransactionStatus.CANCELED
@@ -88,4 +86,40 @@ class User(
     private fun decreaseReputationPoints(points: Int) {
         this.reputation -= points
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as User
+
+        if (name != other.name) return false
+        if (lastName != other.lastName) return false
+        if (email != other.email) return false
+        if (password != other.password) return false
+        if (cvu != other.cvu) return false
+        if (address != other.address) return false
+        if (walletAddress != other.walletAddress) return false
+        if (reputation != other.reputation) return false
+        if (id != other.id) return false
+        if (intents != other.intents) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = name.hashCode()
+        result = 31 * result + lastName.hashCode()
+        result = 31 * result + email.hashCode()
+        result = 31 * result + password.hashCode()
+        result = 31 * result + cvu.hashCode()
+        result = 31 * result + address.hashCode()
+        result = 31 * result + walletAddress.hashCode()
+        result = 31 * result + reputation
+        result = 31 * result + (id?.hashCode() ?: 0)
+        result = 31 * result + intents.hashCode()
+        return result
+    }
+
+
 }

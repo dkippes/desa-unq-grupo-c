@@ -47,4 +47,23 @@ class UserControllerTest {
             .andExpect(MockMvcResultMatchers.jsonPath("$.walletAddress").value("12345678"))
             .andExpect(MockMvcResultMatchers.jsonPath("$.lastName").value("Marces"))
     }
+
+    @Test
+    fun shouldFailWhenUserRequestDTOisCreated() {
+        val userData = RegisterUserDTO(
+            name = "",
+            password = "123456sD!",
+            email = "juan@gmail.com",
+            address = "Wilde 12",
+            walletAddress = "12345678",
+            cvu = "1111111111111111111111",
+            lastName = "Marces"
+        )
+        val parsedUserData = ObjectMapper().writeValueAsString(userData)
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/register")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(parsedUserData)
+        ).andExpect(MockMvcResultMatchers.status().isBadRequest)
+    }
 }
