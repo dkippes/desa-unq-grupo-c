@@ -5,6 +5,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.*
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
@@ -37,6 +38,36 @@ class UserTest {
             assertEquals(user.address, "Wilde 2034");
             assertEquals(user.walletAddress, "12345678")
         })
+    }
+
+    @Test
+    fun assertEquality() {
+        val userCopy = User(
+            name = "Jose",
+            cvu = "0123456789012345678912",
+            email = "jose@gmail.com",
+            lastName = "Del ñoca",
+            password = "Se!23456",
+            address = "Wilde 2034",
+            walletAddress = "12345678"
+        )
+        val otherUser = User(
+            name = "Marcos",
+            cvu = "0123456763012345678912",
+            email = "marcos@gmail.com",
+            lastName = "Martinez",
+            password = "Ro?64251",
+            address = "Bernal 2034",
+            walletAddress = "13246678"
+        )
+
+        assertAll({
+            assertEquals(this.user,userCopy);
+            assertEquals(this.user.hashCode(), userCopy.hashCode());
+            assertNotEquals(this.user, otherUser);
+            assertNotEquals(this.user.hashCode(), otherUser.hashCode())
+        })
+
     }
 
     @Test
