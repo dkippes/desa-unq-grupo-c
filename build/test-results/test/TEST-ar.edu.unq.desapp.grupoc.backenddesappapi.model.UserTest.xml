@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2024-04-10T01:25:57" hostname="DESKTOP-UIQ8J0A" time="0.046">
+  <properties/>
+  <testcase name="test publish sell()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.003"/>
+  <testcase name="test sendTransfer when transaction is waiting action()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.001"/>
+  <testcase name="test sendTransfer when transaction is not waiting action()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.006"/>
+  <testcase name="test confirmReception when transaction status is wating action()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.004"/>
+  <testcase name="assertUserData()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.004"/>
+  <testcase name="test sendTransfer when transaction is already cancelled()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.003"/>
+  <testcase name="test confirmReception when hasCurrencyChanged is true()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.003"/>
+  <testcase name="test cancel when transaction is transfer receive()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.004"/>
+  <testcase name="test cancel when transaction is not cancelled or transfer receive()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.001"/>
+  <testcase name="test publish buy()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.001"/>
+  <testcase name="test confirmReception when transaction status is cancelled()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.002"/>
+  <testcase name="test confirmReception when transaction status is transfer sent()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.001"/>
+  <testcase name="test sendTransfer when hasCurrencyChanged is true()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.003"/>
+  <testcase name="test cancel when transaction is already cancelled()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.UserTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrencyTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-10T01:25:57" hostname="DESKTOP-UIQ8J0A" time="0.019">
+  <properties/>
+  <testcase name="shouldShowCryptoCurrencyInfo()" classname="ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrencyTests" time="0.019"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
