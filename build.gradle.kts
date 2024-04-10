@@ -15,6 +15,7 @@ sonar {
         property("sonar.projectKey", "dkippes_desa-unq-grupo-c")
         property("sonar.organization", "dkippes")
         property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.coverage.jacoco.xmlReportPaths", "$buildDir\\reports\\jacoco\\test\\jacocoTestReport.xml")
     }
 }
 
@@ -57,10 +58,15 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-tasks.test {
-    finalizedBy("jacocoTestReport")
-    doLast {
-        println("View code coverage at:")
-        println("file://$buildDir/reports/jacoco/test/html/index.html")
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+        html.required.set(false)
     }
 }
+
+jacoco {
+    toolVersion = "0.8.8"
+}
+
