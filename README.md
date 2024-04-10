@@ -25,8 +25,8 @@
 | TAG en GitHub y Confeccionar Release Notes | 🟡     |
 | Clean Code según la materia (todo en Inglés) | 🟢     |
 | Configuración de Swagger en el back-API (v3) | 🟢     |
-| Implementar modelo completo | 🟡     |
-| Testing automático unitario según las pautas | 🟡     |
+| Implementar modelo completo | 🟢     |
+| Testing automático unitario según las pautas | 🟢     |
 | Proveer servicio de registración de usuario (punto 1) | 🟢     |
 
 ---
