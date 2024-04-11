@@ -21,7 +21,7 @@ class User(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
     @OneToMany
-    var intents: MutableList<OperationIntent> = mutableListOf<OperationIntent>()
+    var intents: MutableList<OperationIntent> = mutableListOf()
 
     fun publish(symbol: SYMBOL, nominalQuantity: Double, nominalPrice: Double, localPrice: Double, operation: OPERATION): OperationIntent {
         val operationIntent = OperationIntent(
@@ -41,9 +41,8 @@ class User(
             transaction.status = TransactionStatus.CANCELED
             throw PriceChangedOutOfLimitsException()
         }
-        if(transaction.status === TransactionStatus.CANCELED) {
-            throw OperationCancelledException()
-        }
+
+        validateIfOperationWasCancelled(transaction)
 
         if (transaction.status != TransactionStatus.TRANSFER_SENT) {
             throw TransferNotSentException()
@@ -58,9 +57,7 @@ class User(
             throw PriceChangedOutOfLimitsException()
         }
 
-        if(transaction.status === TransactionStatus.CANCELED) {
-            throw OperationCancelledException()
-        }
+        validateIfOperationWasCancelled(transaction)
 
         if (transaction.status != TransactionStatus.WAITING_ACTION) {
             throw TransferAlreadySentException()
@@ -68,9 +65,7 @@ class User(
         transaction.status = TransactionStatus.TRANSFER_SENT
     }
     fun cancel(transaction: Transaction) {
-        if(transaction.status === TransactionStatus.CANCELED) {
-            throw OperationCancelledException()
-        }
+        validateIfOperationWasCancelled(transaction)
 
         if (transaction.status == TransactionStatus.TRANSFER_RECEIVE) {
             throw OperationFinishedException()
@@ -78,6 +73,12 @@ class User(
 
         this.decreaseReputationPoints(transaction.getPointsPenalizationForCancel())
         transaction.status = TransactionStatus.CANCELED
+    }
+
+    private fun validateIfOperationWasCancelled(transaction: Transaction) {
+        if(transaction.status === TransactionStatus.CANCELED) {
+            throw OperationCancelledException()
+        }
     }
 
     private fun increasePoints(points: Int) {

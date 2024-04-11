@@ -211,4 +211,12 @@ class UserTest {
         assertEquals(TransactionStatus.CANCELED, transaction.status)
         assertEquals(expectedReputation, user.reputation)
     }
+
+    @Test
+    fun `hashCode should return same value for equal objects`() {
+        val user1 = User("John", "Doe", "john@example.com", "password", "cvu123", "Address 123", "Wallet Address 123")
+        val user2 = User("John", "Doe", "john@example.com", "password", "cvu123", "Address 123", "Wallet Address 123")
+
+        assertEquals(user1.hashCode(), user2.hashCode())
+    }
 }

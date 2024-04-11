@@ -5,8 +5,9 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OperationStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito.*
+import org.mockito.Mockito.mock
 
 class OperationIntentTest() {
     @Test
@@ -74,5 +75,18 @@ class OperationIntentTest() {
         Assertions.assertEquals(operationIntent.transaction!!.status, TransactionStatus.WAITING_ACTION)
         Assertions.assertEquals(user2, operationIntent.transaction?.seller)
         Assertions.assertEquals(user1, operationIntent.transaction?.buyer)
+    }
+
+    @Test
+    fun `test operation intent id should be null after instantiation`() {
+        val operationIntent = OperationIntent(
+            symbol = SYMBOL.ADAUSDT,
+            nominalQuantity = 100.0,
+            nominalPrice = 10.0,
+            localPrice = 12.0,
+            operation = OPERATION.BUY
+        )
+
+        assertNull(operationIntent.id)
     }
 }

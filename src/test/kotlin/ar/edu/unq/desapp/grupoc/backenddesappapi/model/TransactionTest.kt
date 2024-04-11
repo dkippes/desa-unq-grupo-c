@@ -1,6 +1,7 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
 import java.time.LocalDateTime
 
@@ -25,5 +26,12 @@ class TransactionTest {
         val transaction = Transaction()
 
         assertEquals(20, transaction.getPointsPenalizationForCancel())
+    }
+
+    @Test
+    fun `test transaction id should be null after instantiation`() {
+        val transaction = Transaction()
+
+        assertNull(transaction.id)
     }
 }
