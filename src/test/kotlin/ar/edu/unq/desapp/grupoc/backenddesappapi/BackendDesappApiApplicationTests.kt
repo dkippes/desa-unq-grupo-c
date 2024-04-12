@@ -10,4 +10,9 @@ class BackendDesappApiApplicationTests {
     fun contextLoads() {
     }
 
+    @Test
+    fun main() {
+
+    }
+
 }
