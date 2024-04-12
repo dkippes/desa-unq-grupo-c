@@ -15,6 +15,7 @@ class Transaction (
 ){
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Suppress("squid:S2699")
     var id: Long? = null
 
     fun getPointsForFinish() : Int {
