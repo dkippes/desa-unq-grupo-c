@@ -9,8 +9,7 @@
 ---
 ## TODO
 
-- [ ] Agregar excepciones personalizadas en el modelo
-- [ ] Armar test unitarios
+- [ ] 
 
 ---
 ## Entrega Nro 1
