@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.User
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.UserService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.RegisterUserDTO
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -22,7 +23,7 @@ class UserController {
     private lateinit var userService: UserService
 
     @PostMapping("/register")
-    fun registerUser(@Valid @RequestBody userInput: RegisterUserDTO): ResponseEntity<Any> {
+    fun registerUser(@Valid @RequestBody userInput: RegisterUserDTO): ResponseEntity<User> {
         return ResponseEntity.ok()
             .body(userService.registerUser(userInput))
     }
