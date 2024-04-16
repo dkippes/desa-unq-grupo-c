@@ -22,7 +22,7 @@
 | Build corriendo y SUCCESS | 🟢     |
 | SonarCloud (Registrar el proyecto Backend) | 🟢     |
 | Deploy automático utilizando HEROKU o similar | 🟡?    |
-| TAG en GitHub y Confeccionar Release Notes | 🟡     |
+| TAG en GitHub y Confeccionar Release Notes | 🟢     |
 | Clean Code según la materia (todo en Inglés) | 🟢     |
 | Configuración de Swagger en el back-API (v3) | 🟢     |
 | Implementar modelo completo | 🟢     |
