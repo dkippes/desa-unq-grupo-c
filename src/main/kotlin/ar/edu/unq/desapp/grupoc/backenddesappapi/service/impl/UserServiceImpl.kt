@@ -15,6 +15,8 @@ class UserServiceImpl : UserService {
     private lateinit var userRepository: UserRepository
     override fun registerUser(registerUserDTO: RegisterUserDTO): User {
         // Buscar en la base de datos si el usuario existe: por email
+        // If Found throw UserAlreadyRegister Exception that can extends from BadRequest.
+
         val user = Factory.createUserFromRequestUserDTO(registerUserDTO)
         return userRepository.registerUser(user)
     }

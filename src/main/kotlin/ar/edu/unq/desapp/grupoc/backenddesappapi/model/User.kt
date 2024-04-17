@@ -3,6 +3,7 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 import jakarta.persistence.*
 
 @Entity
+// Maybe pre create an account when user is instantiated
 class User(
     var name: String,
     var lastName: String,
@@ -14,6 +15,7 @@ class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
+
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

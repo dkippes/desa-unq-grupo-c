@@ -20,8 +20,6 @@ class UserControllerTest {
     @Autowired
     private lateinit var mockMvc: MockMvc
 
-    // TODO (Pasar info faltante con instancia de Account)
-
     @Test
     fun shouldRegisterAUser() {
         val userData = RegisterUserDTO(
@@ -42,11 +40,10 @@ class UserControllerTest {
             .andExpect(MockMvcResultMatchers.status().isOk)
             .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Jose"))
-            .andExpect(MockMvcResultMatchers.jsonPath("$.password").value("123456sD!"))
             .andExpect(MockMvcResultMatchers.jsonPath("$.email").value("juan@gmail.com"))
             .andExpect(MockMvcResultMatchers.jsonPath("$.address").value("Wilde 12"))
-            .andExpect(MockMvcResultMatchers.jsonPath("$.cvu").value("1111111111111111111111"))
-            .andExpect(MockMvcResultMatchers.jsonPath("$.walletAddress").value("12345678"))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.account.cvu").value("1111111111111111111111"))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.account.walletAddress").value("12345678"))
             .andExpect(MockMvcResultMatchers.jsonPath("$.lastName").value("Marces"))
     }
 

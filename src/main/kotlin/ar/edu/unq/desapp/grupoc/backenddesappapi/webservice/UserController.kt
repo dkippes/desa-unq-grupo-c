@@ -1,8 +1,10 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.helpers.Factory
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.User
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.UserService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.RegisterUserDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ResponseUserDTO
 import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import org.springframework.beans.factory.annotation.Autowired
@@ -23,9 +25,18 @@ class UserController {
     private lateinit var userService: UserService
 
     @PostMapping("/register")
-    fun registerUser(@Valid @RequestBody userInput: RegisterUserDTO): ResponseEntity<User> {
+    fun registerUser(@Valid @RequestBody userInput: RegisterUserDTO): ResponseEntity<ResponseUserDTO> {
         // Validar con try y catch - Ver middleware como solucion
-        return ResponseEntity.ok()
-            .body(userService.registerUser(userInput))
+        try {
+            return ResponseEntity.ok(
+                Factory.createDTOFromUser(
+                    userService.registerUser(userInput)
+                )
+            )
+        } catch(err: Throwable) {
+            print("Error")
+            // TODO( catch various errors )
+            throw err
+        }
     }
 }

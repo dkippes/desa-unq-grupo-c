@@ -37,22 +37,23 @@ class OperationIntentTest() {
 
     @Test
     fun shouldGenerateASellTransactionWhenUsersAreValid() {
-        val user1 = mock(Account::class.java)
-        val user2 = mock(Account::class.java)
+        val seller = mock(Account::class.java)
+        val buyer = mock(Account::class.java)
         val operationIntent = OperationIntent(
             symbol = SYMBOL.ADAUSDT,
             nominalQuantity = 100.0,
             nominalPrice = 10.0,
             localPrice = 12.0,
             operation = OPERATION.SELL,
+            account = seller
         )
 
-        operationIntent.generateNewTransaction(user2)
+        operationIntent.generateNewTransaction(buyer)
 
         Assertions.assertNotNull(operationIntent.transaction)
         Assertions.assertEquals(operationIntent.transaction!!.status, TransactionStatus.WAITING_ACTION)
-        Assertions.assertEquals(user1, operationIntent.transaction?.seller)
-        Assertions.assertEquals(user2, operationIntent.transaction?.buyer)
+        Assertions.assertEquals(seller, operationIntent.transaction?.seller)
+        Assertions.assertEquals(buyer, operationIntent.transaction?.buyer)
     }
 
     @Test
