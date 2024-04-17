@@ -20,8 +20,6 @@ class UserRepositoryImplTest {
             password = "123456sD!",
             email = "juan@gmail.com",
             address = "Wilde 12",
-            walletAddress = "12345678",
-            cvu = "1111111111111111111111",
             lastName = "Marces"
         )
 

@@ -8,8 +8,8 @@ import java.time.temporal.ChronoUnit
 @Entity
 class Transaction (
     @OneToOne var intention: OperationIntent? = null,
-    @OneToOne var seller: User? = null,
-    @OneToOne var buyer: User? = null,
+    @OneToOne var seller: Account? = null,
+    @OneToOne var buyer: Account? = null,
     var status: TransactionStatus = TransactionStatus.WAITING_ACTION,
     var initiatedAt: LocalDateTime = LocalDateTime.now()
 ){

@@ -21,6 +21,7 @@ class UserServiceImplTest {
     @InjectMocks
     private lateinit var userService: UserServiceImpl
 
+    // TODO (Pasar info faltante con instancia de Account)
     @Test
     fun `test registerUser`() {
         val userData = RegisterUserDTO(
@@ -38,8 +39,7 @@ class UserServiceImplTest {
             password = "123456sD!",
             email = "juan@gmail.com",
             address = "Wilde 12",
-            walletAddress = "12345678",
-            cvu = "1111111111111111111111",
+
             lastName = "Marces"
         )
 

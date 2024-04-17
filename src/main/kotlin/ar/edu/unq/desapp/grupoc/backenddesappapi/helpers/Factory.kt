@@ -8,15 +8,14 @@ import org.springframework.stereotype.Component
 class Factory {
 
     companion object {
+        //TODO(Builder)
         fun createUserFromRequestUserDTO(dto: RegisterUserDTO): User {
             return User(
                 dto.name,
                 dto.lastName,
                 dto.email,
                 dto.password,
-                dto.cvu,
                 dto.address,
-                dto.walletAddress
             )
         }
     }

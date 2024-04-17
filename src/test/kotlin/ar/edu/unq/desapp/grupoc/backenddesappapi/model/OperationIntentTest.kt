@@ -37,15 +37,14 @@ class OperationIntentTest() {
 
     @Test
     fun shouldGenerateASellTransactionWhenUsersAreValid() {
-        val user1 = mock(User::class.java)
-        val user2 = mock(User::class.java)
+        val user1 = mock(Account::class.java)
+        val user2 = mock(Account::class.java)
         val operationIntent = OperationIntent(
             symbol = SYMBOL.ADAUSDT,
             nominalQuantity = 100.0,
             nominalPrice = 10.0,
             localPrice = 12.0,
             operation = OPERATION.SELL,
-            user = user1
         )
 
         operationIntent.generateNewTransaction(user2)
@@ -58,15 +57,15 @@ class OperationIntentTest() {
 
     @Test
     fun shouldGenerateABuyTransactionWhenUsersAreValid() {
-        val user1 = mock(User::class.java)
-        val user2 = mock(User::class.java)
+        val user1 = mock(Account::class.java)
+        val user2 = mock(Account::class.java)
         val operationIntent = OperationIntent(
             symbol = SYMBOL.ADAUSDT,
             nominalQuantity = 100.0,
             nominalPrice = 10.0,
             localPrice = 12.0,
             operation = OPERATION.BUY,
-            user = user1
+            account = user1
         )
 
         operationIntent.generateNewTransaction(user2)

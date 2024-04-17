@@ -1,9 +1,5 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 
-import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
-import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
-import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
-import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.*
 import jakarta.persistence.*
 
 @Entity
@@ -12,81 +8,12 @@ class User(
     var lastName: String,
     var email: String,
     var password: String,
-    var cvu: String,
     var address: String,
-    var walletAddress: String,
-    var reputation: Int = 0
+    @OneToOne var account: Account? = null
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
-    @OneToMany
-    var intents: MutableList<OperationIntent> = mutableListOf()
-
-    fun publish(symbol: SYMBOL, nominalQuantity: Double, nominalPrice: Double, localPrice: Double, operation: OPERATION): OperationIntent {
-        val operationIntent = OperationIntent(
-            symbol = symbol,
-            nominalQuantity = nominalQuantity,
-            nominalPrice = nominalPrice,
-            localPrice = localPrice,
-            operation,
-            this
-        )
-        this.intents.add(operationIntent)
-        return operationIntent
-    }
-
-    fun confirmReception(transaction: Transaction, hasCurrencyChanged: Boolean) {
-        if (hasCurrencyChanged) {
-            transaction.status = TransactionStatus.CANCELED
-            throw PriceChangedOutOfLimitsException()
-        }
-
-        validateIfOperationWasCancelled(transaction)
-
-        if (transaction.status != TransactionStatus.TRANSFER_SENT) {
-            throw TransferNotSentException()
-        }
-        transaction.status = TransactionStatus.TRANSFER_RECEIVE
-        this.increasePoints(transaction.getPointsForFinish())
-    }
-
-    fun sendTransfer(transaction: Transaction, hasCurrencyChanged: Boolean) {
-        if (hasCurrencyChanged) {
-            transaction.status = TransactionStatus.CANCELED
-            throw PriceChangedOutOfLimitsException()
-        }
-
-        validateIfOperationWasCancelled(transaction)
-
-        if (transaction.status != TransactionStatus.WAITING_ACTION) {
-            throw TransferAlreadySentException()
-        }
-        transaction.status = TransactionStatus.TRANSFER_SENT
-    }
-    fun cancel(transaction: Transaction) {
-        validateIfOperationWasCancelled(transaction)
-
-        if (transaction.status == TransactionStatus.TRANSFER_RECEIVE) {
-            throw OperationFinishedException()
-        }
-
-        this.decreaseReputationPoints(transaction.getPointsPenalizationForCancel())
-        transaction.status = TransactionStatus.CANCELED
-    }
-
-    private fun validateIfOperationWasCancelled(transaction: Transaction) {
-        if(transaction.status === TransactionStatus.CANCELED) {
-            throw OperationCancelledException()
-        }
-    }
-
-    private fun increasePoints(points: Int) {
-        this.reputation += points
-    }
-    private fun decreaseReputationPoints(points: Int) {
-        this.reputation -= points
-    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -97,13 +24,9 @@ class User(
         if (name != other.name) return false
         if (lastName != other.lastName) return false
         if (email != other.email) return false
-        if (password != other.password) return false
-        if (cvu != other.cvu) return false
         if (address != other.address) return false
-        if (walletAddress != other.walletAddress) return false
-        if (reputation != other.reputation) return false
+        if (password != other.password) return false
         if (id != other.id) return false
-        if (intents != other.intents) return false
 
         return true
     }
@@ -112,15 +35,9 @@ class User(
         var result = name.hashCode()
         result = 31 * result + lastName.hashCode()
         result = 31 * result + email.hashCode()
-        result = 31 * result + password.hashCode()
-        result = 31 * result + cvu.hashCode()
         result = 31 * result + address.hashCode()
-        result = 31 * result + walletAddress.hashCode()
-        result = 31 * result + reputation
+        result = 31 * result + password.hashCode()
         result = 31 * result + (id?.hashCode() ?: 0)
-        result = 31 * result + intents.hashCode()
         return result
     }
-
-
 }

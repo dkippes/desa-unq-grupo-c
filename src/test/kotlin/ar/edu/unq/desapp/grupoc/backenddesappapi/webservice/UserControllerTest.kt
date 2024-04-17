@@ -20,6 +20,8 @@ class UserControllerTest {
     @Autowired
     private lateinit var mockMvc: MockMvc
 
+    // TODO (Pasar info faltante con instancia de Account)
+
     @Test
     fun shouldRegisterAUser() {
         val userData = RegisterUserDTO(

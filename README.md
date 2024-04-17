@@ -9,7 +9,9 @@
 ---
 ## TODO
 
-- [ ] 
+- [ ] Refactor.
+- [ ] Mejorar validaciones en todas las capas.
+- [ ] Mejorar swagger
 
 ---
 ## Entrega Nro 1

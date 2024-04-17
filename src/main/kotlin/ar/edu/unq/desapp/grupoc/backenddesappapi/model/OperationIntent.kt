@@ -12,22 +12,21 @@ class OperationIntent (
     var nominalPrice: Double,
     var localPrice: Double,
     var operation: OPERATION,
-    @OneToOne var user: User? = null,
+    @OneToOne var account: Account? = null,
     var status: OperationStatus = OperationStatus.OPEN,
     @OneToOne var transaction: Transaction? = null,
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
-    @Suppress("squid:S2699")
     var id: Long? = null
 
     fun isActive(): Boolean = this.status === OperationStatus.OPEN
 
-    fun generateNewTransaction(interestUser: User) {
+    fun generateNewTransaction(interestUser: Account) {
         if (operation == OPERATION.SELL) {
-            this.transaction = Transaction(this, user, interestUser)
+            this.transaction = Transaction(this, account, interestUser)
         } else {
-            this.transaction = Transaction(this, interestUser, user)
+            this.transaction = Transaction(this, interestUser, account)
         }
     }
 }

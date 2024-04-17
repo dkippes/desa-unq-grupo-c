@@ -24,6 +24,7 @@ class UserController {
 
     @PostMapping("/register")
     fun registerUser(@Valid @RequestBody userInput: RegisterUserDTO): ResponseEntity<User> {
+        // Validar con try y catch - Ver middleware como solucion
         return ResponseEntity.ok()
             .body(userService.registerUser(userInput))
     }
