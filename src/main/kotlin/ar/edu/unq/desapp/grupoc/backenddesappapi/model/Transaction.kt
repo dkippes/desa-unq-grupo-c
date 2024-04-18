@@ -7,15 +7,17 @@ import java.time.temporal.ChronoUnit
 
 @Entity
 class Transaction (
-    @OneToOne var intention: OperationIntent? = null,
-    @OneToOne var seller: Account? = null,
-    @OneToOne var buyer: Account? = null,
+    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    var intention: OperationIntent? = null,
+    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    var seller: Account? = null,
+    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    var buyer: Account? = null,
     var status: TransactionStatus = TransactionStatus.WAITING_ACTION,
     var initiatedAt: LocalDateTime = LocalDateTime.now()
 ){
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Suppress("squid:S2699")
     var id: Long? = null
 
     fun getPointsForFinish() : Int {

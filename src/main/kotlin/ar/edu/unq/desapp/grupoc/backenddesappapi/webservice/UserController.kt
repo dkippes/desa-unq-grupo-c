@@ -1,8 +1,7 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
-import ar.edu.unq.desapp.grupoc.backenddesappapi.helpers.Factory
-import ar.edu.unq.desapp.grupoc.backenddesappapi.model.User
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.UserService
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.LoginUserDTO
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.RegisterUserDTO
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ResponseUserDTO
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -26,17 +25,11 @@ class UserController {
 
     @PostMapping("/register")
     fun registerUser(@Valid @RequestBody userInput: RegisterUserDTO): ResponseEntity<ResponseUserDTO> {
-        // Validar con try y catch - Ver middleware como solucion
-        try {
-            return ResponseEntity.ok(
-                Factory.createDTOFromUser(
-                    userService.registerUser(userInput)
-                )
-            )
-        } catch(err: Throwable) {
-            print("Error")
-            // TODO( catch various errors )
-            throw err
-        }
+        return ResponseEntity.ok(userService.registerUser(userInput))
+    }
+
+    @PostMapping("/login")
+    fun loginUser(@Valid @RequestBody userInput: LoginUserDTO): ResponseEntity<ResponseUserDTO> {
+        return ResponseEntity.ok(userService.login(userInput))
     }
 }

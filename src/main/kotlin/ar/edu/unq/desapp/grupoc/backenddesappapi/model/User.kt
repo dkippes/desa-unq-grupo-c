@@ -3,14 +3,16 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 import jakarta.persistence.*
 
 @Entity
-// Maybe pre create an account when user is instantiated
+@Table(name = "users")
 class User(
     var name: String,
     var lastName: String,
+    @Column(unique = true)
     var email: String,
     var password: String,
     var address: String,
-    @OneToOne var account: Account? = null
+    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    var account: Account? = null
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

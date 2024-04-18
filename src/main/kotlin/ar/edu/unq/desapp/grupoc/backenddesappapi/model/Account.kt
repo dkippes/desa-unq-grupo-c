@@ -7,6 +7,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.*
 import jakarta.persistence.*
 
 @Entity
+@Table(name = "accounts")
 class Account (
     var cvu: String,
     var walletAddress: String,
@@ -16,7 +17,7 @@ class Account (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
 
-    @OneToMany
+    @OneToMany(mappedBy = "account", cascade = [CascadeType.ALL])
     var intents: MutableList<OperationIntent> = mutableListOf()
 
 

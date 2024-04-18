@@ -33,7 +33,8 @@ class Factory {
                 lastName = user.lastName,
                 account = AccountDTO(
                     cvu = user.account!!.cvu,
-                    walletAddress = user.account!!.walletAddress
+                    walletAddress = user.account!!.walletAddress,
+                    reputation = user.account!!.reputation
                 ),
                 address = user.address
             )

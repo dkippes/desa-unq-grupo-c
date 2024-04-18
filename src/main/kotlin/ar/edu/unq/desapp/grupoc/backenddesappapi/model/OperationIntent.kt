@@ -12,9 +12,11 @@ class OperationIntent (
     var nominalPrice: Double,
     var localPrice: Double,
     var operation: OPERATION,
-    @OneToOne var account: Account? = null,
+    @ManyToOne(fetch = FetchType.LAZY)
+    var account: Account? = null,
     var status: OperationStatus = OperationStatus.OPEN,
-    @OneToOne var transaction: Transaction? = null,
+    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    var transaction: Transaction? = null,
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
