@@ -14,5 +14,11 @@ enum class SYMBOL {
     BNBUSDT,
     ADAUSDT,
     TRXUSDT,
-    AUDIOUSDT,
+    AUDIOUSDT;
+
+    companion object {
+        fun toFormattedList(): String {
+            return "[".plus(entries.joinToString(",") { "\"${it.name}\"" }).plus("]")
+        }
+    }
 }

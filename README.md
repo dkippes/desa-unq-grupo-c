@@ -35,7 +35,7 @@
 |------------|-----|
 | Estado de build en "Verde" | 🟢 |
 | Utilizar HSQLDB para persistir datos (opcion H2) | 🟢 |
-| Crear datos de prueba cuando levanta la aplicación | 🔴 |
+| Crear datos de prueba cuando levanta la aplicación | 🟢 |
 | Documentation de Endpoints (APIs) con Swagger (v3) | 🟢 |
 | TAG en GitHub y Confeccionar Release Notes de entrega 2 | 🔴 |
 | Listar cotizacion de criptoactivos | 🔴 |

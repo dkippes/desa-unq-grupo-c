@@ -10,5 +10,10 @@ enum class MSG_EXCEPTIONS {
         override fun toString(): String {
             return "User already exists"
         }
+    },
+    CRYPTO_CURRENCY_NOT_FOUND {
+        override fun toString(): String {
+            return "Crypto currency not found"
+        }
     }
 }
