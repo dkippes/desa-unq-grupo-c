@@ -32,4 +32,8 @@ class UserServiceImpl : UserService {
         }
         return Factory.createDTOFromUser(user)
     }
+
+    override fun clearAll() {
+        userRepository.deleteAll()
+    }
 }

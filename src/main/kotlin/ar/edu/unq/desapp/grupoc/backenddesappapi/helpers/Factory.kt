@@ -28,6 +28,7 @@ class Factory {
 
         fun createDTOFromUser(user: User): ResponseUserDTO {
             return ResponseUserDTO(
+                id = user.id!!,
                 name = user.name,
                 email = user.email,
                 lastName = user.lastName,

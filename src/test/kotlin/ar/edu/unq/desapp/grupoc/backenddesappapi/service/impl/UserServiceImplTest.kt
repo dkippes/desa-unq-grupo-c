@@ -4,23 +4,25 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.Account
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.User
 import ar.edu.unq.desapp.grupoc.backenddesappapi.persistence.UserRepository
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.RegisterUserDTO
+import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.Mockito.verify
 import org.mockito.junit.jupiter.MockitoExtension
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
 
 @ExtendWith(MockitoExtension::class)
+@SpringBootTest
 class UserServiceImplTest {
-
-    @Mock
-    private lateinit var userRepository: UserRepository
-
-    @InjectMocks
-    private lateinit var userService: UserServiceImpl
+    @Autowired private lateinit var userService: UserServiceImpl
 
     @Test
     fun `test registerUser`() {
@@ -34,24 +36,23 @@ class UserServiceImplTest {
             lastName = "Marces"
         )
 
-        val user = User(
-            name = "Jose",
-            password = "123456sD!",
-            email = "juan@gmail.com",
-            address = "Wilde 12",
-            lastName = "Marces",
-            account = Account(
-                cvu = "1111111111111111111111",
-                walletAddress = "12345678"
-            )
-        )
-
-        Mockito.`when`(userRepository.registerUser(user)).thenReturn(user)
-
         val registeredUser = userService.registerUser(userData)
 
-        verify(userRepository).registerUser(user)
+        assertAll({
+            assertEquals(userData.name, registeredUser.name);
+            assertEquals(userData.lastName, registeredUser.lastName);
+            assertEquals(userData.email, registeredUser.email);
+            assertEquals(userData.address, registeredUser.address);
+            assertEquals(userData.walletAddress, registeredUser.account.walletAddress);
+            assertEquals(userData.cvu, registeredUser.account.cvu);
 
-        assertEquals(user, registeredUser)
+        })
+        assertNotNull(registeredUser.id)
     }
+
+    @AfterEach
+    fun clear() {
+        userService.clearAll()
+    }
+
 }
