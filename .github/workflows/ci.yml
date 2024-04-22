@@ -23,6 +23,9 @@ jobs:
           java-version: '17'
 
       - name: print pwd
+        run: pwd
+
+      - name: list files
         run: ls -la
 
       - name: Grant execute permission to gradlew
@@ -101,6 +104,9 @@ jobs:
 
       - name: print pwd
         run: pwd
+
+      - name: list files
+        run: ls -la
 
       - name: build docker
         run: docker-compose build
