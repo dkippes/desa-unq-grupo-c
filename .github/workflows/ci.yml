@@ -88,3 +88,14 @@ jobs:
       - name: Check Docker availability
         run: |
           docker --version
+
+  build_docker_images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: build docker
+        run: "docker-compose build"
+      - name: "compose up"
+        run: "docker-compose up"

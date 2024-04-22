@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  cryptoapp:
+    container_name: cryptoapp
+    image: grupoc/cryptoapp
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - cryptodb
+  cryptodb:
+    image: "buildo/h2database"
+    ports:
+      - "9092:9092"
+    volumes:
+      - ./data:/data
+    command: "-ifNotExists -tcp -tcpAllowOthers -tcpPort 9092"
