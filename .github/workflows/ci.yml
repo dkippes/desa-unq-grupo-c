@@ -90,6 +90,7 @@ jobs:
           docker --version
 
   build_docker_images:
+    needs: ["build", "test", "check_docker_availability"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
