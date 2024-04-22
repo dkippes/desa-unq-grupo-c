@@ -114,6 +114,9 @@ jobs:
       - name: List files
         run: ls ../ -la
 
+      - name: cd correct file
+        run: cd ../desa-unq-grupo-c
+
       - name: Build Docker Images
         run: docker-compose build
         working-directory: .
