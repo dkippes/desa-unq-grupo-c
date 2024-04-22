@@ -112,7 +112,7 @@ jobs:
         run: pwd
 
       - name: List files
-        run: ls -la
+        run: ls ../ -la
 
       - name: Build Docker Images
         run: docker-compose build
