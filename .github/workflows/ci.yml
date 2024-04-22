@@ -111,11 +111,11 @@ jobs:
       - name: Print pwd
         run: pwd
 
-      - name: List files
-        run: ls ../ -la
-
       - name: cd correct file
         run: cd ../desa-unq-grupo-c
+
+      - name: List files
+        run: ls ../ -la
 
       - name: Build Docker Images
         run: docker-compose build
