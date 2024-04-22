@@ -23,7 +23,7 @@ jobs:
           java-version: '17'
 
       - name: print pwd
-        run: pwd
+        run: ls -la
 
       - name: Grant execute permission to gradlew
         run: chmod +x ./gradlew
