@@ -30,11 +30,11 @@ jobs:
 
       - name: Grant execute permission to gradlew
         run: chmod +x ./gradlew
-        working-directory: app
+        working-directory: .
 
       - name: Build with Gradle
         run: ./gradlew build
-        working-directory: app
+        working-directory: .
 
   test:
     needs: build
@@ -51,11 +51,11 @@ jobs:
 
       - name: Grant execute permission to gradlew
         run: chmod +x ./gradlew
-        working-directory: app
+        working-directory: .
 
       - name: Run tests
         run: ./gradlew test
-        working-directory: app
+        working-directory: .
 
   sonarcloud_analysis:
     needs: ["build", "test"]
@@ -74,13 +74,13 @@ jobs:
 
       - name: Grant execute permission to gradlew
         run: chmod +x ./gradlew
-        working-directory: app
+        working-directory: .
 
       - name: SonarCloud analysis
         run: ./gradlew build jacocoTestReport sonarqube --info
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        working-directory: app
+        working-directory: .
 
   check_docker_availability:
     runs-on: ubuntu-latest
@@ -116,4 +116,4 @@ jobs:
 
       - name: Build Docker Images
         run: docker-compose build
-        working-directory: app
+        working-directory: .
