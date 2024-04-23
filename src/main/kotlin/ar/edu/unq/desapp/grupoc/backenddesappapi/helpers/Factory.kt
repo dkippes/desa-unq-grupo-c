@@ -14,14 +14,14 @@ class Factory {
         //TODO(Builder)
         fun createUserFromRequestUserDTO(dto: RegisterUserDTO): User {
             return User(
-                dto.name,
-                dto.lastName,
-                dto.email,
-                dto.password,
-                dto.address,
+                dto.name!!,
+                dto.lastName!!,
+                dto.email!!,
+                dto.password!!,
+                dto.address!!,
                 account = Account(
-                    cvu = dto.cvu,
-                    walletAddress = dto.walletAddress
+                    cvu = dto.cvu!!,
+                    walletAddress = dto.walletAddress!!
                 )
             )
         }

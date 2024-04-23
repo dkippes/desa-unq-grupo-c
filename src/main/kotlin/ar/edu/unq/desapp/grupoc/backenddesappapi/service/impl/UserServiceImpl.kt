@@ -26,7 +26,7 @@ class UserServiceImpl : UserService {
     }
 
     override fun login(loginUserDTO : LoginUserDTO): ResponseUserDTO {
-        val user = userRepository.findByEmail(loginUserDTO.email)
+        val user = userRepository.findByEmail(loginUserDTO.email!!)
         if (user == null || user.password != loginUserDTO.password) {
             throw UserNotFoundException()
         }

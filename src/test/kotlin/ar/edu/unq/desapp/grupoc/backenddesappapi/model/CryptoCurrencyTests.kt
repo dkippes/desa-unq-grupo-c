@@ -4,6 +4,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
+import java.time.LocalDateTime
 
 class CryptoCurrencyTests {
 
@@ -11,7 +12,8 @@ class CryptoCurrencyTests {
     fun shouldShowCryptoCurrencyInfo() {
         val crypto = CryptoCurrency(
             price = 100000.0,
-            symbol = SYMBOL.BTCUSDT
+            symbol = SYMBOL.BTCUSDT,
+            lastUpdateDateAndTime = LocalDateTime.now()
         )
 
         assertAll( {
