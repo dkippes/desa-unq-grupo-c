@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.LoginUserDTO
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.RegisterUserDTO
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Test
@@ -64,5 +65,19 @@ class UserControllerTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content(parsedUserData)
         ).andExpect(MockMvcResultMatchers.status().isBadRequest)
+    }
+
+    @Test
+    fun shouldFailWhenLoginUserDoesNotExist() {
+        val userData = LoginUserDTO(
+            email = "email@notexist.com",
+            password = "123456sD!"
+        )
+        val parsedUserData = ObjectMapper().writeValueAsString(userData)
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/login")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(parsedUserData)
+        ).andExpect(MockMvcResultMatchers.status().isNotFound)
     }
 }
