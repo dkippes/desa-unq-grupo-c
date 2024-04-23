@@ -59,9 +59,14 @@
 ---
 ## Correr docker
 
-1. docker build -t desapp .
-2. docker run -p 8080:8080 desapp
+1. Generar jar => ./gradlew build -x test
+2. docker-compose build
+3. docker-compose up
 
 ## Swagger
 * Debe estar corriendo la aplicacion en el puerto 8080
 [Documentacion](http://localhost:8080/swagger-ui/index.html)
+
+### H2
+
+1. Correrlo desde http://localhost:8080/h2-console

@@ -15,5 +15,5 @@ class CryptoCurrency(
     var symbol: SYMBOL,
     @JsonProperty("price")
     var price: Double,
-    var lastUpdateDateAndTime: LocalDateTime = LocalDateTime.now()
+    var lastUpdateDateAndTime: LocalDateTime?
 )
