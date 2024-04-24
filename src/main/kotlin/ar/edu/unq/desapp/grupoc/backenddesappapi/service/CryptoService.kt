@@ -8,10 +8,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.CryptoCurren
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.proxys.BinanceProxyService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import java.text.SimpleDateFormat
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.util.*
 
 @Service
 class CryptoService {
@@ -24,15 +21,18 @@ class CryptoService {
 
     fun getAllCryptoCurrencyPrices(): CryptoCurrencyList {
         val entity: List<CryptoCurrency> = binanceProxyService.getAllCryptoCurrencyValues() as List<CryptoCurrency>
-        entity.forEach { it.lastUpdateDateAndTime = LocalDateTime.now() }
+        entity.forEach {
+            it.lastUpdateDateAndTime = LocalDateTime.now()
+        }
+        cryptoRepository.saveAll(entity)
         return CryptoCurrencyList(entity)
     }
 
     fun getCryptoCurrencyPrice(symbol: SYMBOL): CryptoCurrency? {
-        val entity: CryptoCurrency? = binanceProxyService.geCryptoCurrencyValue(symbol)
+        val entity: CryptoCurrency? = binanceProxyService.getCryptoCurrencyValue(symbol)
         if(entity == null) throw CryptoCurrencyNotFoundException()
         entity.lastUpdateDateAndTime = LocalDateTime.now()
-        return entity
+        return cryptoRepository.save(entity)
     }
 
 }

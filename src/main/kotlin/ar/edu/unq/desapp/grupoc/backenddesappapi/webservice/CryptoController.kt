@@ -46,7 +46,6 @@ class CryptoController {
         ])
     ])
     fun currency(@PathVariable symbol: SYMBOL): ResponseEntity<CryptoCurrency> {
-        // TODO: refactorear toda la logica...
         return ResponseEntity.ok(cryptoService.getCryptoCurrencyPrice(symbol))
     }
 }

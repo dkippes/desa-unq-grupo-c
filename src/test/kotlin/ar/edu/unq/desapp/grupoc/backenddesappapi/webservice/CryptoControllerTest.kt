@@ -14,6 +14,8 @@ import org.springframework.http.MediaType
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+import com.jayway.jsonpath.JsonPath
+import org.junit.jupiter.api.Assertions
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 @ExtendWith(SpringExtension::class)
@@ -41,8 +43,14 @@ class CryptoControllerTest {
     fun shouldReturnCryptoCurrencyBySymbol() {
         val symbol = SYMBOL.BNBUSDT
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/crypto/currency/$symbol"))
+        val result = mockMvc.perform(MockMvcRequestBuilders.get("/crypto/currency/$symbol"))
             .andExpect(MockMvcResultMatchers.status().isOk)
             .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
+            .andReturn()
+        val jsonResponse = result.response.contentAsString
+
+        val symbolPresent = JsonPath.read<String>(jsonResponse, "$.symbol")
+
+        Assertions.assertEquals("BNBUSDT", symbolPresent)
     }
 }

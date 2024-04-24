@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.service.proxys
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.helpers.Factory
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrency
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.dto.CryptoCurrencyDTO
@@ -27,29 +28,17 @@ class BinanceProxyService {
             String::class.java
         )
 
-        // TODO: refactorear en su propio component ObjectMapper
         val cryptoCurrencies: List<CryptoCurrencyDTO> =
             objectMapper.readValue<List<CryptoCurrencyDTO>>(responseJson ?: "")
 
-        return listDtoToEntity(cryptoCurrencies)
+        return Factory.listDtoToEntity(cryptoCurrencies)
     }
 
-    fun geCryptoCurrencyValue(symbol: SYMBOL): CryptoCurrency? {
+    fun getCryptoCurrencyValue(symbol: SYMBOL): CryptoCurrency? {
         val entity = restTemplate.getForObject(
             binanceApiURL + "ticker/price?symbol=" + symbol.toString(),
             CryptoCurrency::class.java
         )
         return entity
-    }
-
-    // TODO: Pasar a una clase de mapper DTO to Entity
-    fun listDtoToEntity(dtos: List<CryptoCurrencyDTO>): List<CryptoCurrency> {
-        return dtos.stream()
-            .map { dto: CryptoCurrencyDTO -> dtoToEntity(dto) }.toList()
-    }
-
-    // TODO: Pasar a una clase de mapper DTO to Entity
-    fun dtoToEntity(dto: CryptoCurrencyDTO): CryptoCurrency {
-        return CryptoCurrency(dto.symbol, dto.price, LocalDateTime.now())
     }
 }

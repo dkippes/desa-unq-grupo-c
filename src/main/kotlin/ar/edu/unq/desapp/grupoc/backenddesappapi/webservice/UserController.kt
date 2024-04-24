@@ -3,9 +3,7 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.UserService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserAlreadyExistsException
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFoundException
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.LoginUserDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.RegisterUserDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ResponseUserDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.*
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.Schema
@@ -68,4 +66,6 @@ class UserController {
     fun loginUser(@Valid @RequestBody userInput: LoginUserDTO): ResponseEntity<ResponseUserDTO> {
         return ResponseEntity.ok(userService.login(userInput))
     }
+
+
 }
