@@ -48,4 +48,9 @@ class CryptoController {
     fun currency(@PathVariable symbol: SYMBOL): ResponseEntity<CryptoCurrency> {
         return ResponseEntity.ok(cryptoService.getCryptoCurrencyPrice(symbol))
     }
+
+    // TODO: Informar al usuario el volumen operado de cripto activos entre dos fechas (JUANMA)
+    fun informUserVolume() {
+
+    }
 }
