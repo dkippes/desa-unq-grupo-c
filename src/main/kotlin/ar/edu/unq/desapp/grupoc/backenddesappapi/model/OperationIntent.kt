@@ -4,8 +4,10 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OperationStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import jakarta.persistence.*
+import java.time.LocalDateTime
 
 @Entity
+@Table(name = "operation_intents")
 class OperationIntent (
     var symbol: SYMBOL,
     var nominalQuantity: Double,
@@ -17,6 +19,7 @@ class OperationIntent (
     var status: OperationStatus = OperationStatus.OPEN,
     @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     var transaction: Transaction? = null,
+    var createdDate: LocalDateTime = LocalDateTime.now(),
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )

@@ -11,7 +11,7 @@ import jakarta.persistence.*
 class Account (
     var cvu: String,
     var walletAddress: String,
-    var reputation: Int = 0
+    var reputation: Int? = null
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -80,10 +80,16 @@ class Account (
     }
 
     private fun increasePoints(points: Int) {
-        this.reputation += points
+        if (this.reputation == null) {
+            this.reputation = 0
+        }
+        this.reputation = this.reputation?.plus(points)
     }
     private fun decreaseReputationPoints(points: Int) {
-        this.reputation -= points
+        if (this.reputation == null) {
+            this.reputation = 0
+        }
+        this.reputation = this.reputation!! - points
     }
 
     override fun equals(other: Any?): Boolean {
@@ -104,7 +110,7 @@ class Account (
     override fun hashCode(): Int {
         var result = cvu.hashCode()
         result = 31 * result + walletAddress.hashCode()
-        result = 31 * result + reputation
+        result = 31 * result + reputation!!
         result = 31 * result + (id?.hashCode() ?: 0)
         result = 31 * result + intents.hashCode()
         return result
