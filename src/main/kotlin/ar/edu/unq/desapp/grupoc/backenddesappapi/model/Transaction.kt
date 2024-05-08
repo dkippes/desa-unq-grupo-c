@@ -6,6 +6,7 @@ import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
 @Entity
+@Table(name = "transactions")
 class Transaction (
     @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     var intention: OperationIntent? = null,

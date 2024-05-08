@@ -5,21 +5,17 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrencyList
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.CryptoService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.CryptoCurrencyNotFoundException
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.RequestVolumeDTO
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import io.swagger.v3.oas.annotations.tags.Tag
-import jakarta.validation.Valid
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -53,13 +49,5 @@ class CryptoController {
     ])
     fun currency(@PathVariable symbol: SYMBOL): ResponseEntity<CryptoCurrency> {
         return ResponseEntity.ok(cryptoService.getCryptoCurrencyPrice(symbol))
-    }
-
-    // TODO: Informar al usuario el volumen operado de cripto activos entre dos fechas (JUANMA)
-    @PostMapping("/volume")
-    fun informUserVolume(@Valid @RequestBody dates: RequestVolumeDTO): ResponseEntity<Any> {
-        return ResponseEntity.ok(
-            dates
-        )
     }
 }

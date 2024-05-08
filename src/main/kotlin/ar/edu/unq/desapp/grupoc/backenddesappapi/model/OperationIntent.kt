@@ -6,6 +6,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import jakarta.persistence.*
 
 @Entity
+@Table(name = "operation_intents")
 class OperationIntent (
     var symbol: SYMBOL,
     var nominalQuantity: Double,

@@ -20,5 +20,9 @@ enum class SYMBOL {
         fun toFormattedList(): String {
             return "[".plus(entries.joinToString(",") { "\"${it.name}\"" }).plus("]")
         }
+
+        fun valueOfIndex(index: Int): SYMBOL {
+            return entries[index]
+        }
     }
 }
