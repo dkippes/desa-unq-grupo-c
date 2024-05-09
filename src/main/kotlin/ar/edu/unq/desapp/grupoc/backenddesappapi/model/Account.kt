@@ -21,6 +21,8 @@ class Account (
     var intents: MutableList<OperationIntent> = mutableListOf()
     @OneToMany(cascade = [CascadeType.ALL])
     var transactions: MutableList<Transaction> = mutableListOf()
+    @OneToOne
+    var user: User? = null
 
 
     fun publish(symbol: SYMBOL, nominalQuantity: Double, nominalPrice: Double, localPrice: Double, operation: OPERATION): OperationIntent {

@@ -25,11 +25,12 @@ class OperationIntent (
 
     fun isActive(): Boolean = this.status === OperationStatus.OPEN
 
-    fun generateNewTransaction(interestUser: Account) {
+    fun generateNewTransaction(interestUser: Account): Transaction {
         if (operation == OPERATION.SELL) {
             this.transaction = Transaction(this, account, interestUser)
         } else {
             this.transaction = Transaction(this, interestUser, account)
         }
+        return this.transaction!!
     }
 }
