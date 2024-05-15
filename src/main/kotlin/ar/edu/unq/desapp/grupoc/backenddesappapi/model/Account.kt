@@ -5,6 +5,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.*
 import jakarta.persistence.*
+import java.math.BigDecimal
 
 @Entity
 @Table(name = "accounts")
@@ -25,7 +26,7 @@ class Account (
     var user: User? = null
 
 
-    fun publish(symbol: SYMBOL, nominalQuantity: Double, nominalPrice: Double, localPrice: Double, operation: OPERATION): OperationIntent {
+    fun publish(symbol: SYMBOL, nominalQuantity: BigDecimal, nominalPrice: BigDecimal, localPrice: BigDecimal, operation: OPERATION): OperationIntent {
         val operationIntent = OperationIntent(
             symbol = symbol,
             nominalQuantity = nominalQuantity,
@@ -108,7 +109,7 @@ class Account (
     override fun hashCode(): Int {
         var result = cvu.hashCode()
         result = 31 * result + walletAddress.hashCode()
-        result = 31 * result + reputation
+        result = 31 * result + reputation.hashCode()
         result = 31 * result + (id?.hashCode() ?: 0)
         result = 31 * result + intents.hashCode()
         return result
