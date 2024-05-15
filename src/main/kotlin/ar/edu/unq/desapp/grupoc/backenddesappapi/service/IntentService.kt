@@ -5,6 +5,6 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntention
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryotoActiveIntentionResponseDTO
 
 interface IntentService {
-    fun expressIntentionResponseDTO(intent: ExpressIntentionDTO, userId: Long): ExpressIntentionResponseDTO
+    fun expressIntention(intent: ExpressIntentionDTO, userId: Long): ExpressIntentionResponseDTO
     fun listActiveIntentionResponseDTO(userId: Long): ListCryotoActiveIntentionResponseDTO?
 }

@@ -16,13 +16,21 @@ class JacksonConfig {
     @Bean
     fun objectMapper(): ObjectMapper {
         val objectMapper = ObjectMapper()
-        objectMapper.registerModule(JavaTimeModule())
-        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+
+        // Registrar módulo para LocalDateTimes con un formato personalizado
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
         val localDateTimeSerializer = LocalDateTimeSerializer(formatter)
         val localDateTimeDeserializer = LocalDateTimeDeserializer(formatter)
-        objectMapper.registerModule(JavaTimeModule().addSerializer(LocalDateTime::class.java, localDateTimeSerializer))
-        objectMapper.registerModule(JavaTimeModule().addDeserializer(LocalDateTime::class.java, localDateTimeDeserializer))
+        val jsr310Module = JavaTimeModule()
+            .addSerializer(LocalDateTime::class.java, localDateTimeSerializer)
+            .addDeserializer(LocalDateTime::class.java, localDateTimeDeserializer)
+
+        // Registrar y configurar módulo
+        objectMapper.registerModule(jsr310Module)
+        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+
+        // Configuración para evitar notación científica en BigDecimal
+        objectMapper.configure(SerializationFeature.WRITE_BIGDECIMAL_AS_PLAIN, true)
 
         return objectMapper
     }

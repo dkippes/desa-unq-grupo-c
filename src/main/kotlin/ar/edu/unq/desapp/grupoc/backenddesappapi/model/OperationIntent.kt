@@ -4,15 +4,17 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OperationStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import jakarta.persistence.*
+import java.math.BigDecimal
 import java.time.LocalDateTime
 
 @Entity
 @Table(name = "operation_intents")
 class OperationIntent (
     var symbol: SYMBOL,
-    var nominalQuantity: Double,
-    var nominalPrice: Double,
-    var localPrice: Double,
+    @Column(precision=100, scale=10)
+    var nominalQuantity: BigDecimal,
+    var nominalPrice: BigDecimal,
+    var localPrice: BigDecimal,
     var operation: OPERATION,
     @ManyToOne(fetch = FetchType.LAZY)
     var account: Account? = null,

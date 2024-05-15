@@ -12,6 +12,6 @@ data class ListCryotoActiveIntentionResponseDTO(
     @JsonProperty("reputation")
     val reputation: String,
 
-    @JsonProperty("listActiveIntention")
+    @JsonProperty("activeIntentions")
     val listActiveIntention: List<ActiveIntentionResponseDTO>
 )

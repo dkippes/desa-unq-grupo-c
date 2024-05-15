@@ -5,6 +5,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.*
 import jakarta.persistence.*
+import java.math.BigDecimal
 
 @Entity
 @Table(name = "accounts")
@@ -21,7 +22,7 @@ class Account (
     var intents: MutableList<OperationIntent> = mutableListOf()
 
 
-    fun publish(symbol: SYMBOL, nominalQuantity: Double, nominalPrice: Double, localPrice: Double, operation: OPERATION): OperationIntent {
+    fun publish(symbol: SYMBOL, nominalQuantity: BigDecimal, nominalPrice: BigDecimal, localPrice: BigDecimal, operation: OPERATION): OperationIntent {
         val operationIntent = OperationIntent(
             symbol = symbol,
             nominalQuantity = nominalQuantity,

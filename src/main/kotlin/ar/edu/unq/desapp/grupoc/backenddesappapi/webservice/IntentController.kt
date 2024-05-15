@@ -25,7 +25,6 @@ class IntentController {
     @Autowired
     private lateinit var intentService: IntentService
 
-    // TODO: Permitir que un usuario exprese su intención de compra/venta (DIEGO)
     @PostMapping("/express/{userId}")
     @Operation(summary = "Express intent", description = "Expresses the intent of a user to buy or sell a cryptocurrency.")
     @ApiResponses(
@@ -44,7 +43,7 @@ class IntentController {
     fun expressIntent(
         @PathVariable("userId") userId: Long,
         @Valid @RequestBody userInput: ExpressIntentionDTO): ResponseEntity<ExpressIntentionResponseDTO> {
-        return ResponseEntity.ok(intentService.expressIntentionResponseDTO(userInput, userId))
+        return ResponseEntity.ok(intentService.expressIntention(userInput, userId))
     }
 
     @GetMapping("/list-active/{userId}")
@@ -61,6 +60,5 @@ class IntentController {
     )
     fun listIntents(@PathVariable("userId") userId: Long): ResponseEntity<ListCryotoActiveIntentionResponseDTO> {
         return ResponseEntity.ok(intentService.listActiveIntentionResponseDTO(userId))
-
     }
 }

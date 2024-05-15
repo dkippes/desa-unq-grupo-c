@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.api.assertThrows
+import java.math.BigDecimal
 
 class AccountTest {
     private lateinit var account : Account
@@ -53,9 +54,9 @@ class AccountTest {
     @Test
     fun `test publish buy`() {
         val symbol = SYMBOL.BTCUSDT
-        val nominalQuantity = 0.5
-        val nominalPrice = 50000.0
-        val localPrice = 25000.0
+        val nominalQuantity = BigDecimal(0.5)
+        val nominalPrice = BigDecimal(50000.0)
+        val localPrice = BigDecimal(25000.0)
         val operation = OPERATION.BUY
 
         val operationIntent = account.publish(symbol, nominalQuantity, nominalPrice, localPrice, operation)
@@ -67,9 +68,9 @@ class AccountTest {
     @Test
     fun `test publish sell`() {
         val symbol = SYMBOL.BTCUSDT
-        val nominalQuantity = 0.5
-        val nominalPrice = 50000.0
-        val localPrice = 25000.0
+        val nominalQuantity = BigDecimal.valueOf(0.5)
+        val nominalPrice = BigDecimal.valueOf(50000.0)
+        val localPrice = BigDecimal.valueOf(25000.0)
         val operation = OPERATION.SELL
 
         val operationIntent = account.publish(symbol, nominalQuantity, nominalPrice, localPrice, operation)
@@ -184,7 +185,7 @@ class AccountTest {
 
         val initialReputation = account.reputation
         val pointsPenalization = transaction.getPointsPenalizationForCancel()
-        val expectedReputation = initialReputation - pointsPenalization
+        val expectedReputation = initialReputation?.minus(pointsPenalization)
 
         account.cancel(transaction)
 
