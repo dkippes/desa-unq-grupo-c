@@ -1,20 +1,11 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl
 
-import ar.edu.unq.desapp.grupoc.backenddesappapi.model.Account
-import ar.edu.unq.desapp.grupoc.backenddesappapi.model.User
-import ar.edu.unq.desapp.grupoc.backenddesappapi.persistence.UserRepository
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.RegisterUserDTO
-import org.junit.jupiter.api.AfterAll
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.InjectMocks
-import org.mockito.Mock
-import org.mockito.Mockito
-import org.mockito.Mockito.verify
 import org.mockito.junit.jupiter.MockitoExtension
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -22,7 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest
 @ExtendWith(MockitoExtension::class)
 @SpringBootTest
 class UserServiceImplTest {
-    @Autowired private lateinit var userService: UserServiceImpl
+    @Autowired
+    private lateinit var userService: UserServiceImpl
 
     @Test
     fun `test registerUser`() {
@@ -49,10 +41,4 @@ class UserServiceImplTest {
         })
         assertNotNull(registeredUser.id)
     }
-
-    @AfterEach
-    fun clear() {
-        userService.clearAll()
-    }
-
 }
