@@ -28,6 +28,7 @@ class TransactionController {
 
     @PostMapping("/generate")
     fun generateTransaction(@Valid @RequestBody data: RequestCreateTransactionDTO): ResponseEntity<ResponseTransactionDTO> {
+        // TODO: Ver que id usar con diego si el de la cuenta o el del usuario.
         return ResponseEntity.ok(transactionService.generateTransaction(data.accountId!!, data.operationId!!))
     }
 
