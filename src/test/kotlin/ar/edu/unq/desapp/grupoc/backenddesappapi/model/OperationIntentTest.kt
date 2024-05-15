@@ -8,15 +8,16 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.mock
+import java.math.BigDecimal
 
 class OperationIntentTest() {
     @Test
     fun shouldBeActiveWhenStatusIsOpen() {
         val operationIntent = OperationIntent(
             symbol = SYMBOL.ADAUSDT,
-            nominalQuantity = 100.0,
-            nominalPrice = 10.0,
-            localPrice = 12.0,
+            nominalQuantity = BigDecimal.valueOf(100.0),
+            nominalPrice = BigDecimal.valueOf(10.0),
+            localPrice = BigDecimal.valueOf(12.0),
             operation = OPERATION.BUY
         )
         Assertions.assertTrue(operationIntent.isActive())
@@ -26,9 +27,9 @@ class OperationIntentTest() {
     fun shouldNotBeActiveWhenStatusIsClosed() {
         val operationIntent = OperationIntent(
             symbol = SYMBOL.ADAUSDT,
-            nominalQuantity = 100.0,
-            nominalPrice = 10.0,
-            localPrice = 12.0,
+            nominalQuantity = BigDecimal.valueOf(100.0),
+            nominalPrice = BigDecimal.valueOf(10.0),
+            localPrice = BigDecimal.valueOf(12.0),
             operation = OPERATION.BUY,
             status = OperationStatus.CLOSED
         )
@@ -41,9 +42,9 @@ class OperationIntentTest() {
         val buyer = mock(Account::class.java)
         val operationIntent = OperationIntent(
             symbol = SYMBOL.ADAUSDT,
-            nominalQuantity = 100.0,
-            nominalPrice = 10.0,
-            localPrice = 12.0,
+            nominalQuantity = BigDecimal.valueOf(100.0),
+            nominalPrice = BigDecimal.valueOf(10.0),
+            localPrice = BigDecimal.valueOf(12.0),
             operation = OPERATION.SELL,
             account = seller
         )
@@ -62,9 +63,9 @@ class OperationIntentTest() {
         val user2 = mock(Account::class.java)
         val operationIntent = OperationIntent(
             symbol = SYMBOL.ADAUSDT,
-            nominalQuantity = 100.0,
-            nominalPrice = 10.0,
-            localPrice = 12.0,
+            nominalQuantity = BigDecimal.valueOf(100.0),
+            nominalPrice = BigDecimal.valueOf(10.0),
+            localPrice = BigDecimal.valueOf(12.0),
             operation = OPERATION.BUY,
             account = user1
         )
@@ -81,9 +82,9 @@ class OperationIntentTest() {
     fun `test operation intent id should be null after instantiation`() {
         val operationIntent = OperationIntent(
             symbol = SYMBOL.ADAUSDT,
-            nominalQuantity = 100.0,
-            nominalPrice = 10.0,
-            localPrice = 12.0,
+            nominalQuantity = BigDecimal.valueOf(100.0),
+            nominalPrice = BigDecimal.valueOf(10.0),
+            localPrice = BigDecimal.valueOf(12.0),
             operation = OPERATION.BUY
         )
 

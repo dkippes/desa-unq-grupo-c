@@ -183,9 +183,9 @@ class AccountTest {
     fun `test cancel when transaction is not cancelled or transfer receive`() {
         val transaction = Transaction()
 
-        val initialReputation = account.reputation
+        val initialReputation = 0
         val pointsPenalization = transaction.getPointsPenalizationForCancel()
-        val expectedReputation = initialReputation?.minus(pointsPenalization)
+        val expectedReputation = initialReputation.minus(pointsPenalization)
 
         account.cancel(transaction)
 

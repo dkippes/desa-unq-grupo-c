@@ -46,7 +46,7 @@ class Factory {
                 account = AccountDTO(
                     cvu = user.account!!.cvu,
                     walletAddress = user.account!!.walletAddress,
-                    reputation = user.account!!.reputation!!
+                    reputation = user.account!!.reputation
                 ),
                 address = user.address
             )

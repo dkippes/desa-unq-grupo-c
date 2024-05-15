@@ -111,7 +111,7 @@ class Account (
     override fun hashCode(): Int {
         var result = cvu.hashCode()
         result = 31 * result + walletAddress.hashCode()
-        result = 31 * result + reputation!!
+        result = 31 * result + reputation.hashCode()
         result = 31 * result + (id?.hashCode() ?: 0)
         result = 31 * result + intents.hashCode()
         return result
