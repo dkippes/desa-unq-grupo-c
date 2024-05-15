@@ -5,13 +5,14 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.*
 import jakarta.persistence.*
+import java.math.BigDecimal
 
 @Entity
 @Table(name = "accounts")
 class Account (
     var cvu: String,
     var walletAddress: String,
-    var reputation: Int = 0
+    var reputation: Int? = null
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +22,7 @@ class Account (
     var intents: MutableList<OperationIntent> = mutableListOf()
 
 
-    fun publish(symbol: SYMBOL, nominalQuantity: Double, nominalPrice: Double, localPrice: Double, operation: OPERATION): OperationIntent {
+    fun publish(symbol: SYMBOL, nominalQuantity: BigDecimal, nominalPrice: BigDecimal, localPrice: BigDecimal, operation: OPERATION): OperationIntent {
         val operationIntent = OperationIntent(
             symbol = symbol,
             nominalQuantity = nominalQuantity,
@@ -80,10 +81,16 @@ class Account (
     }
 
     private fun increasePoints(points: Int) {
-        this.reputation += points
+        if (this.reputation == null) {
+            this.reputation = 0
+        }
+        this.reputation = this.reputation?.plus(points)
     }
     private fun decreaseReputationPoints(points: Int) {
-        this.reputation -= points
+        if (this.reputation == null) {
+            this.reputation = 0
+        }
+        this.reputation = this.reputation!! - points
     }
 
     override fun equals(other: Any?): Boolean {
@@ -104,7 +111,7 @@ class Account (
     override fun hashCode(): Int {
         var result = cvu.hashCode()
         result = 31 * result + walletAddress.hashCode()
-        result = 31 * result + reputation
+        result = 31 * result + reputation.hashCode()
         result = 31 * result + (id?.hashCode() ?: 0)
         result = 31 * result + intents.hashCode()
         return result

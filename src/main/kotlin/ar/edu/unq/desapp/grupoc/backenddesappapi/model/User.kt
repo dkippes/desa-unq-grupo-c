@@ -44,4 +44,13 @@ class User(
         result = 31 * result + (id?.hashCode() ?: 0)
         return result
     }
+
+    fun getOperationsReputations(): String {
+        if (account?.intents!!.isNotEmpty()) {
+            val reputation = account?.reputation!!
+            val totalOperations = account?.intents!!.size
+            return (reputation / totalOperations).toString()
+        }
+        return "Sin operaciones"
+    }
 }

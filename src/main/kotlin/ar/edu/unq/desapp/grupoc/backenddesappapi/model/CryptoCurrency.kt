@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.persistence.Table
+import java.math.BigDecimal
 import java.time.LocalDateTime
 
 @Entity
@@ -14,6 +15,6 @@ class CryptoCurrency(
     @JsonProperty("symbol")
     var symbol: SYMBOL,
     @JsonProperty("price")
-    var price: Double,
+    var price: BigDecimal,
     var lastUpdateDateAndTime: LocalDateTime?
 )

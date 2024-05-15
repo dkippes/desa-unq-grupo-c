@@ -2,12 +2,12 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.helpers
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.Account
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrency
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.OperationIntent
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.User
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.dto.CryptoCurrencyDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.AccountDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.RegisterUserDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ResponseUserDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.*
 import org.springframework.stereotype.Component
+import java.math.BigDecimal
 import java.time.LocalDateTime
 
 @Component
@@ -49,6 +49,48 @@ class Factory {
                     reputation = user.account!!.reputation
                 ),
                 address = user.address
+            )
+        }
+
+        fun createOperationIntent(intent: ExpressIntentionDTO, user: User,
+                                  localQuote: BigDecimal,
+                                  cryptoQuote: BigDecimal): OperationIntent {
+            return OperationIntent(
+                intent.cryptoAsset!!,
+                intent.nominalAmount!!,
+                cryptoQuote,
+                localQuote,
+                intent.operationType!!,
+                user.account
+            )
+        }
+
+        fun createExpressIntentionResponseDTO(operationIntent: OperationIntent, user: User): ExpressIntentionResponseDTO {
+            return ExpressIntentionResponseDTO(
+                operationIntent.symbol,
+                operationIntent.nominalQuantity,
+                operationIntent.nominalPrice,
+                operationIntent.localPrice,
+                user.name,
+                user.lastName,
+                operationIntent.operation
+            )
+        }
+
+        fun createListCryptoActiveIntentionResponseDTO(user: User, activeIntents: List<OperationIntent>): ListCryotoActiveIntentionResponseDTO {
+            return ListCryotoActiveIntentionResponseDTO(
+                user.name,
+                user.lastName,
+                user.getOperationsReputations(),
+                activeIntents.map { intent ->
+                    ActiveIntentionResponseDTO(
+                        intent.createdDate,
+                        intent.symbol,
+                        intent.nominalQuantity,
+                        intent.nominalPrice,
+                        intent.localPrice
+                    )
+                }
             )
         }
     }
