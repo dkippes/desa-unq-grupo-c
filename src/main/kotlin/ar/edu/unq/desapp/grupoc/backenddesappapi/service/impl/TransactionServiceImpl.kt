@@ -54,7 +54,7 @@ class TransactionServiceImpl : TransactionService {
     override fun processTransaction(accountId: Long, transactionId: Long, action: TransactionStatus): ResponseTransactionDTO {
         val transaction = transactionRepository.findById(transactionId).getOrElse { throw EntityNotFoundException("Transaction not found") }
         val account = accountRepository.findById(accountId).getOrElse { throw EntityNotFoundException("Account not found") }
-
+        
         //Chequear Crypto value.
         when (action) {
             TransactionStatus.TRANSFER_SENT -> {
@@ -66,7 +66,7 @@ class TransactionServiceImpl : TransactionService {
             }
 
             TransactionStatus.CANCELED -> {
-                transaction.status = TransactionStatus.CANCELED
+                account.cancel(transaction)
             }
 
             else -> {
@@ -77,12 +77,14 @@ class TransactionServiceImpl : TransactionService {
         transactionRepository.save(transaction)
 
         return ResponseTransactionDTO(
-            id =    transaction.id!!,
-            status = transaction.status.name,
-            initiatedAt = transaction.initiatedAt.toString(),
-            seller = transaction.seller!!.user!!.getFullName(),
-            buyer = transaction.buyer!!.user!!.getFullName(),
-            intention = transaction.intention!!.symbol.name
+            id = transaction.id!!,
+            price = transaction.intention!!.nominalPrice,
+            amount = transaction.intention!!.nominalQuantity,
+            fullName = account.user!!.getFullName(),
+            timesOperated = account.transactions.size,
+            reputation = account.user!!.getOperationsReputations(),
+            address = transaction.getAddress(),
+            action = transaction.status.name
         )
     }
 
@@ -96,12 +98,15 @@ class TransactionServiceImpl : TransactionService {
         transactionRepository.save(transaction)
 
         return ResponseTransactionDTO(
-            id =    transaction.id!!,
-            status = transaction.status.name,
-            initiatedAt = transaction.initiatedAt.toString(),
-            seller = transaction.seller!!.user!!.getFullName(),
-            buyer = transaction.buyer!!.user!!.getFullName(),
-            intention = transaction.intention!!.symbol.name
+            id = transaction.id!!,
+            price = transaction.intention!!.nominalPrice,
+            amount = transaction.intention!!.nominalQuantity,
+            fullName = account.user!!.getFullName(),
+            timesOperated = account.transactions.size,
+            //Esto deberia ser un metodo de la cuenta!!! TODO
+            reputation = account.user!!.getOperationsReputations(),
+            address = transaction.getAddress(),
+            action = transaction.status.name
         )
     }
 }

@@ -1,10 +1,14 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto
 
+import java.math.BigDecimal
+
 class ResponseTransactionDTO(
     val id : Long,
-    val status: String,
-    val initiatedAt: String,
-    val seller: String,
-    val buyer: String,
-    val intention: String
+    val price: BigDecimal,
+    val amount: BigDecimal,
+    val fullName: String,
+    val timesOperated: Int,
+    val reputation: String,
+    val address: String,
+    val action: String
 )

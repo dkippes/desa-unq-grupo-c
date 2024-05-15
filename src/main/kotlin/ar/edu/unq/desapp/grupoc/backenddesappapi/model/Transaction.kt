@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import jakarta.persistence.*
 import java.time.LocalDateTime
@@ -29,5 +30,12 @@ class Transaction (
 
     fun getPointsPenalizationForCancel() : Int {
         return 20
+    }
+
+    fun getAddress(): String {
+        if(intention!!.operation == OPERATION.BUY) {
+            return buyer!!.walletAddress
+        }
+        return seller!!.cvu
     }
 }
