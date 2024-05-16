@@ -82,5 +82,6 @@ class OperationIntent (
         result = 31 * result + createdDate.hashCode()
         result = 31 * result + (id?.hashCode() ?: 0)
         return result
+
     }
 }
