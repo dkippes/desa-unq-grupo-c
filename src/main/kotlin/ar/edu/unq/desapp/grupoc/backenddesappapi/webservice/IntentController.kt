@@ -4,7 +4,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.service.IntentService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFoundException
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionDTO
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionResponseDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryotoActiveIntentionResponseDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryptoActiveIntentionResponseDTO
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.Schema
@@ -58,7 +58,7 @@ class IntentController {
             ])
         ]
     )
-    fun listIntents(@PathVariable("userId") userId: Long): ResponseEntity<ListCryotoActiveIntentionResponseDTO> {
+    fun listIntents(@PathVariable("userId") userId: Long): ResponseEntity<ListCryptoActiveIntentionResponseDTO> {
         return ResponseEntity.ok(intentService.listActiveIntentionResponseDTO(userId))
     }
 }

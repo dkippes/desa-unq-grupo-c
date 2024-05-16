@@ -6,7 +6,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ResponseVolumeDT
 import java.time.LocalDate
 
 interface TransactionService {
-    fun getVolumeBetweenDates(from: LocalDate, to: LocalDate): ResponseVolumeDTO
+    fun getVolumeBetweenDates(userId: Long, from: LocalDate, to: LocalDate): ResponseVolumeDTO
     fun processTransaction(accountId: Long, transactionId: Long, action: TransactionStatus): ResponseTransactionDTO
     fun generateTransaction(accountId: Long, operationId: Long): ResponseTransactionDTO
 }

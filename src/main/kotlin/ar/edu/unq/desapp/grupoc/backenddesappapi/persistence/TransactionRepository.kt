@@ -13,21 +13,21 @@ import java.time.LocalDateTime
 interface TransactionRepository : JpaRepository<Transaction, Long>  {
 
     @Query(
-        value = "SELECT SUM((i.nominal_price * i.nominal_quantity)) as totalOperated, SUM(i.local_price * i.nominal_quantity) as localTotalOperated" +
-                " FROM (transactions AS t " +
-                " JOIN operation_intents as i ON t.intention_id = i.id)" +
-                "WHERE t.status = ?1 AND t.initiated_at BETWEEN ?2 AND ?3",
+        value = "SELECT SUM(i.nominal_price * i.nominal_quantity) as totalOperated, SUM(i.local_price * i.nominal_quantity) as localTotalOperated " +
+                "FROM (transactions AS t " +
+                "JOIN operation_intents as i ON t.intention_id = i.id) " +
+                "WHERE t.status = ?2 AND t.initiated_at BETWEEN ?3 AND ?4 AND buyer_id = ?1 OR seller_id = ?1 ",
         nativeQuery = true
     )
-    fun findAllByStatusAndInitiatedAtBetween(status: TransactionStatus, from: LocalDateTime, to: LocalDateTime): List<Array<Any>>
+    fun findAllByUserAndStatusAndInitiatedAtBetween(userId: Long, status: TransactionStatus, from: LocalDateTime, to: LocalDateTime): List<Array<Any>>
 
     @Query(
         value = "SELECT i.symbol as symbol, i.nominal_price as price, i.nominal_quantity as quantity, i.local_price as localPrice" +
                 " FROM (transactions AS t " +
                 " JOIN operation_intents as i ON t.intention_id = i.id)" +
-                "WHERE t.status = ?1 AND t.initiated_at BETWEEN ?2 AND ?3",
+                "WHERE t.status = ?2 AND t.initiated_at BETWEEN ?3 AND ?4 AND buyer_id = ?1 OR seller_id = ?1",
         nativeQuery = true
     )
-    fun findCryptosByStatusAndInitiatedAtBetween(status: TransactionStatus, from: LocalDateTime, to: LocalDateTime): List<Array<Any>>
+    fun findAllCryptoByUserAndStatusAndInitiatedAtBetween(userId:Long, status: TransactionStatus, from: LocalDateTime, to: LocalDateTime): List<Array<Any>>
 
 }

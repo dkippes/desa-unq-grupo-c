@@ -38,4 +38,8 @@ class Transaction (
         }
         return seller!!.cvu
     }
+
+    fun cancelBySystem() {
+        this.status = TransactionStatus.CANCELED
+    }
 }

@@ -39,12 +39,7 @@ class Account (
         return operationIntent
     }
 
-    fun confirmReception(transaction: Transaction, hasCurrencyChanged: Boolean) {
-        if (hasCurrencyChanged) {
-            transaction.status = TransactionStatus.CANCELED
-            throw PriceChangedOutOfLimitsException()
-        }
-
+    fun confirmReception(transaction: Transaction) {
         validateIfOperationWasCancelled(transaction)
 
         if (transaction.status != TransactionStatus.TRANSFER_SENT) {
@@ -54,12 +49,7 @@ class Account (
         this.increasePoints(transaction.getPointsForFinish())
     }
 
-    fun sendTransfer(transaction: Transaction, hasCurrencyChanged: Boolean) {
-        if (hasCurrencyChanged) {
-            transaction.status = TransactionStatus.CANCELED
-            throw PriceChangedOutOfLimitsException()
-        }
-
+    fun sendTransfer(transaction: Transaction) {
         validateIfOperationWasCancelled(transaction)
 
         if (transaction.status != TransactionStatus.WAITING_ACTION) {

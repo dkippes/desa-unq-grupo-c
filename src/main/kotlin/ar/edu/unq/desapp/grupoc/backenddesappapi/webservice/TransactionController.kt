@@ -32,8 +32,8 @@ class TransactionController {
         return ResponseEntity.ok(transactionService.generateTransaction(data.accountId!!, data.operationId!!))
     }
 
-    @PostMapping("/volume")
-    fun informUserVolume(@Valid @RequestBody dates: RequestVolumeDTO): ResponseEntity<ResponseVolumeDTO> {
-        return ResponseEntity.ok(transactionService.getVolumeBetweenDates(dates.from!!, dates.to!!))
+    @PostMapping("/volume/{userId}")
+    fun informUserVolume(@PathVariable("userId") userId: Long, @Valid @RequestBody dates: RequestVolumeDTO): ResponseEntity<ResponseVolumeDTO> {
+        return ResponseEntity.ok(transactionService.getVolumeBetweenDates(userId, dates.from!!, dates.to!!))
     }
 }

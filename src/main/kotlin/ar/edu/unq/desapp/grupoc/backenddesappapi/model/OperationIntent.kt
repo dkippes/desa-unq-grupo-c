@@ -3,6 +3,7 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OperationStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.PriceChangedOutOfLimitsException
 import jakarta.persistence.*
 import java.math.BigDecimal
 import java.time.LocalDateTime
@@ -29,13 +30,24 @@ class OperationIntent (
 
     fun isActive(): Boolean = this.status === OperationStatus.OPEN
 
-    fun generateNewTransaction(interestUser: Account): Transaction {
+    fun generateNewTransaction(interestUser: Account, currentPrice: Double): Transaction {
         if (operation == OPERATION.SELL) {
             this.transaction = Transaction(this, account, interestUser)
         } else {
             this.transaction = Transaction(this, interestUser, account)
         }
+        validateTransaction(currentPrice)
         return this.transaction!!
+    }
+
+    private fun validateTransaction(currentPrice: Double) {
+        val margin = currentPrice.times(0.05)
+        val mustBeCancelled = nominalPrice.toDouble() <= (currentPrice.minus(margin)) || nominalPrice.toDouble() >= (currentPrice.plus(margin))
+        if (mustBeCancelled) {
+            println(listOf(nominalPrice, currentPrice, margin))
+            this.transaction!!.cancelBySystem()
+            throw PriceChangedOutOfLimitsException()
+        }
     }
 
     override fun equals(other: Any?): Boolean {
