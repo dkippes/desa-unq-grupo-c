@@ -15,12 +15,12 @@ import java.time.LocalDateTime
 
 @Service
 class BinanceProxyService {
-    private val restTemplate = RestTemplate()
+    var restTemplate = RestTemplate()
     @Autowired
-    private lateinit var objectMapper: ObjectMapper
+    lateinit var objectMapper: ObjectMapper
 
     @Value("\${integration.binance.api.url:NONE}")
-    private val binanceApiURL: String? = null
+    var binanceApiURL: String? = null
 
     fun getAllCryptoCurrencyValues(): List<*>? {
         val responseJson = restTemplate.getForObject(
