@@ -49,4 +49,39 @@ class OperationIntent (
             throw PriceChangedOutOfLimitsException()
         }
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as OperationIntent
+
+        if (symbol != other.symbol) return false
+        if (nominalQuantity != other.nominalQuantity) return false
+        if (nominalPrice != other.nominalPrice) return false
+        if (localPrice != other.localPrice) return false
+        if (operation != other.operation) return false
+        if (account != other.account) return false
+        if (status != other.status) return false
+        if (transaction != other.transaction) return false
+        if (createdDate != other.createdDate) return false
+        if (id != other.id) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = symbol.hashCode()
+        result = 31 * result + nominalQuantity.hashCode()
+        result = 31 * result + nominalPrice.hashCode()
+        result = 31 * result + localPrice.hashCode()
+        result = 31 * result + operation.hashCode()
+        result = 31 * result + (account?.hashCode() ?: 0)
+        result = 31 * result + status.hashCode()
+        result = 31 * result + (transaction?.hashCode() ?: 0)
+        result = 31 * result + createdDate.hashCode()
+        result = 31 * result + (id?.hashCode() ?: 0)
+        return result
+
+    }
 }

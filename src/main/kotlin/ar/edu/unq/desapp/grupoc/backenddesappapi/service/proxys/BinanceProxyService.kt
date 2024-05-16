@@ -6,21 +6,18 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.dto.CryptoCurrencyDTO
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
-import java.time.LocalDateTime
 
 
 @Service
 class BinanceProxyService {
-    private val restTemplate = RestTemplate()
-    @Autowired
-    private lateinit var objectMapper: ObjectMapper
+    var restTemplate = RestTemplate()
+    var objectMapper: ObjectMapper = ObjectMapper()
 
     @Value("\${integration.binance.api.url:NONE}")
-    private val binanceApiURL: String? = null
+    var binanceApiURL: String? = null
 
     fun getAllCryptoCurrencyValues(): List<*>? {
         val responseJson = restTemplate.getForObject(
