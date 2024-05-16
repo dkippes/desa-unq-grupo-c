@@ -12,7 +12,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.usercase.QuoteCalc
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.proxys.BinanceProxyService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionDTO
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionResponseDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryotoActiveIntentionResponseDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryptoActiveIntentionResponseDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -50,7 +50,7 @@ class IntentServiceImpl : IntentService {
         return Factory.createExpressIntentionResponseDTO(savedOperationIntent, user)
     }
 
-    override fun listActiveIntentionResponseDTO(userId: Long): ListCryotoActiveIntentionResponseDTO? {
+    override fun listActiveIntentionResponseDTO(userId: Long): ListCryptoActiveIntentionResponseDTO? {
         val user = userRepository.findById(userId)
             .orElseThrow { throw UserNotFoundException() }
 

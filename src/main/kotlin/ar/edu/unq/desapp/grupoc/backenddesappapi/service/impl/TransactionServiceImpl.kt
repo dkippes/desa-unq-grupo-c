@@ -1,6 +1,7 @@
+@file:Suppress("SENSELESS_COMPARISON")
+
 package ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl
 
-import ar.edu.unq.desapp.grupoc.backenddesappapi.model.Transaction
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.persistence.AccountRepository
@@ -8,13 +9,11 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.persistence.IntentRepository
 import ar.edu.unq.desapp.grupoc.backenddesappapi.persistence.TransactionRepository
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.TransactionService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.*
-import com.fasterxml.jackson.databind.ObjectMapper
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
 import java.time.LocalDate
-import java.time.LocalDateTime
 import kotlin.jvm.optionals.getOrElse
 
 
@@ -23,26 +22,47 @@ class TransactionServiceImpl : TransactionService {
     @Autowired private lateinit var transactionRepository: TransactionRepository
     @Autowired private lateinit var accountRepository: AccountRepository
     @Autowired private lateinit var intentRepository: IntentRepository
-    @Autowired private lateinit var modelMapper: ObjectMapper
+    @Autowired private lateinit var cryptoService: CryptoService
 
-    override fun getVolumeBetweenDates(from: LocalDate, to: LocalDate): ResponseVolumeDTO {
-        val sumResult = transactionRepository.findAllByStatusAndInitiatedAtBetween(
+    override fun getVolumeBetweenDates(userId: Long, from: LocalDate, to: LocalDate): ResponseVolumeDTO {
+        val sumResult = transactionRepository.findAllByUserAndStatusAndInitiatedAtBetween(
+            userId,
             TransactionStatus.TRANSFER_RECEIVE,
             from.atStartOfDay(), to.atTime(23, 59)
         )
-        val cryptos = transactionRepository.findCryptosByStatusAndInitiatedAtBetween(TransactionStatus.TRANSFER_RECEIVE,
+
+        // Renombrar seller y buyer a ownerUser and interestedUser para ser mas abstractos
+        // y evitar problemas
+
+        if(sumResult[0][0] == null) {
+            return ResponseVolumeDTO(
+                totalOperated = 0.0,
+                localTotalOperated = 0.0,
+                cryptos = emptyList()
+            )
+        }
+
+        val cryptos = transactionRepository.findAllCryptoByUserAndStatusAndInitiatedAtBetween(
+            userId,
+            TransactionStatus.TRANSFER_RECEIVE,
             from.atStartOfDay(), to.atTime(23, 59)).map {
-                CryptoStockDTO(
-                    SYMBOL.valueOfIndex((it[0] as Byte).toInt()).name,
-                    it[1] as Double,
-                    it[2] as Double,
-                    it[3] as Double
-                )
+            CryptoStockDTO(
+                symbol = SYMBOL.valueOfIndex((it[0] as Byte).toInt()).name,
+                price = (it[1] as BigDecimal).toDouble(),
+                quantity = (it[2] as BigDecimal).toDouble(),
+                localPrice = (it[3] as BigDecimal).toDouble()
+            )
         }.toList()
 
 
-        val totalOperated = (sumResult[0][0] as BigDecimal).toDouble()
-        val localTotalOperated = (sumResult[0][1] as BigDecimal).toDouble()
+        val totalOperated = sumResult.firstOrNull()?.let {
+            (it[0] as BigDecimal).toDouble()
+        } ?: 0.0
+
+        val localTotalOperated = sumResult.firstOrNull()?.let {
+            (it[1] as BigDecimal).toDouble()
+        } ?: 0.0
+
         return ResponseVolumeDTO(
                 totalOperated = totalOperated,
                 localTotalOperated = localTotalOperated,
@@ -54,15 +74,15 @@ class TransactionServiceImpl : TransactionService {
     override fun processTransaction(accountId: Long, transactionId: Long, action: TransactionStatus): ResponseTransactionDTO {
         val transaction = transactionRepository.findById(transactionId).getOrElse { throw EntityNotFoundException("Transaction not found") }
         val account = accountRepository.findById(accountId).getOrElse { throw EntityNotFoundException("Account not found") }
-        
-        //Chequear Crypto value.
+
+
         when (action) {
             TransactionStatus.TRANSFER_SENT -> {
-                account.sendTransfer(transaction, false)
+                account.sendTransfer(transaction)
             }
 
             TransactionStatus.TRANSFER_RECEIVE -> {
-                account.confirmReception(transaction, false)
+                account.confirmReception(transaction)
             }
 
             TransactionStatus.CANCELED -> {
@@ -91,10 +111,13 @@ class TransactionServiceImpl : TransactionService {
     override fun generateTransaction(accountId: Long, operationId: Long): ResponseTransactionDTO {
         val account = accountRepository.findById(accountId).getOrElse { throw EntityNotFoundException("Account not found") }
         val operation = intentRepository.findById(operationId).getOrElse { throw EntityNotFoundException("Operation not found") }
+        val currentPrice = cryptoService.getCryptoCurrencyPrice(operation.symbol)?.price!!.toDouble()
 
         val transaction = operation.generateNewTransaction(
-            account
+            account,
+            currentPrice
         )
+
         transactionRepository.save(transaction)
 
         return ResponseTransactionDTO(

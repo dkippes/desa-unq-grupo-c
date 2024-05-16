@@ -3,7 +3,7 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrency
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrencyList
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
-import ar.edu.unq.desapp.grupoc.backenddesappapi.service.CryptoService
+import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.CryptoService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.CryptoCurrencyNotFoundException
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content

@@ -2,7 +2,7 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class ListCryotoActiveIntentionResponseDTO(
+data class ListCryptoActiveIntentionResponseDTO(
     @JsonProperty("firstName")
     val firstName: String,
 
