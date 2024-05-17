@@ -77,11 +77,11 @@ class Factory {
             )
         }
 
-        fun createListCryptoActiveIntentionResponseDTO(user: User, activeIntents: List<OperationIntent>): ListCryotoActiveIntentionResponseDTO {
-            return ListCryotoActiveIntentionResponseDTO(
+        fun createListCryptoActiveIntentionResponseDTO(user: User, activeIntents: List<OperationIntent>): ListCryptoActiveIntentionResponseDTO {
+            return ListCryptoActiveIntentionResponseDTO(
                 user.name,
                 user.lastName,
-                user.getOperationsReputations(),
+                user.account!!.getOperationsReputations(),
                 activeIntents.map { intent ->
                     ActiveIntentionResponseDTO(
                         intent.createdDate,

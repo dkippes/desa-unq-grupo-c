@@ -1,13 +1,28 @@
-INSERT INTO accounts (cvu, WALLET_ADDRESS, reputation)
-VALUES ('1234567890123456789012', 'ABCDEFGH', 10);
+-- Insert data into accounts
 
-INSERT INTO users (name, LAST_NAME, email, password, address, account_id)
-VALUES ('John', 'Doe', 'john.doe@example.com', 'password123!', '123 Main St', 1);
+-- Insert data into users
+-- Using IDENTITY() to fetch the most recently generated ID
+INSERT INTO users (name, last_name, email, password, address)
+VALUES ('Marie', 'Doe', 'marie.doe@example.com', 'password123!', '123 Main St'),
+       ('John', 'Doe', 'john.doe@example.com', 'password123!', '123 Main St');
 
-INSERT INTO cryptocurrencies (SYMBOL, PRICE, LAST_UPDATE_DATE_AND_TIME) VALUES (1, 45000.0, CURRENT_TIMESTAMP);
+INSERT INTO accounts (cvu, wallet_address, reputation, user_id)
+VALUES ('1234567890123456789034', 'FBCDEFGH', 0, 1),
+       ('1234567890123456789012', 'ABCDEFGH', 0, 2);
 
-INSERT INTO operation_intents (LOCAL_PRICE, NOMINAL_PRICE, NOMINAL_QUANTITY, OPERATION, STATUS, SYMBOL, ACCOUNT_ID, CREATED_DATE)
-VALUES (45000.0, 45000.0, 1.0, 0, 1, 9, 1, '2024-05-06 01:13:18.033675');
+UPDATE users SET account_id = 1 WHERE id = 1;
+UPDATE users SET account_id = 2 WHERE id = 2;
 
-INSERT INTO operation_intents (LOCAL_PRICE, NOMINAL_PRICE, NOMINAL_QUANTITY, OPERATION, STATUS, SYMBOL, ACCOUNT_ID, CREATED_DATE)
-VALUES (10000.0, 10000.0, 1.0, 0, 0, 9, 1, '2024-05-05 01:13:18.033675');
+-- Insert data into cryptocurrencies
+INSERT INTO cryptocurrencies (symbol, price, last_update_date_and_time)
+VALUES (1, 45000.0, CURRENT_TIMESTAMP);
+
+-- Insert data into operation_intents
+INSERT INTO operation_intents (symbol, nominal_quantity, nominal_price, local_price, operation, account_id, status, created_date)
+VALUES (1, 2, 0.69400, 600000.0, 0, 1, 0, CURRENT_TIMESTAMP),
+       (3, 5, 600.0, 800000.0, 1, 2, 0, CURRENT_TIMESTAMP);
+
+-- Insert data into transactions
+-- INSERT INTO transactions (intention_id, seller_id, buyer_id, status, initiated_at)
+-- VALUES (1, 2, 1, 2, CURRENT_TIMESTAMP),
+--        (2, 1, 2, 2, CURRENT_TIMESTAMP);

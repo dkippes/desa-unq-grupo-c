@@ -3,6 +3,7 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OperationStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.PriceChangedOutOfLimitsException
 import jakarta.persistence.*
 import java.math.BigDecimal
 import java.time.LocalDateTime
@@ -19,21 +20,68 @@ class OperationIntent (
     @ManyToOne(fetch = FetchType.LAZY)
     var account: Account? = null,
     var status: OperationStatus = OperationStatus.OPEN,
-    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @OneToOne(cascade = [CascadeType.ALL])
     var transaction: Transaction? = null,
     var createdDate: LocalDateTime = LocalDateTime.now(),
 ) {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
 
     fun isActive(): Boolean = this.status === OperationStatus.OPEN
 
-    fun generateNewTransaction(interestUser: Account) {
+    fun generateNewTransaction(interestUser: Account, currentPrice: Double): Transaction {
+
         if (operation == OPERATION.SELL) {
             this.transaction = Transaction(this, account, interestUser)
         } else {
             this.transaction = Transaction(this, interestUser, account)
         }
+        validateTransaction(currentPrice)
+        return this.transaction!!
+    }
+
+    private fun validateTransaction(currentPrice: Double) {
+        val margin = currentPrice.times(0.05)
+        val mustBeCancelled = nominalPrice.toDouble() < (currentPrice.minus(margin)) || nominalPrice.toDouble() > (currentPrice.plus(margin))
+        if (mustBeCancelled) {
+            this.transaction!!.cancelBySystem()
+            throw PriceChangedOutOfLimitsException()
+        }
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as OperationIntent
+
+        if (symbol != other.symbol) return false
+        if (nominalQuantity != other.nominalQuantity) return false
+        if (nominalPrice != other.nominalPrice) return false
+        if (localPrice != other.localPrice) return false
+        if (operation != other.operation) return false
+        if (account != other.account) return false
+        if (status != other.status) return false
+        if (transaction != other.transaction) return false
+        if (createdDate != other.createdDate) return false
+        if (id != other.id) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = symbol.hashCode()
+        result = 31 * result + nominalQuantity.hashCode()
+        result = 31 * result + nominalPrice.hashCode()
+        result = 31 * result + localPrice.hashCode()
+        result = 31 * result + operation.hashCode()
+        result = 31 * result + (account?.hashCode() ?: 0)
+        result = 31 * result + status.hashCode()
+        result = 31 * result + (transaction?.hashCode() ?: 0)
+        result = 31 * result + createdDate.hashCode()
+        result = 31 * result + (id?.hashCode() ?: 0)
+        return result
+
     }
 }

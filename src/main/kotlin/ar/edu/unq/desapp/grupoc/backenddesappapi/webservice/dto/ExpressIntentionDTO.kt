@@ -21,7 +21,23 @@ data class ExpressIntentionDTO(
     @JsonProperty("operationType")
     var operationType: OPERATION?
 ) {
-    fun isBuy(): Boolean {
-        return operationType == OPERATION.BUY
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as ExpressIntentionDTO
+
+        if (cryptoAsset != other.cryptoAsset) return false
+        if (nominalAmount != other.nominalAmount) return false
+        if (operationType != other.operationType) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = cryptoAsset?.hashCode() ?: 0
+        result = 31 * result + (nominalAmount?.hashCode() ?: 0)
+        result = 31 * result + (operationType?.hashCode() ?: 0)
+        return result
     }
 }

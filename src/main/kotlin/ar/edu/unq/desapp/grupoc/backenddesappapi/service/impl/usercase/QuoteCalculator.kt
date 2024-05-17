@@ -14,7 +14,7 @@ class QuoteCalculator {
             return roundQuote(crypto?.price?.times(nominalAmount!!))
         }
 
-        private fun roundQuote(value: BigDecimal?): BigDecimal {
+        fun roundQuote(value: BigDecimal?): BigDecimal {
             return value?.setScale(2, RoundingMode.HALF_UP)!!
         }
     }

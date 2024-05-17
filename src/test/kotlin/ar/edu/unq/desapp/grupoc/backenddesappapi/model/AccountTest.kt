@@ -79,15 +79,6 @@ class AccountTest {
         assertEquals(operationIntent, account.intents[0])
     }
 
-    @Test
-    fun `test confirmReception when hasCurrencyChanged is true`() {
-        val transaction = Transaction()
-        transaction.status = TransactionStatus.TRANSFER_SENT
-
-        assertThrows<PriceChangedOutOfLimitsException> {
-            account.confirmReception(transaction, hasCurrencyChanged = true)
-        }
-    }
 
     @Test
     fun `test confirmReception when transaction status is cancelled`() {
@@ -95,7 +86,7 @@ class AccountTest {
         transaction.status = TransactionStatus.CANCELED
 
         assertThrows<OperationCancelledException> {
-            account.confirmReception(transaction, hasCurrencyChanged = false)
+            account.confirmReception(transaction)
         }
     }
 
@@ -105,7 +96,7 @@ class AccountTest {
         transaction.status = TransactionStatus.WAITING_ACTION
 
         assertThrows<TransferNotSentException> {
-            account.confirmReception(transaction, hasCurrencyChanged = false)
+            account.confirmReception(transaction)
         }
     }
 
@@ -114,19 +105,9 @@ class AccountTest {
         val transaction = Transaction()
         transaction.status = TransactionStatus.TRANSFER_SENT
 
-        account.confirmReception(transaction, hasCurrencyChanged = false)
+        account.confirmReception(transaction)
 
         assertEquals(transaction.status, TransactionStatus.TRANSFER_RECEIVE)
-    }
-
-    @Test
-    fun `test sendTransfer when hasCurrencyChanged is true`() {
-        val transaction = Transaction()
-
-        assertThrows<PriceChangedOutOfLimitsException> {
-            account.sendTransfer(transaction, hasCurrencyChanged = true)
-        }
-        assertEquals(TransactionStatus.CANCELED, transaction.status)
     }
 
     @Test
@@ -135,7 +116,7 @@ class AccountTest {
         transaction.status = TransactionStatus.CANCELED
 
         assertThrows<OperationCancelledException> {
-            account.sendTransfer(transaction, hasCurrencyChanged = false)
+            account.sendTransfer(transaction)
         }
     }
 
@@ -145,7 +126,7 @@ class AccountTest {
         transaction.status = TransactionStatus.TRANSFER_SENT
 
         assertThrows<TransferAlreadySentException> {
-            account.sendTransfer(transaction, hasCurrencyChanged = false)
+            account.sendTransfer(transaction)
         }
     }
 
@@ -154,7 +135,7 @@ class AccountTest {
         val transaction = Transaction()
         transaction.status = TransactionStatus.WAITING_ACTION
 
-        account.sendTransfer(transaction, hasCurrencyChanged = false)
+        account.sendTransfer(transaction)
 
         assertEquals(TransactionStatus.TRANSFER_SENT, transaction.status)
     }

@@ -10,12 +10,12 @@ import org.springframework.web.client.RestTemplate
 @Component
 class DolarCryptoApi {
 
-    private val restTemplate = RestTemplate()
+    var restTemplate = RestTemplate()
     @Autowired
-    private lateinit var objectMapper: ObjectMapper
+    lateinit var objectMapper: ObjectMapper
 
     @Value("\${integration.dolar.api.url}")
-    private val dolarApiUrl: String? = null
+    var dolarApiUrl: String? = null
 
     fun getDolarCrypto(): DolarCrypto {
         val responseJson = restTemplate.getForObject(

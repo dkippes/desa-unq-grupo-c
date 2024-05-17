@@ -18,7 +18,9 @@ class User(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
 
-
+    fun getFullName(): String {
+        return "$name $lastName"
+    }
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -43,14 +45,5 @@ class User(
         result = 31 * result + password.hashCode()
         result = 31 * result + (id?.hashCode() ?: 0)
         return result
-    }
-
-    fun getOperationsReputations(): String {
-        if (account?.intents!!.isNotEmpty()) {
-            val reputation = account?.reputation!!
-            val totalOperations = account?.intents!!.size
-            return (reputation / totalOperations).toString()
-        }
-        return "Sin operaciones"
     }
 }

@@ -2,7 +2,7 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.JacksonConfig
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
-import ar.edu.unq.desapp.grupoc.backenddesappapi.service.CryptoService
+import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.CryptoService
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith

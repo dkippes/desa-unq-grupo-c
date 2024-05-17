@@ -12,7 +12,7 @@ import java.math.BigDecimal
 class Account (
     var cvu: String,
     var walletAddress: String,
-    var reputation: Int? = null
+    var reputation: Int = 0
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +20,13 @@ class Account (
 
     @OneToMany(mappedBy = "account", cascade = [CascadeType.ALL])
     var intents: MutableList<OperationIntent> = mutableListOf()
+    @OneToMany(mappedBy = "seller", cascade = [CascadeType.ALL])
+    var sellerTransactions: MutableList<Transaction> = mutableListOf()
+    @OneToMany(mappedBy = "buyer", cascade = [CascadeType.ALL])
+    var buyerTransactions: MutableList<Transaction> = mutableListOf()
+
+    @OneToOne(cascade = [CascadeType.ALL])
+    var user: User? = null
 
 
     fun publish(symbol: SYMBOL, nominalQuantity: BigDecimal, nominalPrice: BigDecimal, localPrice: BigDecimal, operation: OPERATION): OperationIntent {
@@ -35,12 +42,7 @@ class Account (
         return operationIntent
     }
 
-    fun confirmReception(transaction: Transaction, hasCurrencyChanged: Boolean) {
-        if (hasCurrencyChanged) {
-            transaction.status = TransactionStatus.CANCELED
-            throw PriceChangedOutOfLimitsException()
-        }
-
+    fun confirmReception(transaction: Transaction) {
         validateIfOperationWasCancelled(transaction)
 
         if (transaction.status != TransactionStatus.TRANSFER_SENT) {
@@ -50,12 +52,7 @@ class Account (
         this.increasePoints(transaction.getPointsForFinish())
     }
 
-    fun sendTransfer(transaction: Transaction, hasCurrencyChanged: Boolean) {
-        if (hasCurrencyChanged) {
-            transaction.status = TransactionStatus.CANCELED
-            throw PriceChangedOutOfLimitsException()
-        }
-
+    fun sendTransfer(transaction: Transaction) {
         validateIfOperationWasCancelled(transaction)
 
         if (transaction.status != TransactionStatus.WAITING_ACTION) {
@@ -81,16 +78,19 @@ class Account (
     }
 
     private fun increasePoints(points: Int) {
-        if (this.reputation == null) {
-            this.reputation = 0
-        }
-        this.reputation = this.reputation?.plus(points)
+        this.reputation += points
     }
     private fun decreaseReputationPoints(points: Int) {
-        if (this.reputation == null) {
-            this.reputation = 0
+        this.reputation -= points
+    }
+
+    fun getOperationsReputations(): String {
+        if (intents.isNotEmpty()) {
+            val reputation = reputation
+            val totalOperations = intents.size
+            return (reputation / totalOperations).toString()
         }
-        this.reputation = this.reputation!! - points
+        return "Sin operaciones"
     }
 
     override fun equals(other: Any?): Boolean {
@@ -115,6 +115,11 @@ class Account (
         result = 31 * result + (id?.hashCode() ?: 0)
         result = 31 * result + intents.hashCode()
         return result
+    }
+
+    fun getTimesOperated(): Int {
+        return sellerTransactions.size + buyerTransactions.size
+
     }
 
 

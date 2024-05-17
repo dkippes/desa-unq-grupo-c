@@ -1,3 +1,5 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions
 
-class PriceChangedOutOfLimitsException() : RuntimeException("Operation has been cancelled because currency price has exceeded operation limits.")
+import org.apache.coyote.BadRequestException
+
+class PriceChangedOutOfLimitsException() : BadRequestException("Operation has been cancelled because currency price has exceeded operation limits.")

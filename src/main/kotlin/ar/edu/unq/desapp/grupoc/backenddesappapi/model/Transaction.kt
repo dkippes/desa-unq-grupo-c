@@ -1,17 +1,19 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import jakarta.persistence.*
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
 @Entity
+@Table(name = "transactions")
 class Transaction (
-    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @OneToOne(cascade = [CascadeType.ALL])
     var intention: OperationIntent? = null,
-    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     var seller: Account? = null,
-    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     var buyer: Account? = null,
     var status: TransactionStatus = TransactionStatus.WAITING_ACTION,
     var initiatedAt: LocalDateTime = LocalDateTime.now()
@@ -28,5 +30,16 @@ class Transaction (
 
     fun getPointsPenalizationForCancel() : Int {
         return 20
+    }
+
+    fun getAddress(): String {
+        if(intention!!.operation == OPERATION.BUY) {
+            return buyer!!.walletAddress
+        }
+        return seller!!.cvu
+    }
+
+    fun cancelBySystem() {
+        this.status = TransactionStatus.CANCELED
     }
 }

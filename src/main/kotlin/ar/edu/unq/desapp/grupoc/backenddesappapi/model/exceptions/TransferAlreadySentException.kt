@@ -1,3 +1,5 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions
 
-class TransferAlreadySentException() : RuntimeException("Transfer has already been sent.")
+import org.apache.coyote.BadRequestException
+
+class TransferAlreadySentException() : BadRequestException("Transfer has already been sent.")
