@@ -81,7 +81,7 @@ class Factory {
             return ListCryptoActiveIntentionResponseDTO(
                 user.name,
                 user.lastName,
-                user.getOperationsReputations(),
+                user.account!!.getOperationsReputations(),
                 activeIntents.map { intent ->
                     ActiveIntentionResponseDTO(
                         intent.createdDate,

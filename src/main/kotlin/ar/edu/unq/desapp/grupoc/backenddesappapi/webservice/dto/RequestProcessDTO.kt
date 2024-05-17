@@ -5,5 +5,5 @@ import jakarta.validation.constraints.NotNull
 
 data class RequestProcessDTO(
     @field:NotNull var action: TransactionStatus? = null,
-    @field:NotNull val accountId: Long? = null
+    @field:NotNull val userId: Long? = null
 )

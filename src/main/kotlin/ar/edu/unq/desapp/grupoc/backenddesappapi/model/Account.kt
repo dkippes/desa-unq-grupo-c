@@ -81,6 +81,15 @@ class Account (
         this.reputation -= points
     }
 
+    fun getOperationsReputations(): String {
+        if (intents.isNotEmpty()) {
+            val reputation = reputation
+            val totalOperations = intents.size
+            return (reputation / totalOperations).toString()
+        }
+        return "Sin operaciones"
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

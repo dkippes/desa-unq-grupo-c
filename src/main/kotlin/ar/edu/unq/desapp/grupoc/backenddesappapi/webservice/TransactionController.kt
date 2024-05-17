@@ -23,13 +23,13 @@ class TransactionController {
 
     @PutMapping("/{transactionId}/process")
     fun processTransaction(@PathVariable transactionId: Long, @Valid @RequestBody data: RequestProcessDTO): ResponseEntity<ResponseTransactionDTO> {
-        return ResponseEntity.ok(transactionService.processTransaction(data.accountId!!, transactionId, data.action!!))
+        return ResponseEntity.ok(transactionService.processTransaction(data.userId!!, transactionId, data.action!!))
     }
 
     @PostMapping("/generate")
     fun generateTransaction(@Valid @RequestBody data: RequestCreateTransactionDTO): ResponseEntity<ResponseTransactionDTO> {
         // TODO: Ver que id usar con diego si el de la cuenta o el del usuario.
-        return ResponseEntity.ok(transactionService.generateTransaction(data.accountId!!, data.operationId!!))
+        return ResponseEntity.ok(transactionService.generateTransaction(data.userId!!, data.operationId!!))
     }
 
     @PostMapping("/volume/{userId}")

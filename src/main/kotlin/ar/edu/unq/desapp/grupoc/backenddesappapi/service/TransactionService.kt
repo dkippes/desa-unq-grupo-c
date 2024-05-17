@@ -7,6 +7,6 @@ import java.time.LocalDate
 
 interface TransactionService {
     fun getVolumeBetweenDates(userId: Long, from: LocalDate, to: LocalDate): ResponseVolumeDTO
-    fun processTransaction(accountId: Long, transactionId: Long, action: TransactionStatus): ResponseTransactionDTO
-    fun generateTransaction(accountId: Long, operationId: Long): ResponseTransactionDTO
+    fun processTransaction(userId: Long, transactionId: Long, action: TransactionStatus): ResponseTransactionDTO
+    fun generateTransaction(userId: Long, operationId: Long): ResponseTransactionDTO
 }

@@ -1,11 +1,11 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto
 
-import java.time.LocalDate
+import java.math.BigDecimal
 import java.time.LocalDateTime
 
 data class ResponseVolumeDTO (
-    var  datetime: LocalDateTime = LocalDateTime.now(),
-    var  totalOperated: Double,
-    var  localTotalOperated: Double,
-    var cryptos: List<CryptoStockDTO> = emptyList()
+    var  date: LocalDateTime = LocalDateTime.now(),
+    var  totalOperated: BigDecimal,
+    var  localTotalOperated: BigDecimal,
+    var operatedCryptos: List<CryptoStockDTO> = emptyList()
 )

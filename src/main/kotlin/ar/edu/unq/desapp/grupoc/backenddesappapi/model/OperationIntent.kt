@@ -42,9 +42,8 @@ class OperationIntent (
 
     private fun validateTransaction(currentPrice: Double) {
         val margin = currentPrice.times(0.05)
-        val mustBeCancelled = nominalPrice.toDouble() <= (currentPrice.minus(margin)) || nominalPrice.toDouble() >= (currentPrice.plus(margin))
+        val mustBeCancelled = nominalPrice.toDouble() < (currentPrice.minus(margin)) || nominalPrice.toDouble() > (currentPrice.plus(margin))
         if (mustBeCancelled) {
-            println(listOf(nominalPrice, currentPrice, margin))
             this.transaction!!.cancelBySystem()
             throw PriceChangedOutOfLimitsException()
         }
