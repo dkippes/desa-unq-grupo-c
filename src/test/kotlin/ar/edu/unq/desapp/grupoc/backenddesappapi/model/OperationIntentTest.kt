@@ -49,7 +49,7 @@ class OperationIntentTest() {
             account = seller
         )
 
-        operationIntent.generateNewTransaction(buyer)
+        operationIntent.generateNewTransaction(buyer, 10.0)
 
         Assertions.assertNotNull(operationIntent.transaction)
         Assertions.assertEquals(operationIntent.transaction!!.status, TransactionStatus.WAITING_ACTION)
@@ -70,7 +70,7 @@ class OperationIntentTest() {
             account = user1
         )
 
-        operationIntent.generateNewTransaction(user2)
+        operationIntent.generateNewTransaction(user2, 10.0)
 
         Assertions.assertNotNull(operationIntent.transaction)
         Assertions.assertEquals(operationIntent.transaction!!.status, TransactionStatus.WAITING_ACTION)

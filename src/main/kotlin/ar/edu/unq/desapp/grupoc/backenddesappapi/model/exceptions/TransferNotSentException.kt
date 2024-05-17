@@ -1,3 +1,5 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions
 
-class TransferNotSentException() : RuntimeException("Transfer has not been sent yet.")
+import org.apache.coyote.BadRequestException
+
+class TransferNotSentException() : BadRequestException("Transfer has not been sent yet.")

@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.TransactionService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.*
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -28,7 +29,6 @@ class TransactionController {
 
     @PostMapping("/generate")
     fun generateTransaction(@Valid @RequestBody data: RequestCreateTransactionDTO): ResponseEntity<ResponseTransactionDTO> {
-        // TODO: Ver que id usar con diego si el de la cuenta o el del usuario.
         return ResponseEntity.ok(transactionService.generateTransaction(data.userId!!, data.operationId!!))
     }
 

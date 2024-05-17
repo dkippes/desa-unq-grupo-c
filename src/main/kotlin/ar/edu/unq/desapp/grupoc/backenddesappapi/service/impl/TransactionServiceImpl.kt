@@ -9,10 +9,13 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.persistence.TransactionReposito
 import ar.edu.unq.desapp.grupoc.backenddesappapi.persistence.UserRepository
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.TransactionService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFoundException
+import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.usercase.QuoteCalculator
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.*
 import jakarta.persistence.EntityNotFoundException
+import org.apache.coyote.BadRequestException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.web.client.HttpClientErrorException.BadRequest
 import java.math.BigDecimal
 import java.time.LocalDate
 import kotlin.jvm.optionals.getOrElse
@@ -69,7 +72,7 @@ class TransactionServiceImpl : TransactionService {
             price = transaction.intention!!.nominalPrice,
             amount = transaction.intention!!.nominalQuantity,
             fullName = user.getFullName(),
-            timesOperated = user.account!!.transactions.size,
+            timesOperated = user.account!!.getTimesOperated(),
             reputation = user.account!!.getOperationsReputations(),
             address = transaction.getAddress(),
             action = transaction.status.name
@@ -80,6 +83,10 @@ class TransactionServiceImpl : TransactionService {
         val user = userRepository.findById(userId).getOrElse { throw UserNotFoundException()}
         val operation = intentRepository.findById(operationId).getOrElse { throw EntityNotFoundException("Operation not found") }
         val currentPrice = cryptoService.getCryptoCurrencyPrice(operation.symbol)?.price!!.toDouble()
+
+        if(operation.transaction != null) {
+            throw BadRequestException("Transaction already generated.")
+        }
 
         val transaction = operation.generateNewTransaction(
             user.account!!,
@@ -93,7 +100,7 @@ class TransactionServiceImpl : TransactionService {
             price = transaction.intention!!.nominalPrice,
             amount = transaction.intention!!.nominalQuantity,
             fullName = user!!.getFullName(),
-            timesOperated = user.account!!.transactions.size,
+            timesOperated = user.account!!.getTimesOperated(),
             reputation = user.account!!.getOperationsReputations(),
             address = transaction.getAddress(),
             action = transaction.status.name
@@ -103,12 +110,11 @@ class TransactionServiceImpl : TransactionService {
     private fun mapToCryptoStock(crypto: Array<Any>): CryptoStockDTO {
         return CryptoStockDTO(
             symbol = SYMBOL.valueOfIndex((crypto[0] as Byte).toInt()).name,
-            price = (crypto[1] as BigDecimal).toDouble(),
+            price = QuoteCalculator.roundQuote(crypto[1] as BigDecimal),
             quantity = (crypto[2] as BigDecimal).toDouble(),
-            localPrice = (crypto[3] as BigDecimal).toDouble()
+            localPrice = QuoteCalculator.roundQuote(crypto[3] as BigDecimal)
         )
     }
-
     private fun mapToResponseVolumeDTO(volume: List<Array<Any>>, cryptos: List<Array<Any>>): ResponseVolumeDTO {
         if(volume[0][0] == null) {
             return ResponseVolumeDTO(
@@ -119,11 +125,11 @@ class TransactionServiceImpl : TransactionService {
         }
 
         val totalOperated = volume.firstOrNull()?.let {
-            BigDecimal(it[0].toString())
+            QuoteCalculator.roundQuote(it[0] as BigDecimal)
         } ?: BigDecimal("0.0")
 
         val localTotalOperated = volume.firstOrNull()?.let {
-            BigDecimal(it[1].toString())
+           QuoteCalculator.roundQuote(it[1] as BigDecimal)
         } ?: BigDecimal("0.0")
 
         val cryptosStocks = cryptos.map {

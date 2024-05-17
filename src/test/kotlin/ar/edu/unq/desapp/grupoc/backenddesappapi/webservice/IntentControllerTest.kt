@@ -7,7 +7,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.service.IntentService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ActiveIntentionResponseDTO
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionDTO
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionResponseDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryotoActiveIntentionResponseDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryptoActiveIntentionResponseDTO
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -74,7 +74,7 @@ class IntentControllerTest {
             cryptoQuote = BigDecimal("50000.0"),
             localAmount = BigDecimal("100000.0")
         )
-        val responseDTO = ListCryotoActiveIntentionResponseDTO(
+        val responseDTO = ListCryptoActiveIntentionResponseDTO(
             firstName = "John",
             lastName = "Doe",
             reputation = "10",

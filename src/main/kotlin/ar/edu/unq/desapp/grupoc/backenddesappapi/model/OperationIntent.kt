@@ -20,7 +20,7 @@ class OperationIntent (
     @ManyToOne(fetch = FetchType.LAZY)
     var account: Account? = null,
     var status: OperationStatus = OperationStatus.OPEN,
-    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @OneToOne(cascade = [CascadeType.ALL])
     var transaction: Transaction? = null,
     var createdDate: LocalDateTime = LocalDateTime.now(),
 ) {
@@ -31,6 +31,7 @@ class OperationIntent (
     fun isActive(): Boolean = this.status === OperationStatus.OPEN
 
     fun generateNewTransaction(interestUser: Account, currentPrice: Double): Transaction {
+
         if (operation == OPERATION.SELL) {
             this.transaction = Transaction(this, account, interestUser)
         } else {

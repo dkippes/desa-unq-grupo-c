@@ -20,9 +20,12 @@ class Account (
 
     @OneToMany(mappedBy = "account", cascade = [CascadeType.ALL])
     var intents: MutableList<OperationIntent> = mutableListOf()
-    @OneToMany(cascade = [CascadeType.ALL])
-    var transactions: MutableList<Transaction> = mutableListOf()
-    @OneToOne
+    @OneToMany(mappedBy = "seller", cascade = [CascadeType.ALL])
+    var sellerTransactions: MutableList<Transaction> = mutableListOf()
+    @OneToMany(mappedBy = "buyer", cascade = [CascadeType.ALL])
+    var buyerTransactions: MutableList<Transaction> = mutableListOf()
+
+    @OneToOne(cascade = [CascadeType.ALL])
     var user: User? = null
 
 
@@ -112,6 +115,11 @@ class Account (
         result = 31 * result + (id?.hashCode() ?: 0)
         result = 31 * result + intents.hashCode()
         return result
+    }
+
+    fun getTimesOperated(): Int {
+        return sellerTransactions.size + buyerTransactions.size
+
     }
 
 

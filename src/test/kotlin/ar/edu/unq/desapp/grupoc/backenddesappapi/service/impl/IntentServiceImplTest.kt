@@ -18,7 +18,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.service.proxys.BinanceProxyServ
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ActiveIntentionResponseDTO
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionDTO
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionResponseDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryotoActiveIntentionResponseDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryptoActiveIntentionResponseDTO
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertThrows
 import org.junit.jupiter.api.Test
@@ -162,7 +162,7 @@ class IntentServiceImplTest {
         val activeIntents = listOf(operationIntention1)
         account.intents = mutableListOf(operationIntention1)
 
-        val expectedResponse = ListCryotoActiveIntentionResponseDTO(
+        val expectedResponse = ListCryptoActiveIntentionResponseDTO(
             firstName = user.name,
             lastName = user.lastName,
             reputation = "0",

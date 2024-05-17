@@ -9,11 +9,11 @@ import java.time.temporal.ChronoUnit
 @Entity
 @Table(name = "transactions")
 class Transaction (
-    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @OneToOne(cascade = [CascadeType.ALL])
     var intention: OperationIntent? = null,
-    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     var seller: Account? = null,
-    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     var buyer: Account? = null,
     var status: TransactionStatus = TransactionStatus.WAITING_ACTION,
     var initiatedAt: LocalDateTime = LocalDateTime.now()

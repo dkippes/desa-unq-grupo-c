@@ -1,3 +1,5 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions
 
-class OperationCancelledException() : RuntimeException("Operation has been cancelled")
+import org.apache.coyote.BadRequestException
+
+class OperationCancelledException() : BadRequestException("Operation has been cancelled")
