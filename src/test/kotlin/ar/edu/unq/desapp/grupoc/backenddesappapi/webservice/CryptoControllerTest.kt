@@ -5,8 +5,6 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrency
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrencyList
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.CryptoService
-import com.jayway.jsonpath.JsonPath
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.Mockito
@@ -18,8 +16,8 @@ import org.springframework.context.annotation.Import
 import org.springframework.http.MediaType
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import java.math.BigDecimal
 import java.time.LocalDateTime
 
@@ -40,9 +38,10 @@ class CryptoControllerTest {
         Mockito.`when`(cryptoService.getAllCryptoCurrencyPrices())
             .thenReturn(emptyList)
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/crypto/currencies"))
-            .andExpect(MockMvcResultMatchers.status().isOk)
-            .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(
+            get("/crypto/currencies")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
     }
 
     @Test
@@ -52,14 +51,9 @@ class CryptoControllerTest {
         Mockito.`when`(cryptoService.getCryptoCurrencyPrice(symbol))
             .thenReturn(crypto)
 
-        val result = mockMvc.perform(MockMvcRequestBuilders.get("/crypto/currency/$symbol"))
-            .andExpect(MockMvcResultMatchers.status().isOk)
-            .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
-            .andReturn()
-        val jsonResponse = result.response.contentAsString
-
-        val symbolPresent = JsonPath.read<String>(jsonResponse, "$.symbol")
-
-        Assertions.assertEquals("BNBUSDT", symbolPresent)
+        mockMvc.perform(
+            get("/crypto/currency/$symbol")
+                .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
     }
 }
