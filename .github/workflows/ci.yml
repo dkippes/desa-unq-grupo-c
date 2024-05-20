@@ -98,23 +98,3 @@ jobs:
       - name: Check Docker availability
         run: |
           docker --version
-
-  build_docker_images:
-    needs: ["build", "test", "check_docker_availability"]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: cd correct file
-        run: cd ../desa-unq-grupo-c
-
-      - name: List files
-        run: ls -la
-
-      - name: Build Docker Images
-        run: docker-compose build
-        working-directory: .
