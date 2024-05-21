@@ -15,7 +15,6 @@ import jakarta.persistence.EntityNotFoundException
 import org.apache.coyote.BadRequestException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import org.springframework.web.client.HttpClientErrorException.BadRequest
 import java.math.BigDecimal
 import java.time.LocalDate
 import kotlin.jvm.optionals.getOrElse
@@ -26,7 +25,7 @@ class TransactionServiceImpl : TransactionService {
     @Autowired private lateinit var transactionRepository: TransactionRepository
     @Autowired private lateinit var userRepository: UserRepository
     @Autowired private lateinit var intentRepository: IntentRepository
-    @Autowired private lateinit var cryptoService: CryptoService
+    @Autowired private lateinit var cryptoService: CryptoServiceImpl
 
     override fun getVolumeBetweenDates(userId: Long, from: LocalDate, to: LocalDate): ResponseVolumeDTO {
         val user = userRepository.findById(userId).getOrElse { throw UserNotFoundException() }

@@ -94,6 +94,7 @@ class IntentServiceImplTest {
 
         val savedOperationIntent = operationIntention.apply { id = 1L }
         val expectedResponse = ExpressIntentionResponseDTO(
+            id = 1L,
             cryptoAsset = intent.cryptoAsset,
             nominalAmount = intent.nominalAmount,
             cryptoQuote = BigDecimal("500.0"),

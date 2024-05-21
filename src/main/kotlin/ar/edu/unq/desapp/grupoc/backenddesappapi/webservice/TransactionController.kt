@@ -1,6 +1,5 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
-import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.TransactionService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.*
 import io.swagger.v3.oas.annotations.tags.Tag

@@ -4,7 +4,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.JacksonConfig
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrency
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrencyList
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
-import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.CryptoService
+import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.CryptoServiceImpl
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.Mockito
@@ -30,7 +30,7 @@ class CryptoControllerTest {
     private lateinit var mockMvc: MockMvc
 
     @MockBean
-    private lateinit var cryptoService: CryptoService
+    private lateinit var cryptoService: CryptoServiceImpl
 
     @Test
     fun shouldReturnAllCryptoCurrencies() {

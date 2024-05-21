@@ -22,7 +22,7 @@ import org.mockito.junit.jupiter.MockitoExtension
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
-import java.util.Optional
+import java.util.*
 
 @ExtendWith(MockitoExtension::class)
 class TransactionServiceImplTest {
@@ -35,7 +35,7 @@ class TransactionServiceImplTest {
     @Mock
     private lateinit var transactionRepository: TransactionRepository
     @Mock
-    private lateinit var cryptoService: CryptoService
+    private lateinit var cryptoService: CryptoServiceImpl
 
 
     @Test

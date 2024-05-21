@@ -2,8 +2,6 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.persistence
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.Transaction
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.CryptoStockDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ResponseVolumeDTO
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository

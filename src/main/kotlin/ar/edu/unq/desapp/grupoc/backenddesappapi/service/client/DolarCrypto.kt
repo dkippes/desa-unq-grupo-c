@@ -10,5 +10,4 @@ class DolarCrypto(
     val sell: BigDecimal,
     @JsonProperty("venta")
     val buy: BigDecimal,
-) {
-}
+)

@@ -46,6 +46,7 @@ class IntentControllerTest {
             operationType = OPERATION.BUY
         )
         val responseDTO = ExpressIntentionResponseDTO(
+            id = 1L,
             cryptoAsset = SYMBOL.BTCUSDT,
             nominalAmount = BigDecimal("2.0"),
             cryptoQuote = BigDecimal("50000.0"),

@@ -67,6 +67,7 @@ class Factory {
 
         fun createExpressIntentionResponseDTO(operationIntent: OperationIntent, user: User): ExpressIntentionResponseDTO {
             return ExpressIntentionResponseDTO(
+                operationIntent.id,
                 operationIntent.symbol,
                 operationIntent.nominalQuantity,
                 operationIntent.nominalPrice,

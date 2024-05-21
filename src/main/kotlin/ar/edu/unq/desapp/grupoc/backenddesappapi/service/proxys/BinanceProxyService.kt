@@ -32,10 +32,9 @@ class BinanceProxyService {
     }
 
     fun getCryptoCurrencyValue(symbol: SYMBOL): CryptoCurrency? {
-        val entity = restTemplate.getForObject(
+        return restTemplate.getForObject(
             binanceApiURL + "ticker/price?symbol=" + symbol.toString(),
             CryptoCurrency::class.java
         )
-        return entity
     }
 }

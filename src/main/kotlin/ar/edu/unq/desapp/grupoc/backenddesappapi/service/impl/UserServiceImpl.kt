@@ -17,7 +17,6 @@ class UserServiceImpl : UserService {
     @Autowired
     private lateinit var userRepository: UserRepository
     override fun registerUser(registerUserDTO: RegisterUserDTO): ResponseUserDTO {
-        // TODO: Hashear password
         val user = Factory.createUserFromRequestUserDTO(registerUserDTO)
         if (userRepository.existsByEmail(user.email)) {
             throw UserAlreadyExistsException()

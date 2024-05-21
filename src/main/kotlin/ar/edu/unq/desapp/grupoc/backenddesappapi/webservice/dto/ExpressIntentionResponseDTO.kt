@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import java.math.BigDecimal
 
 data class ExpressIntentionResponseDTO(
+    @JsonProperty("id")
+    var id: Long?,
+
     @JsonProperty("crypto")
     var cryptoAsset: SYMBOL?,
 
