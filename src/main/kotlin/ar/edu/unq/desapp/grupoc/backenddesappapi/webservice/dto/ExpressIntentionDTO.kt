@@ -33,11 +33,4 @@ data class ExpressIntentionDTO(
 
         return true
     }
-
-    override fun hashCode(): Int {
-        var result = cryptoAsset?.hashCode() ?: 0
-        result = 31 * result + (nominalAmount?.hashCode() ?: 0)
-        result = 31 * result + (operationType?.hashCode() ?: 0)
-        return result
-    }
 }

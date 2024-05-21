@@ -88,12 +88,12 @@ class TransactionServiceImpl : TransactionService {
             throw BadRequestException("Transaction already generated.")
         }
 
-        val transaction = operation.generateNewTransaction(
+
+
+        val transaction = transactionRepository.save(operation.generateNewTransaction(
             user.account!!,
             currentPrice
-        )
-
-        transactionRepository.save(transaction)
+        ))
 
         return ResponseTransactionDTO(
             id = transaction.id!!,
