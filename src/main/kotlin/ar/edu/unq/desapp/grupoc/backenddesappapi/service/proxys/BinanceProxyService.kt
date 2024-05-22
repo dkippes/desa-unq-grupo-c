@@ -19,7 +19,7 @@ class BinanceProxyService {
     @Value("\${integration.binance.api.url:NONE}")
     var binanceApiURL: String? = null
 
-    fun getAllCryptoCurrencyValues(): List<*>? {
+    fun getAllCryptoCurrencyValues(): List<CryptoCurrency>? {
         val responseJson = restTemplate.getForObject(
             binanceApiURL + "ticker/price?symbols=" + SYMBOL.toFormattedList(),
             String::class.java

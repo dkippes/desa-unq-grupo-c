@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.ResponseStatus
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
 class UserNotFoundException : EntityNotFoundException() {
-    override val message: String = MSG_EXCEPTIONS.USER_NOT_FOUND.toString()
+    override val message: String = MsgExceptions.USER_NOT_FOUND.toString()
 }

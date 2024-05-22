@@ -3,7 +3,11 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.JacksonConfig
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.TransactionService
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.*
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestCreateTransactionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestProcessDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestVolumeDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseTransactionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseVolumeDTO
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -40,7 +44,7 @@ class TransactionControllerTest {
         val userId = 100L
         val action = "CONFIRM"
         val requestDto = RequestProcessDTO(TransactionStatus.TRANSFER_SENT, userId)
-        val responseDto = ResponseTransactionDTO(userId, BigDecimal.TEN, BigDecimal.TEN, "full",
+        val responseDto = ResponseTransactionDTO(userId, BigDecimal.TEN, BigDecimal.TEN, BigDecimal.TEN, "full",
             10, "10", "adress", "CONFIRMED")
 
         `when`(transactionService.processTransaction(userId, transactionId, TransactionStatus.TRANSFER_RECEIVE))
@@ -57,7 +61,7 @@ class TransactionControllerTest {
         val userId = 100L
         val operationId = 50L
         val requestDto = RequestCreateTransactionDTO(userId, operationId)
-        val responseDto = ResponseTransactionDTO(userId, BigDecimal.TEN, BigDecimal.TEN, "full",
+        val responseDto = ResponseTransactionDTO(userId, BigDecimal.TEN, BigDecimal.TEN, BigDecimal.TEN, "full",
             10, "10", "adress", "CONFIRMED")
 
         `when`(transactionService.generateTransaction(userId, operationId)).thenReturn(responseDto)

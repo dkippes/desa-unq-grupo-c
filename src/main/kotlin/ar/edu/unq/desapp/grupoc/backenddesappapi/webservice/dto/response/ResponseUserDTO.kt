@@ -1,4 +1,4 @@
-package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto
+package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response
 
 data class ResponseUserDTO(
                            var id: Long,
@@ -6,4 +6,5 @@ data class ResponseUserDTO(
                            var lastName: String,
                            var email: String,
                            var address: String,
-                           var account: AccountDTO)
+                           var account: ResponseAccountDTO
+)

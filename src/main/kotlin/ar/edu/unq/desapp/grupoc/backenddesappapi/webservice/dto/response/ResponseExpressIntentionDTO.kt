@@ -1,11 +1,11 @@
-package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto
+package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.math.BigDecimal
 
-data class ExpressIntentionResponseDTO(
+data class ResponseExpressIntentionDTO(
     @JsonProperty("id")
     var id: Long?,
 

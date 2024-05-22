@@ -5,7 +5,9 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrency
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.OperationIntent
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.User
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.dto.CryptoCurrencyDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.*
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestExpressIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestRegisterUserDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.*
 import org.springframework.stereotype.Component
 import java.math.BigDecimal
 import java.time.LocalDateTime
@@ -23,7 +25,7 @@ class Factory {
             return CryptoCurrency(dto.symbol, dto.price, LocalDateTime.now())
         }
 
-        fun createUserFromRequestUserDTO(dto: RegisterUserDTO): User {
+        fun createUserFromRequestUserDTO(dto: RequestRegisterUserDTO): User {
             return User(
                 dto.name!!,
                 dto.lastName!!,
@@ -43,7 +45,8 @@ class Factory {
                 name = user.name,
                 email = user.email,
                 lastName = user.lastName,
-                account = AccountDTO(
+                account = ResponseAccountDTO(
+                    id = user.account!!.id!!,
                     cvu = user.account!!.cvu,
                     walletAddress = user.account!!.walletAddress,
                     reputation = user.account!!.reputation
@@ -52,7 +55,7 @@ class Factory {
             )
         }
 
-        fun createOperationIntent(intent: ExpressIntentionDTO, user: User,
+        fun createOperationIntent(intent: RequestExpressIntentionDTO, user: User,
                                   localQuote: BigDecimal,
                                   cryptoQuote: BigDecimal): OperationIntent {
             return OperationIntent(
@@ -65,8 +68,8 @@ class Factory {
             )
         }
 
-        fun createExpressIntentionResponseDTO(operationIntent: OperationIntent, user: User): ExpressIntentionResponseDTO {
-            return ExpressIntentionResponseDTO(
+        fun createExpressIntentionResponseDTO(operationIntent: OperationIntent, user: User): ResponseExpressIntentionDTO {
+            return ResponseExpressIntentionDTO(
                 operationIntent.id,
                 operationIntent.symbol,
                 operationIntent.nominalQuantity,
@@ -78,13 +81,14 @@ class Factory {
             )
         }
 
-        fun createListCryptoActiveIntentionResponseDTO(user: User, activeIntents: List<OperationIntent>): ListCryptoActiveIntentionResponseDTO {
-            return ListCryptoActiveIntentionResponseDTO(
+        fun createListCryptoActiveIntentionResponseDTO(user: User, activeIntents: List<OperationIntent>): ResponseListCryptoActiveIntentionDTO {
+            return ResponseListCryptoActiveIntentionDTO(
                 user.name,
                 user.lastName,
                 user.account!!.getOperationsReputations(),
                 activeIntents.map { intent ->
-                    ActiveIntentionResponseDTO(
+                    ResponseActiveIntentionDTO(
+                        intent.id!!,
                         intent.createdDate,
                         intent.symbol,
                         intent.nominalQuantity,

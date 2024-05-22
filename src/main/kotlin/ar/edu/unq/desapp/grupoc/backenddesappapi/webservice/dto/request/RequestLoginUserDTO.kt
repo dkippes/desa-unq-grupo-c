@@ -1,11 +1,11 @@
-package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto
+package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Pattern
 
-data class LoginUserDTO(
+data class RequestLoginUserDTO(
     @field:Email(message = "Email should be valid")
     @field:NotNull(message = "Email is required")
     @JsonProperty("email")

@@ -10,13 +10,16 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.persistence.UserRepository
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.TransactionService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFoundException
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.usercase.QuoteCalculator
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.*
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseCryptoStockDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseTransactionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseVolumeDTO
 import jakarta.persistence.EntityNotFoundException
 import org.apache.coyote.BadRequestException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
 import java.time.LocalDate
+import java.util.*
 import kotlin.jvm.optionals.getOrElse
 
 
@@ -70,6 +73,7 @@ class TransactionServiceImpl : TransactionService {
             id = transaction.id!!,
             price = transaction.intention!!.nominalPrice,
             amount = transaction.intention!!.nominalQuantity,
+            total = totalOperated(transaction.intention!!.nominalPrice, transaction.intention!!.nominalQuantity),
             fullName = user.getFullName(),
             timesOperated = user.account!!.getTimesOperated(),
             reputation = user.account!!.getOperationsReputations(),
@@ -87,8 +91,6 @@ class TransactionServiceImpl : TransactionService {
             throw BadRequestException("Transaction already generated.")
         }
 
-
-
         val transaction = transactionRepository.save(operation.generateNewTransaction(
             user.account!!,
             currentPrice
@@ -98,6 +100,7 @@ class TransactionServiceImpl : TransactionService {
             id = transaction.id!!,
             price = transaction.intention!!.nominalPrice,
             amount = transaction.intention!!.nominalQuantity,
+            total = totalOperated(transaction.intention!!.nominalPrice, transaction.intention!!.nominalQuantity),
             fullName = user!!.getFullName(),
             timesOperated = user.account!!.getTimesOperated(),
             reputation = user.account!!.getOperationsReputations(),
@@ -106,8 +109,8 @@ class TransactionServiceImpl : TransactionService {
         )
     }
 
-    private fun mapToCryptoStock(crypto: Array<Any>): CryptoStockDTO {
-        return CryptoStockDTO(
+    private fun mapToCryptoStock(crypto: Array<Any>): ResponseCryptoStockDTO {
+        return ResponseCryptoStockDTO(
             symbol = SYMBOL.valueOfIndex((crypto[0] as Byte).toInt()).name,
             price = QuoteCalculator.roundQuote(crypto[1] as BigDecimal),
             quantity = (crypto[2] as BigDecimal).toDouble(),
@@ -115,7 +118,7 @@ class TransactionServiceImpl : TransactionService {
         )
     }
     private fun mapToResponseVolumeDTO(volume: List<Array<Any>>, cryptos: List<Array<Any>>): ResponseVolumeDTO {
-        if(volume[0][0] == null) {
+        if(Objects.isNull(volume[0][0])) {
             return ResponseVolumeDTO(
                 totalOperated = BigDecimal("0.0"),
                 localTotalOperated = BigDecimal("0.0"),
@@ -142,4 +145,7 @@ class TransactionServiceImpl : TransactionService {
         )
     }
 
+    private fun totalOperated(price: BigDecimal, amount: BigDecimal): BigDecimal {
+        return price.multiply(amount)
+    }
 }

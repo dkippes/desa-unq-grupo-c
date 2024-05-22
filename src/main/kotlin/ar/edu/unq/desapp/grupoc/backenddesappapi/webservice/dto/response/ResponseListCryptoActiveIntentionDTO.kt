@@ -1,8 +1,8 @@
-package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto
+package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class ListCryptoActiveIntentionResponseDTO(
+data class ResponseListCryptoActiveIntentionDTO(
     @JsonProperty("firstName")
     val firstName: String,
 
@@ -13,5 +13,5 @@ data class ListCryptoActiveIntentionResponseDTO(
     val reputation: String,
 
     @JsonProperty("activeIntentions")
-    val listActiveIntention: List<ActiveIntentionResponseDTO>
+    val listActiveIntention: List<ResponseActiveIntentionDTO>
 )

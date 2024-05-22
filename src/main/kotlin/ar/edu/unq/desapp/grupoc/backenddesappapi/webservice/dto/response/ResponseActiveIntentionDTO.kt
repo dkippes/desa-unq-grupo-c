@@ -1,11 +1,14 @@
-package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto
+package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.math.BigDecimal
 import java.time.LocalDateTime
 
-data class ActiveIntentionResponseDTO(
+data class ResponseActiveIntentionDTO(
+    @JsonProperty("id")
+    val id: Long,
+
     @JsonProperty("created_date")
     val createdDate: LocalDateTime,
 

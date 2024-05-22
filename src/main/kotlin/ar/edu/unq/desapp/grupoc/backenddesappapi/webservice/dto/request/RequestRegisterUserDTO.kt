@@ -1,4 +1,4 @@
-package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto
+package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import jakarta.validation.constraints.Email
@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Size
 
-data class RegisterUserDTO(
+data class RequestRegisterUserDTO(
     @field:Size(min = 3, max = 30, message = "Name must be between 3 and 30 characters long.")
     @field:NotNull(message = "Name is required")
     @JsonProperty("name")

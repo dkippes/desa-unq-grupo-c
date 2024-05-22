@@ -1,10 +1,10 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.service
 
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionResponseDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryptoActiveIntentionResponseDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestExpressIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseExpressIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseListCryptoActiveIntentionDTO
 
 interface IntentService {
-    fun expressIntention(intent: ExpressIntentionDTO, userId: Long): ExpressIntentionResponseDTO
-    fun listActiveIntentionResponseDTO(userId: Long): ListCryptoActiveIntentionResponseDTO?
+    fun expressIntention(intent: RequestExpressIntentionDTO, userId: Long): ResponseExpressIntentionDTO
+    fun listActiveIntentionResponseDTO(userId: Long): ResponseListCryptoActiveIntentionDTO?
 }

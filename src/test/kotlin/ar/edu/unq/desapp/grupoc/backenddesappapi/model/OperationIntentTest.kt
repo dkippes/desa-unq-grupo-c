@@ -7,6 +7,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
+import org.mockito.Mockito
 import org.mockito.Mockito.mock
 import java.math.BigDecimal
 
@@ -40,6 +41,8 @@ class OperationIntentTest() {
     fun shouldGenerateASellTransactionWhenUsersAreValid() {
         val seller = mock(Account::class.java)
         val buyer = mock(Account::class.java)
+        Mockito.`when`(seller.id).thenReturn(1)
+        Mockito.`when`(buyer.id).thenReturn(2)
         val operationIntent = OperationIntent(
             symbol = SYMBOL.ADAUSDT,
             nominalQuantity = BigDecimal.valueOf(100.0),
@@ -61,6 +64,8 @@ class OperationIntentTest() {
     fun shouldGenerateABuyTransactionWhenUsersAreValid() {
         val user1 = mock(Account::class.java)
         val user2 = mock(Account::class.java)
+        Mockito.`when`(user1.id).thenReturn(1)
+        Mockito.`when`(user2.id).thenReturn(2)
         val operationIntent = OperationIntent(
             symbol = SYMBOL.ADAUSDT,
             nominalQuantity = BigDecimal.valueOf(100.0),

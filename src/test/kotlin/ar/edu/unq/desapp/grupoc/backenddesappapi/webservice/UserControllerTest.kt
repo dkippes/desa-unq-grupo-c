@@ -1,7 +1,7 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.LoginUserDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.RegisterUserDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestLoginUserDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestRegisterUserDTO
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -23,7 +23,7 @@ class UserControllerTest {
 
     @Test
     fun shouldRegisterAUser() {
-        val userData = RegisterUserDTO(
+        val userData = RequestRegisterUserDTO(
             name = "Jose",
             password = "123456sD!",
             email = "juan@gmail.com",
@@ -50,7 +50,7 @@ class UserControllerTest {
 
     @Test
     fun shouldFailWhenUserRequestDTOisCreated() {
-        val userData = RegisterUserDTO(
+        val userData = RequestRegisterUserDTO(
             name = "",
             password = "123456sD!",
             email = "juan@gmail.com",
@@ -69,7 +69,7 @@ class UserControllerTest {
 
     @Test
     fun shouldFailWhenLoginUserDoesNotExist() {
-        val userData = LoginUserDTO(
+        val userData = RequestLoginUserDTO(
             email = "email@notexist.com",
             password = "123456sD!"
         )

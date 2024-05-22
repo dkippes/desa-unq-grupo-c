@@ -1,6 +1,6 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions
 
-enum class MSG_EXCEPTIONS {
+enum class MsgExceptions {
     USER_NOT_FOUND {
         override fun toString(): String {
             return "User not found"

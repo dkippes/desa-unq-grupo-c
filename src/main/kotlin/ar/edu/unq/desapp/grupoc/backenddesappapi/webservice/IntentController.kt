@@ -2,9 +2,9 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.IntentService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFoundException
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionResponseDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryptoActiveIntentionResponseDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestExpressIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseExpressIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseListCryptoActiveIntentionDTO
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.Schema
@@ -30,7 +30,7 @@ class IntentController {
     @ApiResponses(
         value = [
             ApiResponse(responseCode = "200", description = "Intent expressed successfully", content = [
-                Content(schema = Schema(implementation = ExpressIntentionResponseDTO::class))
+                Content(schema = Schema(implementation = ResponseExpressIntentionDTO::class))
             ]),
             ApiResponse(responseCode = "404", description = "User not found", content = [
                 Content(schema = Schema(implementation = UserNotFoundException::class))
@@ -42,7 +42,8 @@ class IntentController {
     )
     fun expressIntent(
         @PathVariable("userId") userId: Long,
-        @Valid @RequestBody userInput: ExpressIntentionDTO): ResponseEntity<ExpressIntentionResponseDTO> {
+        @Valid @RequestBody userInput: RequestExpressIntentionDTO
+    ): ResponseEntity<ResponseExpressIntentionDTO> {
         return ResponseEntity.ok(intentService.expressIntention(userInput, userId))
     }
 
@@ -51,14 +52,14 @@ class IntentController {
     @ApiResponses(
         value = [
             ApiResponse(responseCode = "200", description = "Intents listed successfully", content = [
-                Content(schema = Schema(implementation = ExpressIntentionResponseDTO::class))
+                Content(schema = Schema(implementation = ResponseExpressIntentionDTO::class))
             ]),
             ApiResponse(responseCode = "404", description = "User not found", content = [
                 Content(schema = Schema(implementation = UserNotFoundException::class))
             ])
         ]
     )
-    fun listIntents(@PathVariable("userId") userId: Long): ResponseEntity<ListCryptoActiveIntentionResponseDTO> {
+    fun listIntents(@PathVariable("userId") userId: Long): ResponseEntity<ResponseListCryptoActiveIntentionDTO> {
         return ResponseEntity.ok(intentService.listActiveIntentionResponseDTO(userId))
     }
 }

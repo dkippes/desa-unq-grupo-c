@@ -4,10 +4,10 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.JacksonConfig
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.IntentService
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ActiveIntentionResponseDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionResponseDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryptoActiveIntentionResponseDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestExpressIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseActiveIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseExpressIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseListCryptoActiveIntentionDTO
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -40,12 +40,12 @@ class IntentControllerTest {
     @Test
     fun `express intent - success`() {
         val userId = 1L
-        val userInput = ExpressIntentionDTO(
+        val userInput = RequestExpressIntentionDTO(
             cryptoAsset = SYMBOL.BTCUSDT,
             nominalAmount = BigDecimal("2.0"),
             operationType = OPERATION.BUY
         )
-        val responseDTO = ExpressIntentionResponseDTO(
+        val responseDTO = ResponseExpressIntentionDTO(
             id = 1L,
             cryptoAsset = SYMBOL.BTCUSDT,
             nominalAmount = BigDecimal("2.0"),
@@ -68,14 +68,15 @@ class IntentControllerTest {
     @Test
     fun `listActiveIntentionResponseDTO - success`() {
         val userId = 1L
-        val activeIntentionResponseDTO = ActiveIntentionResponseDTO(
+        val activeIntentionResponseDTO = ResponseActiveIntentionDTO(
+            id = 1L,
             createdDate = LocalDateTime.now(),
             symbol = SYMBOL.BTCUSDT,
             nominalAmount = BigDecimal("2.0"),
             cryptoQuote = BigDecimal("50000.0"),
             localAmount = BigDecimal("100000.0")
         )
-        val responseDTO = ListCryptoActiveIntentionResponseDTO(
+        val responseDTO = ResponseListCryptoActiveIntentionDTO(
             firstName = "John",
             lastName = "Doe",
             reputation = "10",

@@ -1,4 +1,4 @@
-package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto
+package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Positive
 import java.math.BigDecimal
 
-data class ExpressIntentionDTO(
+data class RequestExpressIntentionDTO(
     @field:NotNull(message = "Crypto is required")
     @JsonProperty("crypto")
     var cryptoAsset: SYMBOL?,
@@ -25,7 +25,7 @@ data class ExpressIntentionDTO(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as ExpressIntentionDTO
+        other as RequestExpressIntentionDTO
 
         if (cryptoAsset != other.cryptoAsset) return false
         if (nominalAmount != other.nominalAmount) return false

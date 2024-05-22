@@ -1,4 +1,4 @@
-package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto
+package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import jakarta.validation.constraints.NotNull

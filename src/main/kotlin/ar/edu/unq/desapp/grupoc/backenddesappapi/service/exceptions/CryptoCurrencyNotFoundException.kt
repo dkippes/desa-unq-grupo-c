@@ -5,4 +5,4 @@ import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ResponseStatus
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-class CryptoCurrencyNotFoundException : EntityNotFoundException(MSG_EXCEPTIONS.CRYPTO_CURRENCY_NOT_FOUND.toString())
+class CryptoCurrencyNotFoundException : EntityNotFoundException(MsgExceptions.CRYPTO_CURRENCY_NOT_FOUND.toString())

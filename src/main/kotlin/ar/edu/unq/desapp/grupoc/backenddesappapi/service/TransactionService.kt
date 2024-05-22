@@ -1,8 +1,8 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.service
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ResponseTransactionDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ResponseVolumeDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseTransactionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseVolumeDTO
 import java.time.LocalDate
 
 interface TransactionService {

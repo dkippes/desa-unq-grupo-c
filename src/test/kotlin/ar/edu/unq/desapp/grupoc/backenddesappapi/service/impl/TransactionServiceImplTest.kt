@@ -15,7 +15,6 @@ import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.any
 import org.mockito.Mockito.`when`
 import org.mockito.junit.jupiter.MockitoExtension
@@ -99,7 +98,7 @@ class TransactionServiceImplTest {
         ).let{ it.id = transactionId; it}
         `when`(transactionRepository.findById(transactionId)).thenReturn(Optional.of(transaction))
 
-        val responseTransactionDTO = transactionService.processTransaction(userId, transactionId, action)
+        transactionService.processTransaction(userId, transactionId, action)
         Assertions.assertEquals(action.name, transaction.status.name)
     }
 
@@ -168,6 +167,14 @@ class TransactionServiceImplTest {
         // Given
         val userId = 1L
         val operationId = 1L
+        val seller = Account(
+            walletAddress = "walletAddress",
+            cvu = "cvu",
+        ).let { it.id = 1L; it}
+        val buyer = Account(
+            walletAddress = "2alletAddress",
+            cvu = "2vu",
+        ).let { it.id = 2L; it}
         val user =
             User(
                 email = "csrfdsfds@exmaple.com",
@@ -175,10 +182,7 @@ class TransactionServiceImplTest {
                 name = "TEST",
                 lastName = "TEST",
                 address = "holamundo!",
-                account = Account(
-                    walletAddress = "walletAddress",
-                    cvu = "cvu",
-                ).let { it.id = 1L; it}
+                account = buyer
             ).let {
                 it.id = userId
                 it
@@ -190,27 +194,22 @@ class TransactionServiceImplTest {
                 localPrice = BigDecimal("1.0"),
                 operation = OPERATION.BUY,
                 symbol = SYMBOL.BTCUSDT,
+                account = seller
             ).let { it.id = operationId; it}
 
         val currentPrice = BigDecimal("100.0")
         val transaction =
             Transaction(
-                buyer = Account(
-                    walletAddress = "walletAddress",
-                    cvu = "cvu",
-                ).let { it.id = 1L; it},
-                seller = Account(
-                    walletAddress = "2alletAddress",
-                    cvu = "2vu",
-                ).let { it.id = 2L; it},
+                buyer = buyer,
+                seller = seller,
                 status = TransactionStatus.TRANSFER_SENT,
                 intention = operation,
                 initiatedAt = LocalDateTime.now(),
             )
-        Mockito.`when`(userRepository.findById(userId)).thenReturn(Optional.of(user))
-        Mockito.`when`(intentRepository.findById(operationId )).thenReturn(Optional.of(operation))
-        Mockito.`when`(cryptoService.getCryptoCurrencyPrice(SYMBOL.BTCUSDT)).thenReturn(CryptoCurrency(price=currentPrice,symbol=SYMBOL.BTCUSDT, lastUpdateDateAndTime = LocalDateTime.now()))
-        Mockito.`when`(transactionRepository.save(any())).thenReturn(transaction.let { it.id = 1L; it})
+        `when`(userRepository.findById(userId)).thenReturn(Optional.of(user))
+        `when`(intentRepository.findById(operationId )).thenReturn(Optional.of(operation))
+        `when`(cryptoService.getCryptoCurrencyPrice(SYMBOL.BTCUSDT)).thenReturn(CryptoCurrency(price=currentPrice,symbol=SYMBOL.BTCUSDT, lastUpdateDateAndTime = LocalDateTime.now()))
+        `when`(transactionRepository.save(any())).thenReturn(transaction.let { it.id = 1L; it})
         val responseTransactionDTO = transactionService.generateTransaction(userId, operationId)
 
         Assertions.assertEquals(transaction.id, responseTransactionDTO.id)

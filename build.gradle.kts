@@ -10,6 +10,10 @@ plugins {
     id("jacoco")
 }
 
+val springdocVersion = "2.2.0"
+val mockitoVersion = "3.+"
+val junitVersion = "4.13.2"
+
 sonar {
     properties {
         property("sonar.projectKey", "dkippes_desa-unq-grupo-c")
@@ -31,7 +35,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -44,8 +48,8 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.mockito:mockito-core:3.+")
-    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito:mockito-core:${mockitoVersion}")
+    testImplementation("junit:junit:${junitVersion}")
     testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 }
 

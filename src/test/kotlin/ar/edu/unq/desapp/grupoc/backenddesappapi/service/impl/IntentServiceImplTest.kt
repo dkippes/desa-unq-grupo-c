@@ -15,10 +15,10 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFound
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.usercase.BuyDollarStrategy
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.usercase.DollarStrategyProvider
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.proxys.BinanceProxyService
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ActiveIntentionResponseDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionResponseDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryptoActiveIntentionResponseDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestExpressIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseActiveIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseExpressIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseListCryptoActiveIntentionDTO
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertThrows
 import org.junit.jupiter.api.Test
@@ -53,7 +53,7 @@ class IntentServiceImplTest {
     fun `should throw UserNotFoundException when user does not exist`() {
         // Arrange
         val userId = 1L
-        val intent = ExpressIntentionDTO(cryptoAsset = SYMBOL.BTCUSDT, nominalAmount = BigDecimal("0.1"), operationType = OPERATION.BUY)
+        val intent = RequestExpressIntentionDTO(cryptoAsset = SYMBOL.BTCUSDT, nominalAmount = BigDecimal("0.1"), operationType = OPERATION.BUY)
         `when`(userRepository.findById(userId)).thenReturn(Optional.empty())
 
         // Act & Assert
@@ -75,7 +75,7 @@ class IntentServiceImplTest {
             account = null
         )
         user.id = userId
-        val intent = ExpressIntentionDTO(cryptoAsset = SYMBOL.BTCUSDT, nominalAmount = BigDecimal("0.1"), operationType = OPERATION.BUY)
+        val intent = RequestExpressIntentionDTO(cryptoAsset = SYMBOL.BTCUSDT, nominalAmount = BigDecimal("0.1"), operationType = OPERATION.BUY)
         val dolarCrypto = DolarCrypto(BigDecimal("150.0"), BigDecimal("160.0"))
         val cryptoValue = CryptoCurrency(SYMBOL.BTCUSDT, BigDecimal("5000.0"), LocalDateTime.now())
         val dollarValue = BigDecimal("155.0")
@@ -93,7 +93,7 @@ class IntentServiceImplTest {
         )
 
         val savedOperationIntent = operationIntention.apply { id = 1L }
-        val expectedResponse = ExpressIntentionResponseDTO(
+        val expectedResponse = ResponseExpressIntentionDTO(
             id = 1L,
             cryptoAsset = intent.cryptoAsset,
             nominalAmount = intent.nominalAmount,
@@ -163,12 +163,13 @@ class IntentServiceImplTest {
         val activeIntents = listOf(operationIntention1)
         account.intents = mutableListOf(operationIntention1)
 
-        val expectedResponse = ListCryptoActiveIntentionResponseDTO(
+        val expectedResponse = ResponseListCryptoActiveIntentionDTO(
             firstName = user.name,
             lastName = user.lastName,
             reputation = "0",
             listActiveIntention = activeIntents.map {
-                ActiveIntentionResponseDTO(
+                ResponseActiveIntentionDTO(
+                    id = it.id!!,
                     symbol = it.symbol,
                     nominalAmount = it.nominalQuantity,
                     localAmount = it.localPrice,

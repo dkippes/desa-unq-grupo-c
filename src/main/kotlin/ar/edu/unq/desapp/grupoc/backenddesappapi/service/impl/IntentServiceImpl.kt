@@ -10,9 +10,9 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFound
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.usercase.DollarStrategyProvider
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.usercase.QuoteCalculator
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.proxys.BinanceProxyService
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ExpressIntentionResponseDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ListCryptoActiveIntentionResponseDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestExpressIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseExpressIntentionDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseListCryptoActiveIntentionDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -34,7 +34,7 @@ class IntentServiceImpl : IntentService {
     @Autowired
     lateinit var dolarStrategyProvider: DollarStrategyProvider
 
-    override fun expressIntention(intent: ExpressIntentionDTO, userId: Long): ExpressIntentionResponseDTO {
+    override fun expressIntention(intent: RequestExpressIntentionDTO, userId: Long): ResponseExpressIntentionDTO {
         val user = userRepository.findById(userId)
             .orElseThrow { throw UserNotFoundException() }
 
@@ -50,7 +50,7 @@ class IntentServiceImpl : IntentService {
         return Factory.createExpressIntentionResponseDTO(savedOperationIntent, user)
     }
 
-    override fun listActiveIntentionResponseDTO(userId: Long): ListCryptoActiveIntentionResponseDTO? {
+    override fun listActiveIntentionResponseDTO(userId: Long): ResponseListCryptoActiveIntentionDTO? {
         val user = userRepository.findById(userId)
             .orElseThrow { throw UserNotFoundException() }
 

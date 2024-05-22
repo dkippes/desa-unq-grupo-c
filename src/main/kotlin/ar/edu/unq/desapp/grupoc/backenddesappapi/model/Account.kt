@@ -1,9 +1,13 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OperationStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
-import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.*
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.OperationCancelledException
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.OperationFinishedException
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.TransferAlreadySentException
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.TransferNotSentException
 import jakarta.persistence.*
 import java.math.BigDecimal
 
@@ -49,7 +53,9 @@ class Account (
             throw TransferNotSentException()
         }
         transaction.status = TransactionStatus.TRANSFER_RECEIVE
-        this.increasePoints(transaction.getPointsForFinish())
+        transaction.buyer?.increasePoints(transaction.getPointsForFinish())
+        transaction.seller?.increasePoints(transaction.getPointsForFinish())
+        transaction.intention?.status = OperationStatus.CLOSED
     }
 
     fun sendTransfer(transaction: Transaction) {

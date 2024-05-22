@@ -5,9 +5,9 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.persistence.UserRepository
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.UserService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserAlreadyExistsException
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFoundException
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.LoginUserDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.RegisterUserDTO
-import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.ResponseUserDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestLoginUserDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestRegisterUserDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseUserDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -16,7 +16,7 @@ class UserServiceImpl : UserService {
 
     @Autowired
     private lateinit var userRepository: UserRepository
-    override fun registerUser(registerUserDTO: RegisterUserDTO): ResponseUserDTO {
+    override fun registerUser(registerUserDTO: RequestRegisterUserDTO): ResponseUserDTO {
         val user = Factory.createUserFromRequestUserDTO(registerUserDTO)
         if (userRepository.existsByEmail(user.email)) {
             throw UserAlreadyExistsException()
@@ -24,7 +24,7 @@ class UserServiceImpl : UserService {
         return Factory.createDTOFromUser(userRepository.save(user))
     }
 
-    override fun login(loginUserDTO : LoginUserDTO): ResponseUserDTO {
+    override fun login(loginUserDTO : RequestLoginUserDTO): ResponseUserDTO {
         val user = userRepository.findByEmail(loginUserDTO.email!!)
         if (user == null || user.password != loginUserDTO.password) {
             throw UserNotFoundException()
