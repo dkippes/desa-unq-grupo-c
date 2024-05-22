@@ -1,6 +1,7 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.model
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
+import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OperationStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import jakarta.persistence.*
 import java.time.LocalDateTime
@@ -41,5 +42,6 @@ class Transaction (
 
     fun cancelBySystem() {
         this.status = TransactionStatus.CANCELED
+        this.intention!!.status = OperationStatus.CLOSED
     }
 }

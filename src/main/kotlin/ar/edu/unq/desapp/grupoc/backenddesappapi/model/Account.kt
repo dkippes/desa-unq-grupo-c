@@ -75,6 +75,7 @@ class Account (
 
         this.decreaseReputationPoints(transaction.getPointsPenalizationForCancel())
         transaction.status = TransactionStatus.CANCELED
+        transaction.intention?.status = OperationStatus.CLOSED
     }
 
     private fun validateIfOperationWasCancelled(transaction: Transaction) {
