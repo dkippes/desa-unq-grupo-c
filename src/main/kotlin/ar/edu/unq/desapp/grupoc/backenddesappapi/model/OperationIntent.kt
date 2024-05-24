@@ -31,8 +31,8 @@ class OperationIntent (
     fun isActive(): Boolean = this.status === OperationStatus.OPEN
 
     fun generateNewTransaction(interestUser: Account, currentPrice: Double): Transaction {
-        if (interestUser.id == account!!.id) {
-            throw IllegalArgumentException("The interest user must be different from the account user")
+        require(interestUser.id != account!!.id) {
+            "The interest user must be different from the account user"
         }
 
         if (operation == OPERATION.SELL) {
