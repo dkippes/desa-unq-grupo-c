@@ -3,10 +3,18 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.usercase
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrency
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 
 class QuoteCalculatorTest {
+
+    @Test
+    fun emptyClassTest() {
+        val quoteCalculator = QuoteCalculator()
+        assertNotNull(quoteCalculator)
+    }
+
     @Test
     fun `should correctly calculate local quote based on given crypto price, dollar rate, and nominal amount`() {
         val crypto = CryptoCurrency(SYMBOL.BTCUSDT, BigDecimal("50000"), null)  // Assume price is in USD
