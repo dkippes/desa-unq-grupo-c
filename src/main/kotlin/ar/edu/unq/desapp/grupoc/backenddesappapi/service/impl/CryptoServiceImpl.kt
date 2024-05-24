@@ -5,6 +5,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrencyList
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.persistence.CryptoRepository
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.CryptoService
+import ar.edu.unq.desapp.grupoc.backenddesappapi.service.client.CurrentCryptoQuotePrice
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.CryptoCurrencyNotFoundException
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.proxys.BinanceProxyService
 import org.springframework.beans.factory.annotation.Autowired
@@ -31,9 +32,16 @@ class CryptoServiceImpl : CryptoService {
 
     override fun getCryptoCurrencyPrice(symbol: SYMBOL): CryptoCurrency? {
         val entity: CryptoCurrency? = binanceProxyService.getCryptoCurrencyValue(symbol)
-        if(entity == null) throw CryptoCurrencyNotFoundException()
+        if (entity == null) throw CryptoCurrencyNotFoundException()
         entity.lastUpdateDateAndTime = LocalDateTime.now()
         return cryptoRepository.save(entity)
     }
 
+    override fun getHourlyQuotes(symbol: String?): List<CurrentCryptoQuotePrice> {
+        try {
+            return binanceProxyService.getHourlyQuotes(SYMBOL.valueOf(symbol!!))
+        } catch (e: Exception) {
+            throw CryptoCurrencyNotFoundException()
+        }
+    }
 }
