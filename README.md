@@ -55,7 +55,7 @@
 | Auditoria de Web-Services. Loguear <timestamp,user,operación/metodo, parámetros, tiempoDeEjecicion> de los servicios publicados con Spring utilizando Log4j/logback - D | 🔴 |
 | TAG en GitHub y Confeccionar Release Notes de entrega 3 - J                                                                                                             | 🔴 |
 | Segurizar el acceso a la API (JWT) - J                                                                                                                                  | 🔴 |
-| Mostrar las cotizaciones de las últimas 24hs para un cripto activo dado - D                                                                                             | 🔴 |
+| Mostrar las cotizaciones de las últimas 24hs para un cripto activo dado - D                                                                                             | 🟢 |
 | Listado de cotizaciones (alta performance - implementar cache) - D                                                                                                      | 🔴 |
 ---
 ## Correr docker
