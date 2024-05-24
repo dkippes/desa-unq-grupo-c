@@ -3,6 +3,7 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrency
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.persistence.CryptoRepository
+import ar.edu.unq.desapp.grupoc.backenddesappapi.service.client.CurrentCryptoQuotePrice
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.CryptoCurrencyNotFoundException
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.proxys.BinanceProxyService
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -79,6 +80,48 @@ class CryptoServiceTest {
 
         assertThrows<CryptoCurrencyNotFoundException> {
             cryptoService.getCryptoCurrencyPrice(SYMBOL.BTCUSDT)
+        }
+    }
+
+    @Test
+    fun `should return hourly quotes when a valid symbol is provided`() {
+        // Arrange
+        val symbol = SYMBOL.BTCUSDT
+        val mockQuotes = listOf(
+            CurrentCryptoQuotePrice(dateTime = LocalDateTime.now(), price = "35000.0"),
+            CurrentCryptoQuotePrice(dateTime = LocalDateTime.now().plusHours(1), price = "35500.0")
+        )
+        Mockito.`when`(binanceProxyService.getHourlyQuotes(symbol)).thenReturn(mockQuotes)
+
+        // Act
+        val result = cryptoService.getHourlyQuotes(symbol.name)
+
+        // Assert
+        assertNotNull(result)
+        assertEquals(2, result.size)
+        assertEquals("35000.0", result[0].price)
+        assertEquals("35500.0", result[1].price)
+    }
+
+    @Test
+    fun `should throw CryptoCurrencyNotFoundException when symbol is null`() {
+        // Arrange
+        val symbol = null
+
+        // Act & Assert
+        assertThrows<CryptoCurrencyNotFoundException> {
+            cryptoService.getHourlyQuotes(symbol)
+        }
+    }
+
+    @Test
+    fun `should throw CryptoCurrencyNotFoundException when symbol is invalid`() {
+        // Arrange
+        val invalidSymbol = "INVALID"
+
+        // Act & Assert
+        assertThrows<CryptoCurrencyNotFoundException> {
+            cryptoService.getHourlyQuotes(invalidSymbol)
         }
     }
 }

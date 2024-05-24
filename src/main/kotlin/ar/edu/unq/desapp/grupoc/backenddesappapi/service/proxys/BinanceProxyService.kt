@@ -3,7 +3,9 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.service.proxys
 import ar.edu.unq.desapp.grupoc.backenddesappapi.helpers.Factory
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrency
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
+import ar.edu.unq.desapp.grupoc.backenddesappapi.service.client.CurrentCryptoQuotePrice
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.dto.CryptoCurrencyDTO
+import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.CryptoCurrencyNotFoundException
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.springframework.beans.factory.annotation.Value
@@ -36,5 +38,14 @@ class BinanceProxyService {
             binanceApiURL + "ticker/price?symbol=" + symbol.toString(),
             CryptoCurrency::class.java
         )
+    }
+
+    fun getHourlyQuotes(symbol: SYMBOL): List<CurrentCryptoQuotePrice> {
+        val response = restTemplate.getForEntity(
+            binanceApiURL + "klines?symbol=" + symbol.toString() + "&interval=5m&limit=280",
+            Array<Array<Any>>::class.java
+        ).body ?: throw CryptoCurrencyNotFoundException()
+
+        return Factory.createCurrentCryptoQuotePriceFromResponse(response)
     }
 }
