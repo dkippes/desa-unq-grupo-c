@@ -13,6 +13,7 @@ plugins {
 val springdocVersion = "2.2.0"
 val mockitoVersion = "3.+"
 val junitVersion = "4.13.2"
+val archunitVersion = "1.0.1"
 
 sonar {
     properties {
@@ -51,6 +52,7 @@ dependencies {
     testImplementation("org.mockito:mockito-core:${mockitoVersion}")
     testImplementation("junit:junit:${junitVersion}")
     testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+    testImplementation("com.tngtech.archunit:archunit-junit4:${archunitVersion}")
 }
 
 tasks.withType<KotlinCompile> {

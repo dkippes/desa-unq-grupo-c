@@ -1,4 +1,4 @@
-package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.exception
+package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.handlers
 
 import jakarta.persistence.EntityNotFoundException
 import org.apache.coyote.BadRequestException

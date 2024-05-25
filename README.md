@@ -9,7 +9,6 @@
 ---
 ## TODO
 
-- [ ] mejorar visualización de errores
 - [ ] Corregir issues sonacloud
 
 ---

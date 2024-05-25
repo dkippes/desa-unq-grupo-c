@@ -1,4 +1,4 @@
-package ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions
+package ar.edu.unq.desapp.grupoc.backenddesappapi.service.enums
 
 enum class MsgExceptions {
     USER_NOT_FOUND {
