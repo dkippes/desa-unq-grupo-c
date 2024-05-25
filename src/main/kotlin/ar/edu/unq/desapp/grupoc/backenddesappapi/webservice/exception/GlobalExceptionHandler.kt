@@ -1,5 +1,7 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.exception
 
+import jakarta.persistence.EntityNotFoundException
+import org.apache.coyote.BadRequestException
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
@@ -21,5 +23,28 @@ class GlobalExceptionHandler {
         return errors
     }
 
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Exception::class)
+    fun handleGenericException(ex: Exception): Map<String, String> {
+        val errors = HashMap<String, String>()
+        errors["details"] = ex.message ?: "An unexpected error occurred"
+        return errors
+    }
 
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(EntityNotFoundException::class)
+    fun handleNotFoundException(ex: EntityNotFoundException): Map<String, String> {
+        val errors = HashMap<String, String>()
+        errors["details"] = ex.message ?: "An unexpected error occurred"
+        return errors
+    }
+
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(BadRequestException::class)
+    fun handleBadRequest(ex: BadRequestException): Map<String, String> {
+        val errors = HashMap<String, String>()
+        errors["details"] = ex.message ?: "An unexpected error occurred"
+        return errors
+    }
 }
