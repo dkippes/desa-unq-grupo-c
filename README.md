@@ -9,7 +9,8 @@
 ---
 ## TODO
 
-- [ ] Corregir issues sonacloud
+- [ ] Corregir coverage Sonar
+- [ ] Cambiar archivo de data.sql por inicializadores.
 
 ---
 ## Entrega Nro 1
