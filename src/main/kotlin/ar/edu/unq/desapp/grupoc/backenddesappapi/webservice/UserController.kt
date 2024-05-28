@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.log.LogExecutionTime
 import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.utils.JwtUtil
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.UserService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserAlreadyExistsException
@@ -16,6 +17,7 @@ import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpHeaders
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -26,10 +28,12 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
+
 @RestController
 @RequestMapping("/users")
 @Tag(name = "Users", description = "Endpoints related with users data")
 @Validated
+@EnableAutoConfiguration
 class UserController {
     @Autowired private lateinit var userService: UserService
     @Autowired private lateinit var authenticationManager: AuthenticationManager
@@ -50,6 +54,7 @@ class UserController {
             ])
         ]
     )
+    @LogExecutionTime
     fun registerUser(@Valid @RequestBody userInput: RequestRegisterUserDTO): ResponseEntity<ResponseUserDTO> {
         val response = userService.registerUser(userInput)
         // TODO: Deberiamos mover esto a un controller en especifico?
@@ -73,6 +78,7 @@ class UserController {
             ])
         ]
     )
+    @LogExecutionTime
     fun loginUser(@Valid @RequestBody userInput: RequestLoginUserDTO): ResponseEntity<ResponseUserDTO> {
         val response = userService.login(userInput)
         return authenticatedResponseEntity(userInput.email!!, userInput.password!!).body(response)
