@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.log.LogExecutionTime
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrency
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrencyList
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
@@ -14,6 +15,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
@@ -26,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/crypto")
 @Tag(name = "Crypto", description = "Endpoints related with cryptocurrencies data")
 @Validated
+@EnableAutoConfiguration
 class CryptoController {
     @Autowired
     lateinit var cryptoService: CryptoService
@@ -44,6 +47,7 @@ class CryptoController {
             )
         ]
     )
+    @LogExecutionTime
     fun currencies(): ResponseEntity<CryptoCurrencyList> {
         return ResponseEntity.ok(cryptoService.getAllCryptoCurrencyPrices())
     }
@@ -64,6 +68,7 @@ class CryptoController {
             )
         ]
     )
+    @LogExecutionTime
     fun currency(@PathVariable symbol: SYMBOL): ResponseEntity<CryptoCurrency> {
         return ResponseEntity.ok(cryptoService.getCryptoCurrencyPrice(symbol))
     }
@@ -88,6 +93,7 @@ class CryptoController {
             )
         ]
     )
+    @LogExecutionTime
     fun getHourlyQuotes(@PathVariable symbol: String?): ResponseEntity<List<CurrentCryptoQuotePrice>> {
         return ResponseEntity.ok(cryptoService.getHourlyQuotes(symbol))
     }

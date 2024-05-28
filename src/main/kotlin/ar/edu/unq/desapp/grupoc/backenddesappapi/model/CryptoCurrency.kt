@@ -17,4 +17,8 @@ class CryptoCurrency(
     @JsonProperty("price")
     var price: BigDecimal,
     var lastUpdateDateAndTime: LocalDateTime?
-)
+) {
+    override fun toString(): String {
+        return "CryptoCurrency(symbol=$symbol, price=$price, lastUpdateDateAndTime=$lastUpdateDateAndTime)"
+    }
+}
