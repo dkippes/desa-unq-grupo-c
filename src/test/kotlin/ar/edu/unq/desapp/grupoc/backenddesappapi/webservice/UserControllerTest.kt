@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
+import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
@@ -34,7 +35,7 @@ class UserControllerTest {
         )
         val parsedUserData = ObjectMapper().writeValueAsString(userData)
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/register")
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/auth/register")
             .contentType(MediaType.APPLICATION_JSON)
             .content(parsedUserData)
         )
@@ -61,7 +62,7 @@ class UserControllerTest {
         )
         val parsedUserData = ObjectMapper().writeValueAsString(userData)
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/register")
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/auth/register")
             .contentType(MediaType.APPLICATION_JSON)
             .content(parsedUserData)
         ).andExpect(MockMvcResultMatchers.status().isBadRequest)
@@ -75,7 +76,7 @@ class UserControllerTest {
         )
         val parsedUserData = ObjectMapper().writeValueAsString(userData)
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/login")
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/auth/login")
             .contentType(MediaType.APPLICATION_JSON)
             .content(parsedUserData)
         ).andExpect(MockMvcResultMatchers.status().isNotFound)
