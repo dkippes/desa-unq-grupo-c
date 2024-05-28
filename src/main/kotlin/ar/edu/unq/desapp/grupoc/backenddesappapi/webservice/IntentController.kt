@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.log.LogExecutionTime
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.IntentService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFoundException
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestExpressIntentionDTO
@@ -40,6 +41,7 @@ class IntentController {
             ])
         ]
     )
+    @LogExecutionTime
     fun expressIntent(
         @PathVariable("userId") userId: Long,
         @Valid @RequestBody userInput: RequestExpressIntentionDTO
@@ -59,6 +61,7 @@ class IntentController {
             ])
         ]
     )
+    @LogExecutionTime
     fun listIntents(@PathVariable("userId") userId: Long): ResponseEntity<ResponseListCryptoActiveIntentionDTO> {
         return ResponseEntity.ok(intentService.listActiveIntentionResponseDTO(userId))
     }

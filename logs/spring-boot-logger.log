@@ -1,0 +1,380 @@
+2024-05-28 02:27:55,386 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-28 02:27:55,386 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2024-05-28 02:27:55,387 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2024-05-28 02:27:55,487 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-2] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:27:55,490 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:27:55,490 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestLoginUserDTO(email=john.do@example.com, password=Password123!)
+2024-05-28 02:27:55,583 ERROR a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - ERROR: User not found
+2024-05-28 02:27:55,584 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.loginUser(RequestLoginUserDTO) executed in 93ms 
+2024-05-28 02:27:55,584 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 02:27:55,584 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-2] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:28:10,757 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-3] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:28:10,757 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:28:10,757 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestLoginUserDTO(email=john.do@example.com, password=Password123!)
+2024-05-28 02:28:10,759 ERROR a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - ERROR: User not found
+2024-05-28 02:28:10,759 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.loginUser(RequestLoginUserDTO) executed in 2ms 
+2024-05-28 02:28:10,759 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 02:28:10,759 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-3] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:28:21,632 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 02:28:21,639 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos ya esta cerrada (para des-habilitar el cerrado automatico durante el shutdown de la VM, agregue ";DB_CLOSE_ON_EXIT=FALSE" a la URL de conexión)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-05-28 02:28:21,640 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-05-28 02:28:21,641 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-05-28 02:28:23,779 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-05-28 02:28:23,808 INFO o.s.b.StartupInfoLogger [restartedMain] Starting BackendDesappApiApplicationKt using Java 17.0.2 with PID 11552 (C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c\build\classes\kotlin\main started by Diego in C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c)
+2024-05-28 02:28:23,809 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-05-28 02:28:23,843 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-28 02:28:23,844 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-28 02:28:24,490 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-28 02:28:24,543 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 47 ms. Found 5 JPA repository interfaces.
+2024-05-28 02:28:25,073 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port 8080 (http)
+2024-05-28 02:28:25,080 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-28 02:28:25,081 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-05-28 02:28:25,081 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-28 02:28:25,117 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-05-28 02:28:25,117 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1273 ms
+2024-05-28 02:28:25,143 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-05-28 02:28:25,267 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-05-28 02:28:25,269 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-05-28 02:28:25,275 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-05-28 02:28:25,376 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-28 02:28:25,419 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-28 02:28:25,443 INFO o.h.c.i.RegionFactoryInitiator [restartedMain] HHH000026: Second-level cache disabled
+2024-05-28 02:28:25,611 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-28 02:28:25,645 WARN o.h.e.j.d.i.DialectFactoryImpl [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-28 02:28:26,279 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-28 02:28:26,322 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 02:28:26,980 INFO o.s.d.j.r.q.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-28 02:28:27,190 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-28 02:28:27,656 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-05-28 02:28:27,670 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2024-05-28 02:28:27,683 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port 8080 (http) with context path ''
+2024-05-28 02:28:27,690 INFO o.s.b.StartupInfoLogger [restartedMain] Started BackendDesappApiApplicationKt in 4.196 seconds (process running for 4.611)
+2024-05-28 02:28:37,789 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-28 02:28:37,789 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2024-05-28 02:28:37,790 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2024-05-28 02:28:37,924 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-2] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:28:37,927 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:28:37,927 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestLoginUserDTO(email=john.do@example.com, password=Password123!)
+2024-05-28 02:28:38,029 ERROR a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - ERROR: User not found
+2024-05-28 02:28:38,030 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.loginUser(RequestLoginUserDTO) executed in 102ms 
+2024-05-28 02:28:38,030 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 02:28:38,030 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-2] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:28:55,408 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 02:28:55,416 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos ya esta cerrada (para des-habilitar el cerrado automatico durante el shutdown de la VM, agregue ";DB_CLOSE_ON_EXIT=FALSE" a la URL de conexión)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-05-28 02:28:55,416 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-05-28 02:28:55,418 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-05-28 02:28:57,163 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-05-28 02:28:57,193 INFO o.s.b.StartupInfoLogger [restartedMain] Starting BackendDesappApiApplicationKt using Java 17.0.2 with PID 5952 (C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c\build\classes\kotlin\main started by Diego in C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c)
+2024-05-28 02:28:57,194 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-05-28 02:28:57,232 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-28 02:28:57,232 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-28 02:28:57,952 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-28 02:28:58,012 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 54 ms. Found 5 JPA repository interfaces.
+2024-05-28 02:28:58,618 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port 8080 (http)
+2024-05-28 02:28:58,625 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-28 02:28:58,626 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-05-28 02:28:58,626 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-28 02:28:58,668 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-05-28 02:28:58,669 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1437 ms
+2024-05-28 02:28:58,699 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-05-28 02:28:58,838 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-05-28 02:28:58,840 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-05-28 02:28:58,848 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-05-28 02:28:58,950 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-28 02:28:58,994 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-28 02:28:59,020 INFO o.h.c.i.RegionFactoryInitiator [restartedMain] HHH000026: Second-level cache disabled
+2024-05-28 02:28:59,226 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-28 02:28:59,265 WARN o.h.e.j.d.i.DialectFactoryImpl [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-28 02:28:59,990 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-28 02:29:00,036 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 02:29:00,721 INFO o.s.d.j.r.q.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-28 02:29:00,978 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-28 02:29:01,562 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-05-28 02:29:01,578 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2024-05-28 02:29:01,593 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port 8080 (http) with context path ''
+2024-05-28 02:29:01,600 INFO o.s.b.StartupInfoLogger [restartedMain] Started BackendDesappApiApplicationKt in 4.772 seconds (process running for 5.256)
+2024-05-28 02:29:03,258 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-28 02:29:03,258 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-05-28 02:29:03,259 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2024-05-28 02:29:03,373 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-1] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:29:05,238 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-1] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:29:07,662 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-1] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestLoginUserDTO(email=john.do@example.com, password=Password123!)
+2024-05-28 02:29:20,639 ERROR a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-1] /////// LogExecutionTimeAspectAnnotation - ERROR: User not found
+2024-05-28 02:29:20,641 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-1] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.loginUser(RequestLoginUserDTO) executed in 14530ms 
+2024-05-28 02:29:20,641 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-1] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 02:29:23,619 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-1] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:30:08,549 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 02:30:08,557 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos ya esta cerrada (para des-habilitar el cerrado automatico durante el shutdown de la VM, agregue ";DB_CLOSE_ON_EXIT=FALSE" a la URL de conexión)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-05-28 02:30:08,557 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-05-28 02:30:08,557 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-05-28 02:30:10,910 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-05-28 02:30:10,939 INFO o.s.b.StartupInfoLogger [restartedMain] Starting BackendDesappApiApplicationKt using Java 17.0.2 with PID 23832 (C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c\build\classes\kotlin\main started by Diego in C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c)
+2024-05-28 02:30:10,940 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-05-28 02:30:10,978 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-28 02:30:10,978 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-28 02:30:11,699 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-28 02:30:11,761 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 55 ms. Found 5 JPA repository interfaces.
+2024-05-28 02:30:12,335 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port 8080 (http)
+2024-05-28 02:30:12,343 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-28 02:30:12,344 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-05-28 02:30:12,345 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-28 02:30:12,385 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-05-28 02:30:12,385 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1407 ms
+2024-05-28 02:30:12,413 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-05-28 02:30:12,545 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-05-28 02:30:12,546 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-05-28 02:30:12,554 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-05-28 02:30:12,657 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-28 02:30:12,700 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-28 02:30:12,725 INFO o.h.c.i.RegionFactoryInitiator [restartedMain] HHH000026: Second-level cache disabled
+2024-05-28 02:30:12,907 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-28 02:30:12,942 WARN o.h.e.j.d.i.DialectFactoryImpl [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-28 02:30:13,582 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-28 02:30:13,623 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 02:30:14,251 INFO o.s.d.j.r.q.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-28 02:30:14,469 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-28 02:30:15,007 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-05-28 02:30:15,024 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2024-05-28 02:30:15,039 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port 8080 (http) with context path ''
+2024-05-28 02:30:15,046 INFO o.s.b.StartupInfoLogger [restartedMain] Started BackendDesappApiApplicationKt in 4.428 seconds (process running for 4.848)
+2024-05-28 02:30:17,388 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-28 02:30:17,388 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2024-05-28 02:30:17,389 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2024-05-28 02:30:17,492 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-2] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:30:17,495 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:30:17,495 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestLoginUserDTO(email=john.do@example.com, password=Password123!)
+2024-05-28 02:30:17,590 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-2] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:30:17,591 WARN o.s.w.s.h.AbstractHandlerExceptionResolver [http-nio-8080-exec-2] Resolved [ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFoundException: User not found]
+2024-05-28 02:30:27,237 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-3] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:30:27,237 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:30:27,239 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestRegisterUserDTO(name=Joh, lastName=Smith, email=john.do@example.com, password=Password123!, cvu=1234567890123456789012, address=123 Main St, walletAddress=ABCDEFGH)
+2024-05-28 02:30:27,286 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.registerUser(RequestRegisterUserDTO) executed in 48ms 
+2024-05-28 02:30:27,290 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,ResponseUserDTO(id=3, name=Joh, lastName=Smith, email=john.do@example.com, address=123 Main St, account=ResponseAccountDTO(id=3, cvu=1234567890123456789012, walletAddress=ABCDEFGH, reputation=0)),[]>.toString()
+2024-05-28 02:30:27,290 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 02:30:27,290 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-3] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:30:43,343 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 02:30:43,349 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos ya esta cerrada (para des-habilitar el cerrado automatico durante el shutdown de la VM, agregue ";DB_CLOSE_ON_EXIT=FALSE" a la URL de conexión)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-05-28 02:30:43,350 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-05-28 02:30:43,351 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-05-28 02:30:45,607 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-05-28 02:30:45,632 INFO o.s.b.StartupInfoLogger [restartedMain] Starting BackendDesappApiApplicationKt using Java 17.0.2 with PID 24196 (C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c\build\classes\kotlin\main started by Diego in C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c)
+2024-05-28 02:30:45,633 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-05-28 02:30:45,666 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-28 02:30:45,667 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-28 02:30:46,315 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-28 02:30:46,370 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 49 ms. Found 5 JPA repository interfaces.
+2024-05-28 02:30:46,893 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port 8080 (http)
+2024-05-28 02:30:46,900 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-28 02:30:46,901 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-05-28 02:30:46,901 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-28 02:30:46,938 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-05-28 02:30:46,939 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1271 ms
+2024-05-28 02:30:46,965 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-05-28 02:30:47,089 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-05-28 02:30:47,090 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-05-28 02:30:47,097 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-05-28 02:30:47,191 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-28 02:30:47,232 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-28 02:30:47,255 INFO o.h.c.i.RegionFactoryInitiator [restartedMain] HHH000026: Second-level cache disabled
+2024-05-28 02:30:47,417 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-28 02:30:47,449 WARN o.h.e.j.d.i.DialectFactoryImpl [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-28 02:30:48,081 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-28 02:30:48,123 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 02:30:48,742 INFO o.s.d.j.r.q.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-28 02:30:48,945 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-28 02:30:49,406 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-05-28 02:30:49,420 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2024-05-28 02:30:49,432 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port 8080 (http) with context path ''
+2024-05-28 02:30:49,439 INFO o.s.b.StartupInfoLogger [restartedMain] Started BackendDesappApiApplicationKt in 4.113 seconds (process running for 4.509)
+2024-05-28 02:30:53,624 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-28 02:30:53,624 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-05-28 02:30:53,625 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 0 ms
+2024-05-28 02:30:53,750 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-1] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:30:53,754 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-1] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:30:53,756 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-1] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestRegisterUserDTO(name=Joh, lastName=Smith, email=john.do@example.com, password=Password123!, cvu=1234567890123456789012, address=123 Main St, walletAddress=ABCDEFGH)
+2024-05-28 02:30:53,887 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-1] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.registerUser(RequestRegisterUserDTO) executed in 132ms 
+2024-05-28 02:30:53,891 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-1] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,ResponseUserDTO(id=3, name=Joh, lastName=Smith, email=john.do@example.com, address=123 Main St, account=ResponseAccountDTO(id=3, cvu=1234567890123456789012, walletAddress=ABCDEFGH, reputation=0)),[]>
+2024-05-28 02:30:53,891 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-1] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 02:30:53,891 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-1] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:31:00,881 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-3] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:31:00,882 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:31:00,882 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestRegisterUserDTO(name=Joh, lastName=Smith, email=john.do@example.com, password=Password123!, cvu=1234567890123456789012, address=123 Main St, walletAddress=ABCDEFGH)
+2024-05-28 02:31:00,888 ERROR a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - ERROR: User already exists
+2024-05-28 02:31:00,888 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.registerUser(RequestRegisterUserDTO) executed in 6ms 
+2024-05-28 02:31:00,889 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 02:31:00,889 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-3] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:31:37,149 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-4] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:31:37,149 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-4] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:31:37,149 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-4] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestLoginUserDTO(email=john.do@example.com, password=Password123!)
+2024-05-28 02:31:37,168 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-4] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.loginUser(RequestLoginUserDTO) executed in 19ms 
+2024-05-28 02:31:37,169 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-4] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,ResponseUserDTO(id=3, name=Joh, lastName=Smith, email=john.do@example.com, address=123 Main St, account=ResponseAccountDTO(id=3, cvu=1234567890123456789012, walletAddress=ABCDEFGH, reputation=0)),[]>
+2024-05-28 02:31:37,169 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-4] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 02:31:37,169 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-4] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:31:43,030 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-5] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:31:43,031 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-5] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:31:43,031 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-5] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestLoginUserDTO(email=john.do@exampe.com, password=Password123!)
+2024-05-28 02:31:43,034 ERROR a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-5] /////// LogExecutionTimeAspectAnnotation - ERROR: User not found
+2024-05-28 02:31:43,034 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-5] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.loginUser(RequestLoginUserDTO) executed in 3ms 
+2024-05-28 02:31:43,034 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-5] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 02:31:43,034 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-5] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:32:53,445 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 02:32:53,452 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos ya esta cerrada (para des-habilitar el cerrado automatico durante el shutdown de la VM, agregue ";DB_CLOSE_ON_EXIT=FALSE" a la URL de conexión)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-05-28 02:32:53,452 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-05-28 02:32:53,453 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-05-28 02:32:55,591 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-05-28 02:32:55,617 INFO o.s.b.StartupInfoLogger [restartedMain] Starting BackendDesappApiApplicationKt using Java 17.0.2 with PID 5256 (C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c\build\classes\kotlin\main started by Diego in C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c)
+2024-05-28 02:32:55,617 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-05-28 02:32:55,650 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-28 02:32:55,650 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-28 02:32:56,301 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-28 02:32:56,358 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 51 ms. Found 5 JPA repository interfaces.
+2024-05-28 02:32:56,872 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port 8080 (http)
+2024-05-28 02:32:56,880 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-28 02:32:56,881 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-05-28 02:32:56,882 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-28 02:32:56,919 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-05-28 02:32:56,919 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1269 ms
+2024-05-28 02:32:56,946 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-05-28 02:32:57,066 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-05-28 02:32:57,068 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-05-28 02:32:57,074 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-05-28 02:32:57,167 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-28 02:32:57,210 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-28 02:32:57,233 INFO o.h.c.i.RegionFactoryInitiator [restartedMain] HHH000026: Second-level cache disabled
+2024-05-28 02:32:57,399 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-28 02:32:57,431 WARN o.h.e.j.d.i.DialectFactoryImpl [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-28 02:32:58,081 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-28 02:32:58,122 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 02:32:58,726 INFO o.s.d.j.r.q.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-28 02:32:58,912 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-28 02:32:59,352 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-05-28 02:32:59,365 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2024-05-28 02:32:59,378 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port 8080 (http) with context path ''
+2024-05-28 02:32:59,384 INFO o.s.b.StartupInfoLogger [restartedMain] Started BackendDesappApiApplicationKt in 4.072 seconds (process running for 4.484)
+2024-05-28 02:33:03,601 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-28 02:33:03,602 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-05-28 02:33:03,603 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2024-05-28 02:33:03,707 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-1] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:33:03,710 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-1] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:33:03,710 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-1] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestLoginUserDTO(email=john.do@example.com, password=Password123!)
+2024-05-28 02:33:03,816 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-1] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:33:03,818 WARN o.s.w.s.h.AbstractHandlerExceptionResolver [http-nio-8080-exec-1] Resolved [ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFoundException: User not found]
+2024-05-28 02:35:40,654 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 02:35:40,661 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos ya esta cerrada (para des-habilitar el cerrado automatico durante el shutdown de la VM, agregue ";DB_CLOSE_ON_EXIT=FALSE" a la URL de conexión)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-05-28 02:35:40,662 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-05-28 02:35:40,662 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-05-28 02:35:42,987 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-05-28 02:35:43,014 INFO o.s.b.StartupInfoLogger [restartedMain] Starting BackendDesappApiApplicationKt using Java 17.0.2 with PID 7988 (C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c\build\classes\kotlin\main started by Diego in C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c)
+2024-05-28 02:35:43,015 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-05-28 02:35:43,050 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-28 02:35:43,051 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-28 02:35:43,810 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-28 02:35:43,875 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 58 ms. Found 5 JPA repository interfaces.
+2024-05-28 02:35:44,402 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port 8080 (http)
+2024-05-28 02:35:44,408 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-28 02:35:44,409 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-05-28 02:35:44,410 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-28 02:35:44,446 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-05-28 02:35:44,447 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1395 ms
+2024-05-28 02:35:44,474 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-05-28 02:35:44,595 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-05-28 02:35:44,596 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-05-28 02:35:44,602 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-05-28 02:35:44,700 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-28 02:35:44,742 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-28 02:35:44,765 INFO o.h.c.i.RegionFactoryInitiator [restartedMain] HHH000026: Second-level cache disabled
+2024-05-28 02:35:44,930 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-28 02:35:44,965 WARN o.h.e.j.d.i.DialectFactoryImpl [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-28 02:35:45,619 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-28 02:35:45,660 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 02:35:46,297 INFO o.s.d.j.r.q.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-28 02:35:46,503 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-28 02:35:47,040 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-05-28 02:35:47,060 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2024-05-28 02:35:47,077 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port 8080 (http) with context path ''
+2024-05-28 02:35:47,086 INFO o.s.b.StartupInfoLogger [restartedMain] Started BackendDesappApiApplicationKt in 4.406 seconds (process running for 4.848)
+2024-05-28 02:35:48,420 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-28 02:35:48,420 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2024-05-28 02:35:48,421 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2024-05-28 02:35:48,526 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-2] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:35:48,529 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:35:48,530 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestLoginUserDTO(email=john.do@example.com, password=Password123!)
+2024-05-28 02:35:48,623 ERROR a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - EXCEPTION: User not found
+2024-05-28 02:35:48,624 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.loginUser(RequestLoginUserDTO) executed in 94ms 
+2024-05-28 02:35:48,624 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 02:35:48,624 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-2] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:35:48,626 WARN o.s.w.s.h.AbstractHandlerExceptionResolver [http-nio-8080-exec-2] Resolved [ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFoundException: User not found]
+2024-05-28 02:36:05,406 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-3] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:36:05,407 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:36:05,410 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestRegisterUserDTO(name=Joh, lastName=Smith, email=john.do@example.com, password=Password123!, cvu=1234567890123456789012, address=123 Main St, walletAddress=ABCDEFGH)
+2024-05-28 02:36:05,457 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.registerUser(RequestRegisterUserDTO) executed in 49ms 
+2024-05-28 02:36:05,462 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,ResponseUserDTO(id=3, name=Joh, lastName=Smith, email=john.do@example.com, address=123 Main St, account=ResponseAccountDTO(id=3, cvu=1234567890123456789012, walletAddress=ABCDEFGH, reputation=0)),[]>.toString()
+2024-05-28 02:36:05,463 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 02:36:05,463 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-3] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:36:14,531 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-4] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 02:36:14,531 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-4] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 02:36:14,531 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-4] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestRegisterUserDTO(name=Joh, lastName=Smith, email=john.do@example.com, password=Password123!, cvu=1234567890123456789012, address=123 Main St, walletAddress=ABCDEFGH)
+2024-05-28 02:36:14,536 ERROR a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-4] /////// LogExecutionTimeAspectAnnotation - EXCEPTION: User already exists
+2024-05-28 02:36:14,537 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-4] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.registerUser(RequestRegisterUserDTO) executed in 6ms 
+2024-05-28 02:36:14,537 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-4] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 02:36:14,537 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-4] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 02:36:14,537 WARN o.s.w.s.h.AbstractHandlerExceptionResolver [http-nio-8080-exec-4] Resolved [ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserAlreadyExistsException: User already exists]
+2024-05-28 03:37:59,736 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 03:37:59,744 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos ya esta cerrada (para des-habilitar el cerrado automatico durante el shutdown de la VM, agregue ";DB_CLOSE_ON_EXIT=FALSE" a la URL de conexión)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-05-28 03:37:59,744 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-05-28 03:37:59,745 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-05-28 03:38:02,163 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-05-28 03:38:02,195 INFO o.s.b.StartupInfoLogger [restartedMain] Starting BackendDesappApiApplicationKt using Java 17.0.2 with PID 10924 (C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c\build\classes\kotlin\main started by Diego in C:\Users\Diego\Desktop\2024 - C1\desa\desa-unq-grupo-c)
+2024-05-28 03:38:02,195 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-05-28 03:38:02,238 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-28 03:38:02,239 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-28 03:38:02,913 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-28 03:38:02,971 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 51 ms. Found 5 JPA repository interfaces.
+2024-05-28 03:38:03,497 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port 8080 (http)
+2024-05-28 03:38:03,504 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-28 03:38:03,505 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-05-28 03:38:03,505 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-28 03:38:03,542 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-05-28 03:38:03,542 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1303 ms
+2024-05-28 03:38:03,569 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-05-28 03:38:03,691 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-05-28 03:38:03,692 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-05-28 03:38:03,699 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-05-28 03:38:03,803 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-28 03:38:03,845 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-28 03:38:03,869 INFO o.h.c.i.RegionFactoryInitiator [restartedMain] HHH000026: Second-level cache disabled
+2024-05-28 03:38:04,045 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-28 03:38:04,081 WARN o.h.e.j.d.i.DialectFactoryImpl [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-28 03:38:04,710 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-28 03:38:04,753 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28 03:38:05,393 INFO o.s.d.j.r.q.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-28 03:38:05,609 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-28 03:38:06,142 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-05-28 03:38:06,158 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2024-05-28 03:38:06,173 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port 8080 (http) with context path ''
+2024-05-28 03:38:06,180 INFO o.s.b.StartupInfoLogger [restartedMain] Started BackendDesappApiApplicationKt in 4.345 seconds (process running for 4.744)
+2024-05-28 03:38:06,870 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-28 03:38:06,870 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2024-05-28 03:38:06,872 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2024-05-28 03:38:06,995 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-2] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 03:38:06,999 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 03:38:07,001 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestRegisterUserDTO(name=Joh, lastName=Smith, email=john.do@example.com, password=Password123!, cvu=1234567890123456789012, address=123 Main St, walletAddress=ABCDEFGH)
+2024-05-28 03:38:07,142 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.registerUser(RequestRegisterUserDTO) executed in 142ms 
+2024-05-28 03:38:07,146 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,ResponseUserDTO(id=3, name=Joh, lastName=Smith, email=john.do@example.com, address=123 Main St, account=ResponseAccountDTO(id=3, cvu=1234567890123456789012, walletAddress=ABCDEFGH, reputation=0)),[]>.toString()
+2024-05-28 03:38:07,146 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-2] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 03:38:07,146 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-2] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 03:38:08,413 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-3] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-05-28 03:38:08,413 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-05-28 03:38:08,413 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestRegisterUserDTO(name=Joh, lastName=Smith, email=john.do@example.com, password=Password123!, cvu=1234567890123456789012, address=123 Main St, walletAddress=ABCDEFGH)
+2024-05-28 03:38:08,418 ERROR a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - EXCEPTION: User already exists and null
+2024-05-28 03:38:08,419 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.registerUser(RequestRegisterUserDTO) executed in 6ms 
+2024-05-28 03:38:08,419 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [http-nio-8080-exec-3] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-05-28 03:38:08,419 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [http-nio-8080-exec-3] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-05-28 03:38:08,420 WARN o.s.w.s.h.AbstractHandlerExceptionResolver [http-nio-8080-exec-3] Resolved [ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserAlreadyExistsException: User already exists]

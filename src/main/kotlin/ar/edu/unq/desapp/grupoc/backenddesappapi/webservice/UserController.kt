@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.log.LogExecutionTime
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.UserService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserAlreadyExistsException
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.UserNotFoundException
@@ -14,6 +15,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses
 import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.MethodArgumentNotValidException
@@ -22,10 +24,12 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
+
 @RestController
 @RequestMapping("/users")
 @Tag(name = "Users", description = "Endpoints related with users data")
 @Validated
+@EnableAutoConfiguration
 class UserController {
 
     @Autowired
@@ -46,6 +50,7 @@ class UserController {
             ])
         ]
     )
+    @LogExecutionTime
     fun registerUser(@Valid @RequestBody userInput: RequestRegisterUserDTO): ResponseEntity<ResponseUserDTO> {
         return ResponseEntity.ok(userService.registerUser(userInput))
     }
@@ -65,6 +70,7 @@ class UserController {
             ])
         ]
     )
+    @LogExecutionTime
     fun loginUser(@Valid @RequestBody userInput: RequestLoginUserDTO): ResponseEntity<ResponseUserDTO> {
         return ResponseEntity.ok(userService.login(userInput))
     }

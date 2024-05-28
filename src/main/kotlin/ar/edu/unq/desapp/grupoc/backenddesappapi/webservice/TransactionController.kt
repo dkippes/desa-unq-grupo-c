@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
+import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.log.LogExecutionTime
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.PriceChangedOutOfLimitsException
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.TransactionService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.CryptoCurrencyNotFoundException
@@ -65,6 +66,7 @@ class TransactionController {
             )
         ]
     )
+    @LogExecutionTime
     fun processTransaction(
         @PathVariable transactionId: Long,
         @Valid @RequestBody data: RequestProcessDTO
@@ -124,6 +126,7 @@ class TransactionController {
             )
         ]
     )
+    @LogExecutionTime
     fun generateTransaction(@Valid @RequestBody data: RequestCreateTransactionDTO): ResponseEntity<ResponseTransactionDTO> {
         return ResponseEntity.ok(transactionService.generateTransaction(data.userId!!, data.operationId!!))
     }
@@ -149,6 +152,7 @@ class TransactionController {
             )
         ]
     )
+    @LogExecutionTime
     fun informUserVolume(
         @PathVariable("userId") userId: Long,
         @Valid @RequestBody dates: RequestVolumeDTO
