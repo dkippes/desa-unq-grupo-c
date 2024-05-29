@@ -10,7 +10,7 @@
 ## TODO
 
 - [ ] Corregir coverage Sonar
-- [ ] Cambiar archivo de data.sql por inicializadores.
+- [ ] Cambiar archivo de ejemplo.sql por inicializadores.
 
 ---
 ## Entrega Nro 1
