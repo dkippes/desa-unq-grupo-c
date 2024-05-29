@@ -13,6 +13,9 @@ plugins {
 val springdocVersion = "2.2.0"
 val mockitoVersion = "3.+"
 val junitVersion = "4.13.2"
+val archunitVersion = "1.0.1"
+val jwtVersion = "0.9.1"
+val jaxbVersion = "2.1"
 
 sonar {
     properties {
@@ -42,15 +45,21 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
-    // implementation("org.springframework.boot:spring-boot-starter-security")
-    // implementation("org.springframework.boot:spring-boot-starter-cache")
-    // testImplementation("org.springframework.security:spring-security-test")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
-    runtimeOnly("com.h2database:h2")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("io.jsonwebtoken:jjwt:${jwtVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-cache")
+    implementation("javax.xml.bind:jaxb-api:${jaxbVersion}")
+
+    testImplementation("org.springframework.security:spring-security-test")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.mockito:mockito-core:${mockitoVersion}")
     testImplementation("junit:junit:${junitVersion}")
     testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+    testImplementation("com.tngtech.archunit:archunit-junit4:${archunitVersion}")
+
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    runtimeOnly("com.h2database:h2")
+
 }
 
 tasks.withType<KotlinCompile> {

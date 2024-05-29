@@ -4,6 +4,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.JacksonConfig
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrency
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrencyList
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
+import ar.edu.unq.desapp.grupoc.backenddesappapi.service.client.CurrentCryptoQuotePrice
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.CryptoServiceImpl
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -53,6 +54,23 @@ class CryptoControllerTest {
 
         mockMvc.perform(
             get("/crypto/currency/$symbol")
+                .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+    }
+
+    @Test
+    fun shouldGetHourlyQuotesBySymbol() {
+        val symbol = SYMBOL.BNBUSDT
+
+        val crypto  = CurrentCryptoQuotePrice(
+            dateTime = LocalDateTime.now(),
+            price = BigDecimal.TEN.toString(),
+        )
+        Mockito.`when`(cryptoService.getHourlyQuotes(symbol.name))
+            .thenReturn(listOf(crypto))
+
+        mockMvc.perform(
+            get("/crypto/currency/$symbol/quotes/24h")
                 .contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
     }

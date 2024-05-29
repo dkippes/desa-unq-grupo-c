@@ -1,6 +1,7 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.webservice
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.JacksonConfig
+import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.utils.JwtUtil
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.OPERATION
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.IntentService
@@ -11,6 +12,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.Respons
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
+import org.mockito.Mockito.mock
 import org.mockito.Mockito.`when`
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -18,6 +20,9 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.context.annotation.Import
 import org.springframework.http.MediaType
+import org.springframework.security.authentication.AuthenticationManager
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
@@ -30,6 +35,7 @@ import java.time.LocalDateTime
 @SpringBootTest
 @AutoConfigureMockMvc
 @Import(JacksonConfig::class)
+@WithMockUser(username = "testuser", roles = ["USER"])
 class IntentControllerTest {
     @Autowired
     private lateinit var mockMvc: MockMvc
@@ -39,6 +45,7 @@ class IntentControllerTest {
 
     @Test
     fun `express intent - success`() {
+
         val userId = 1L
         val userInput = RequestExpressIntentionDTO(
             cryptoAsset = SYMBOL.BTCUSDT,
