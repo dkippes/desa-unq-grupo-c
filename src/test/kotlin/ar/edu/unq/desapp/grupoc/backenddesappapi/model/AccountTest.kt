@@ -91,7 +91,7 @@ class AccountTest {
     }
 
     @Test
-    fun `test confirmReception when transaction status is wating action`() {
+    fun `test confirmReception when transaction status is waiting action`() {
         val transaction = Transaction()
         transaction.status = TransactionStatus.WAITING_ACTION
 
@@ -102,12 +102,27 @@ class AccountTest {
 
     @Test
     fun `test confirmReception when transaction status is transfer sent`() {
-        val transaction = Transaction()
-        transaction.status = TransactionStatus.TRANSFER_SENT
+        val seller = Account(walletAddress = "12345678", cvu = "1111111111111111111111")
+        val transaction = Transaction(
+            buyer = account,
+            seller = seller,
+            status = TransactionStatus.TRANSFER_SENT,
+            intention = OperationIntent(
+                nominalQuantity = BigDecimal(100.0),
+                nominalPrice = BigDecimal(10.0),
+                localPrice = BigDecimal(12.0),
+                operation = OPERATION.BUY,
+                account = account,
+                symbol = SYMBOL.ADAUSDT
+            )
+        )
+
+        val oldReputation = account.reputation
 
         account.confirmReception(transaction)
 
         assertEquals(transaction.status, TransactionStatus.TRANSFER_RECEIVE)
+        assertEquals(oldReputation + transaction.getPointsForFinish(), account.reputation)
     }
 
     @Test
@@ -142,7 +157,7 @@ class AccountTest {
 
     @Test
     fun `test cancel when transaction is already cancelled`() {
-        val transaction = Transaction(/* datos de la transacción */)
+        val transaction = Transaction()
         transaction.status = TransactionStatus.CANCELED
 
         assertThrows<OperationCancelledException> {

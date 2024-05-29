@@ -6,13 +6,26 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.SYMBOL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.enums.TransactionStatus
 import ar.edu.unq.desapp.grupoc.backenddesappapi.model.exceptions.PriceChangedOutOfLimitsException
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Assertions.assertNull
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 import org.mockito.Mockito.mock
 import java.math.BigDecimal
 
 class OperationIntentTest() {
+
+    private var operationIntent1: OperationIntent = OperationIntent(
+        symbol = SYMBOL.ADAUSDT,
+        nominalQuantity = BigDecimal.valueOf(100.0),
+        nominalPrice = BigDecimal.valueOf(10.0),
+        localPrice = BigDecimal.valueOf(12.0),
+        operation = OPERATION.BUY,
+        account = Account(walletAddress = "as", cvu="ed"),
+        status = OperationStatus.OPEN,
+        transaction = Transaction(),
+
+    )
+
     @Test
     fun shouldBeActiveWhenStatusIsOpen() {
         val operationIntent = OperationIntent(
@@ -153,4 +166,26 @@ class OperationIntentTest() {
             operationIntent.generateNewTransaction(user1, 10.0)
         }
     }
+
+    @Test
+    fun assertEquality() {
+        val operationIntent2 = OperationIntent(
+            symbol = SYMBOL.ADAUSDT,
+            nominalQuantity = BigDecimal.valueOf(100.0),
+            nominalPrice = BigDecimal.valueOf(10.0),
+            localPrice = BigDecimal.valueOf(12.0),
+            operation = OPERATION.BUY,
+            account = Account(walletAddress = "as", cvu="ed"),
+            status = OperationStatus.OPEN,
+            transaction = Transaction(),
+        )
+
+        Assertions.assertAll({
+            assertEquals(operationIntent1, operationIntent1);
+            assertEquals(operationIntent1.hashCode(), operationIntent1.hashCode());
+            assertNotEquals(operationIntent1, operationIntent2);
+            assertNotEquals(operationIntent1.hashCode(), operationIntent2.hashCode())
+        })
+    }
+
 }
