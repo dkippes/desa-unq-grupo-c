@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 @RestControllerAdvice
 class GlobalExceptionHandler {
 
+    companion object {
+        const val GENERIC_ERROR_MESSAGE = "An unexpected error occurred"
+        const val VALIDATION_ERROR_MESSAGE = "Validation failed"
+    }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException::class)
     fun handleValidationExceptions(ex: MethodArgumentNotValidException): Map<String, String> {
@@ -18,7 +23,7 @@ class GlobalExceptionHandler {
         ex.bindingResult.fieldErrors.forEach { error ->
             val fieldName = error.field
             val errorMessage = error.defaultMessage
-            errors[fieldName] = errorMessage ?: "Validation failed"
+            errors[fieldName] = errorMessage ?: VALIDATION_ERROR_MESSAGE
         }
         return errors
     }
@@ -27,7 +32,7 @@ class GlobalExceptionHandler {
     @ExceptionHandler(Exception::class)
     fun handleGenericException(ex: Exception): Map<String, String> {
         val errors = HashMap<String, String>()
-        errors["details"] = ex.message ?: "An unexpected error occurred"
+        errors["details"] = ex.message ?: GENERIC_ERROR_MESSAGE
         return errors
     }
 
@@ -35,7 +40,7 @@ class GlobalExceptionHandler {
     @ExceptionHandler(EntityNotFoundException::class)
     fun handleNotFoundException(ex: EntityNotFoundException): Map<String, String> {
         val errors = HashMap<String, String>()
-        errors["details"] = ex.message ?: "An unexpected error occurred"
+        errors["details"] = ex.message ?: GENERIC_ERROR_MESSAGE
         return errors
     }
 
@@ -44,7 +49,7 @@ class GlobalExceptionHandler {
     @ExceptionHandler(BadRequestException::class)
     fun handleBadRequest(ex: BadRequestException): Map<String, String> {
         val errors = HashMap<String, String>()
-        errors["details"] = ex.message ?: "An unexpected error occurred"
+        errors["details"] = ex.message ?: GENERIC_ERROR_MESSAGE
         return errors
     }
 }

@@ -1,7 +1,6 @@
 package ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.helpers.Factory
-import ar.edu.unq.desapp.grupoc.backenddesappapi.model.User
 import ar.edu.unq.desapp.grupoc.backenddesappapi.persistence.UserRepository
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.UserService
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.dto.UserDetailsDTO
@@ -11,9 +10,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestL
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.request.RequestRegisterUserDTO
 import ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseUserDTO
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
-import org.springframework.security.crypto.bcrypt.BCrypt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
