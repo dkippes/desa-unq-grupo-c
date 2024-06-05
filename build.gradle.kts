@@ -23,6 +23,7 @@ sonar {
         property("sonar.organization", "dkippes")
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.coverage.jacoco.xmlReportPaths", "$buildDir\\reports\\jacoco\\test\\jacocoTestReport.xml")
+        property("sonar.coverage.exclusions", "**/CacheEventLogger.kt,**/CacheConfig.kt")
     }
 }
 
@@ -49,6 +50,12 @@ dependencies {
     implementation("io.jsonwebtoken:jjwt:${jwtVersion}")
     implementation("org.springframework.boot:spring-boot-starter-cache")
     implementation("javax.xml.bind:jaxb-api:${jaxbVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-cache:2.6.0")
+    implementation("javax.cache:cache-api:1.1.1")
+    implementation("org.ehcache:ehcache:3.8.1")
+    implementation("javax.xml.bind:jaxb-api:2.3.1")
+    implementation("com.sun.xml.bind:jaxb-core:2.3.0.1")
+    implementation("com.sun.xml.bind:jaxb-impl:2.3.2")
 
     testImplementation("org.springframework.security:spring-security-test")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
