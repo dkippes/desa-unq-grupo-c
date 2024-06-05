@@ -21,7 +21,7 @@
 | Configuración en Travis/GitHubActions | 🟢     |
 | Build corriendo y SUCCESS | 🟢     |
 | SonarCloud (Registrar el proyecto Backend) | 🟢     |
-| Deploy automático utilizando HEROKU o similar | 🟡?    |
+| Deploy automático utilizando HEROKU o similar | 🟢    |
 | TAG en GitHub y Confeccionar Release Notes | 🟢     |
 | Clean Code según la materia (todo en Inglés) | 🟢     |
 | Configuración de Swagger en el back-API (v3) | 🟢     |
@@ -51,10 +51,10 @@
 
 | Entregable                                                                                                                                                              | Estado |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
-| Crear un test de arquitectura - J                                                                                                                                       | 🔴 |
+| Crear un test de arquitectura - J                                                                                                                                       | 🟢 |
 | Auditoria de Web-Services. Loguear <timestamp,user,operación/metodo, parámetros, tiempoDeEjecicion> de los servicios publicados con Spring utilizando Log4j/logback - D | 🟢 |
 | TAG en GitHub y Confeccionar Release Notes de entrega 3 - J                                                                                                             | 🔴 |
-| Segurizar el acceso a la API (JWT) - J                                                                                                                                  | 🔴 |
+| Segurizar el acceso a la API (JWT) - J                                                                                                                                  | 🟢 |
 | Mostrar las cotizaciones de las últimas 24hs para un cripto activo dado - D                                                                                             | 🟢 |
 | Listado de cotizaciones (alta performance - implementar cache) - D                                                                                                      | 🟢 |
 ---
