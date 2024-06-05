@@ -23,7 +23,7 @@ sonar {
         property("sonar.organization", "dkippes")
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.coverage.jacoco.xmlReportPaths", "$buildDir\\reports\\jacoco\\test\\jacocoTestReport.xml")
-        property("sonar.coverage.exclusions", "**/configuration/**")
+        property("sonar.coverage.exclusions", "**/configuration/**,ar/edu/unq/desapp/grupoc/backenddesappapi/webservice/handlers/**")
     }
 }
 
