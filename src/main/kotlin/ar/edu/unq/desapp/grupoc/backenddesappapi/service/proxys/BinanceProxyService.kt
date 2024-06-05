@@ -9,6 +9,7 @@ import ar.edu.unq.desapp.grupoc.backenddesappapi.service.exceptions.CryptoCurren
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 
@@ -33,6 +34,7 @@ class BinanceProxyService {
         return Factory.listDtoToEntity(cryptoCurrencies)
     }
 
+    @Cacheable(value = ["cryptoCurrency"], key = "#symbol", cacheNames = ["cryptoCurrency"], sync = true)
     fun getCryptoCurrencyValue(symbol: SYMBOL): CryptoCurrency? {
         return restTemplate.getForObject(
             binanceApiURL + "ticker/price?symbol=" + symbol.toString(),
@@ -40,6 +42,7 @@ class BinanceProxyService {
         )
     }
 
+    @Cacheable(value = ["hourlyQuotes"], key = "#symbol", cacheNames = ["hourlyQuotes"], sync = true)
     fun getHourlyQuotes(symbol: SYMBOL): List<CurrentCryptoQuotePrice> {
         val response = restTemplate.getForEntity(
             binanceApiURL + "klines?symbol=" + symbol.toString() + "&interval=5m&limit=280",
