@@ -56,6 +56,8 @@ dependencies {
     implementation("javax.xml.bind:jaxb-api:2.3.1")
     implementation("com.sun.xml.bind:jaxb-core:2.3.0.1")
     implementation("com.sun.xml.bind:jaxb-impl:2.3.2")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("io.micrometer:micrometer-registry-prometheus")
 
     testImplementation("org.springframework.security:spring-security-test")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
