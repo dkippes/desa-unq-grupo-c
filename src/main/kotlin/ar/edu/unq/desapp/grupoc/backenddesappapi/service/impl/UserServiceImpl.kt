@@ -22,6 +22,8 @@ class UserServiceImpl : UserService {
     @Autowired
     private lateinit var userRepository: UserRepository
     private val passwordEncoder: PasswordEncoder = BCryptPasswordEncoder()
+    @Autowired
+    private lateinit var customMetricsService: CustomMetricsService
 
 
     override fun registerUser(registerUserDTO: RequestRegisterUserDTO): ResponseUserDTO {
@@ -38,8 +40,10 @@ class UserServiceImpl : UserService {
     override fun login(loginUserDTO : RequestLoginUserDTO): ResponseUserDTO {
         val user = userRepository.findByEmail(loginUserDTO.email!!)
         if (user == null || !passwordEncoder.matches(loginUserDTO.password, user.password)) {
+            customMetricsService.incrementLoginFailures()
             throw UserNotFoundException()
         }
+        customMetricsService.incrementLoginSuccess()
         return Factory.createDTOFromUser(user)
     }
 
