@@ -155,3 +155,387 @@ Database is already closed (to disable automatic closing at VM shutdown, add ";D
 2024-06-06 00:40:08,120 INFO o.e.c.EhcacheManager [SpringApplicationShutdownHook] Cache 'cryptoCurrency' removed from EhcacheManager.
 2024-06-06 00:40:08,125 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
 2024-06-06 00:40:08,129 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-06-11 00:50:02,844 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-06-11 00:50:02,996 INFO o.s.b.StartupInfoLogger [restartedMain] Starting BackendDesappApiApplicationKt using Java 17.0.6 with PID 19356 (K:\UNQ\CUATRI20241RO\desa-grupo-c\build\classes\kotlin\main started by usuario in K:\UNQ\CUATRI20241RO\desa-grupo-c)
+2024-06-11 00:50:02,999 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-06-11 00:50:03,174 INFO o.s.b.l.DeferredLog [restartedMain] The Class-Path manifest attribute in C:\Users\usuario\.gradle\caches\modules-2\files-2.1\com.sun.xml.bind\jaxb-core\2.3.0.1\23574ca124d0a694721ce3ef13cd720095f18fdd\jaxb-core-2.3.0.1.jar referenced one or more files that do not exist: file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-core/2.3.0.1/23574ca124d0a694721ce3ef13cd720095f18fdd/jaxb-api.jar
+2024-06-11 00:50:03,175 INFO o.s.b.l.DeferredLog [restartedMain] The Class-Path manifest attribute in C:\Users\usuario\.gradle\caches\modules-2\files-2.1\com.sun.xml.bind\jaxb-impl\2.3.2\9d70d9b54cbc91b0e647d97af87395f39ea189f9\jaxb-impl-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/jaxb-runtime-2.3.2.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/txw2-2.3.2.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/istack-commons-runtime-3.0.8.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/stax-ex-1.8.1.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/FastInfoset-1.2.16.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/jakarta.activation-api-1.2.1.jar
+2024-06-11 00:50:03,176 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-11 00:50:03,180 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-11 00:50:07,425 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-11 00:50:07,648 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 199 ms. Found 5 JPA repository interfaces.
+2024-06-11 00:50:10,829 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port 8080 (http)
+2024-06-11 00:50:10,862 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-11 00:50:10,871 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-06-11 00:50:10,872 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-11 00:50:11,123 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-06-11 00:50:11,124 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 7942 ms
+2024-06-11 00:50:11,820 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-06-11 00:50:12,674 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-06-11 00:50:12,679 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-06-11 00:50:12,716 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-06-11 00:50:14,827 INFO o.e.s.o.t.o.p.UpfrontAllocatingPageSource [restartedMain] Allocating 10.0MB in chunks
+2024-06-11 00:50:14,891 INFO o.e.c.EhcacheManager [restartedMain] Cache 'hourlyQuotes' created in EhcacheManager.
+2024-06-11 00:50:14,905 INFO o.e.s.o.t.o.p.UpfrontAllocatingPageSource [restartedMain] Allocating 10.0MB in chunks
+2024-06-11 00:50:14,913 INFO o.e.c.EhcacheManager [restartedMain] Cache 'cryptoCurrency' created in EhcacheManager.
+2024-06-11 00:50:14,973 INFO o.e.j.Eh107CacheManager [restartedMain] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=hourlyQuotes
+2024-06-11 00:50:14,975 INFO o.e.j.Eh107CacheManager [restartedMain] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=cryptoCurrency
+2024-06-11 00:50:14,996 INFO o.e.j.Eh107CacheManager [restartedMain] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=hourlyQuotes
+2024-06-11 00:50:14,997 INFO o.e.j.Eh107CacheManager [restartedMain] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=cryptoCurrency
+2024-06-11 00:50:15,411 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-11 00:50:15,661 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-11 00:50:15,847 INFO o.h.c.i.RegionFactoryInitiator [restartedMain] HHH000026: Second-level cache disabled
+2024-06-11 00:50:16,720 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-11 00:50:16,865 WARN o.h.e.j.d.i.DialectFactoryImpl [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-11 00:50:19,421 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-11 00:50:19,598 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:50:21,972 INFO o.s.d.j.r.q.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-11 00:50:22,748 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-11 00:50:24,016 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-06-11 00:50:24,232 INFO o.s.s.w.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@112c4327, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@17f275c6, org.springframework.security.web.context.SecurityContextHolderFilter@2a417bf1, org.springframework.security.web.header.HeaderWriterFilter@7f489eff, org.springframework.web.filter.CorsFilter@3cc21abf, org.springframework.security.web.authentication.logout.LogoutFilter@3ed17321, ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.filters.JwtRequestFilter@3cec1802, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a93a3a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@682f4853, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73b7bdac, org.springframework.security.web.session.SessionManagementFilter@588696f8, org.springframework.security.web.access.ExceptionTranslationFilter@5782efe5, org.springframework.security.web.access.intercept.AuthorizationFilter@469d86bd]
+2024-06-11 00:50:26,652 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-06-11 00:50:26,798 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2024-06-11 00:50:26,842 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port 8080 (http) with context path ''
+2024-06-11 00:50:26,876 INFO o.s.b.StartupInfoLogger [restartedMain] Started BackendDesappApiApplicationKt in 25.485 seconds (process running for 28.479)
+2024-06-11 00:50:27,828 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(2)-192.168.0.22] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-11 00:50:27,829 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(2)-192.168.0.22] Initializing Servlet 'dispatcherServlet'
+2024-06-11 00:50:27,836 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(2)-192.168.0.22] Completed initialization in 5 ms
+2024-06-11 00:55:15,622 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:55:15,638 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos ya esta cerrada (para des-habilitar el cerrado automatico durante el shutdown de la VM, agregue ";DB_CLOSE_ON_EXIT=FALSE" a la URL de conexión)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-06-11 00:55:15,652 INFO o.e.c.EhcacheManager [SpringApplicationShutdownHook] Cache 'hourlyQuotes' removed from EhcacheManager.
+2024-06-11 00:55:15,656 INFO o.e.c.EhcacheManager [SpringApplicationShutdownHook] Cache 'cryptoCurrency' removed from EhcacheManager.
+2024-06-11 00:55:15,663 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-06-11 00:55:15,668 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-06-11 00:56:19,438 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-06-11 00:56:19,582 INFO o.s.b.StartupInfoLogger [Test worker] Starting BackendDesappApiApplicationTests using Java 17.0.6 with PID 20288 (started by usuario in K:\UNQ\CUATRI20241RO\desa-grupo-c)
+2024-06-11 00:56:19,585 INFO o.s.b.SpringApplication [Test worker] No active profile set, falling back to 1 default profile: "default"
+2024-06-11 00:56:26,047 INFO o.s.d.r.c.RepositoryConfigurationDelegate [Test worker] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-11 00:56:26,360 INFO o.s.d.r.c.RepositoryConfigurationDelegate [Test worker] Finished Spring Data repository scanning in 271 ms. Found 5 JPA repository interfaces.
+2024-06-11 00:56:32,153 INFO o.e.s.o.t.o.p.UpfrontAllocatingPageSource [Test worker] Allocating 10.0MB in chunks
+2024-06-11 00:56:32,296 INFO o.e.c.EhcacheManager [Test worker] Cache 'hourlyQuotes' created in EhcacheManager.
+2024-06-11 00:56:32,316 INFO o.e.s.o.t.o.p.UpfrontAllocatingPageSource [Test worker] Allocating 10.0MB in chunks
+2024-06-11 00:56:32,339 INFO o.e.c.EhcacheManager [Test worker] Cache 'cryptoCurrency' created in EhcacheManager.
+2024-06-11 00:56:32,600 INFO o.e.j.Eh107CacheManager [Test worker] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=hourlyQuotes
+2024-06-11 00:56:32,604 INFO o.e.j.Eh107CacheManager [Test worker] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=cryptoCurrency
+2024-06-11 00:56:32,700 INFO o.e.j.Eh107CacheManager [Test worker] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=hourlyQuotes
+2024-06-11 00:56:32,704 INFO o.e.j.Eh107CacheManager [Test worker] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=cryptoCurrency
+2024-06-11 00:56:33,578 INFO o.h.j.i.u.LogHelper [Test worker] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-11 00:56:33,951 INFO o.h.Version [Test worker] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-11 00:56:34,184 INFO o.h.c.i.RegionFactoryInitiator [Test worker] HHH000026: Second-level cache disabled
+2024-06-11 00:56:35,710 INFO o.s.o.j.p.SpringPersistenceUnitInfo [Test worker] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-11 00:56:35,910 INFO c.z.h.HikariDataSource [Test worker] HikariPool-1 - Starting...
+2024-06-11 00:56:37,392 INFO c.z.h.p.HikariPool [Test worker] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-06-11 00:56:37,407 INFO c.z.h.HikariDataSource [Test worker] HikariPool-1 - Start completed.
+2024-06-11 00:56:37,673 WARN o.h.e.j.d.i.DialectFactoryImpl [Test worker] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-11 00:56:44,106 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Test worker] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-11 00:56:44,381 INFO o.s.o.j.AbstractEntityManagerFactoryBean [Test worker] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:56:49,673 INFO o.s.d.j.r.q.QueryEnhancerFactory [Test worker] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-11 00:56:50,981 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [Test worker] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-11 00:56:52,059 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [Test worker] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-06-11 00:56:54,721 INFO o.s.b.a.e.w.EndpointLinksResolver [Test worker] Exposing 13 endpoint(s) beneath base path '/actuator'
+2024-06-11 00:56:55,316 INFO o.s.s.w.DefaultSecurityFilterChain [Test worker] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@95ae532, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@60beeead, org.springframework.security.web.context.SecurityContextHolderFilter@6f87ec56, org.springframework.security.web.header.HeaderWriterFilter@1ffd639f, org.springframework.web.filter.CorsFilter@6bf46b0d, org.springframework.security.web.authentication.logout.LogoutFilter@4ed47c86, ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.filters.JwtRequestFilter@73b0c606, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c896d2c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a0374ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a8f1719, org.springframework.security.web.session.SessionManagementFilter@3e81c395, org.springframework.security.web.access.ExceptionTranslationFilter@13dba07a, org.springframework.security.web.access.intercept.AuthorizationFilter@107d6bd8]
+2024-06-11 00:56:59,212 INFO o.s.b.StartupInfoLogger [Test worker] Started BackendDesappApiApplicationTests in 41.41 seconds (process running for 48.003)
+2024-06-11 00:57:01,793 INFO c.t.a.c.PluginLoader$PluginSupplier [Test worker] Detected Java version 17.0.6
+2024-06-11 00:57:24,138 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [Test worker] Could not detect default configuration classes for test class [ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.UserServiceImplTest]: UserServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-06-11 00:57:24,248 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [Test worker] Found @SpringBootConfiguration ar.edu.unq.desapp.grupoc.backenddesappapi.BackendDesappApiApplication for test class ar.edu.unq.desapp.grupoc.backenddesappapi.service.impl.UserServiceImplTest
+2024-06-11 00:57:26,258 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [Test worker] Could not detect default configuration classes for test class [ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.CryptoControllerTest]: CryptoControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-06-11 00:57:26,374 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [Test worker] Found @SpringBootConfiguration ar.edu.unq.desapp.grupoc.backenddesappapi.BackendDesappApiApplication for test class ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.CryptoControllerTest
+2024-06-11 00:57:26,535 INFO o.s.b.StartupInfoLogger [Test worker] Starting CryptoControllerTest using Java 17.0.6 with PID 20288 (started by usuario in K:\UNQ\CUATRI20241RO\desa-grupo-c)
+2024-06-11 00:57:26,537 INFO o.s.b.SpringApplication [Test worker] No active profile set, falling back to 1 default profile: "default"
+2024-06-11 00:57:28,736 INFO o.s.d.r.c.RepositoryConfigurationDelegate [Test worker] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-11 00:57:28,840 INFO o.s.d.r.c.RepositoryConfigurationDelegate [Test worker] Finished Spring Data repository scanning in 102 ms. Found 5 JPA repository interfaces.
+2024-06-11 00:57:29,601 INFO o.e.j.Eh107CacheManager [Test worker] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=hourlyQuotes
+2024-06-11 00:57:29,604 INFO o.e.j.Eh107CacheManager [Test worker] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=cryptoCurrency
+2024-06-11 00:57:30,142 INFO o.h.j.i.u.LogHelper [Test worker] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-11 00:57:30,176 INFO o.h.c.i.RegionFactoryInitiator [Test worker] HHH000026: Second-level cache disabled
+2024-06-11 00:57:30,248 INFO o.s.o.j.p.SpringPersistenceUnitInfo [Test worker] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-11 00:57:30,258 INFO c.z.h.HikariDataSource [Test worker] HikariPool-2 - Starting...
+2024-06-11 00:57:30,261 INFO c.z.h.p.HikariPool [Test worker] HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-06-11 00:57:30,262 INFO c.z.h.HikariDataSource [Test worker] HikariPool-2 - Start completed.
+2024-06-11 00:57:30,265 WARN o.h.e.j.d.i.DialectFactoryImpl [Test worker] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-11 00:57:30,534 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Test worker] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-11 00:57:30,617 INFO o.s.o.j.AbstractEntityManagerFactoryBean [Test worker] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:57:34,418 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [Test worker] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-11 00:57:35,163 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [Test worker] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-06-11 00:57:36,545 INFO o.s.b.a.e.w.EndpointLinksResolver [Test worker] Exposing 13 endpoint(s) beneath base path '/actuator'
+2024-06-11 00:57:36,803 INFO o.s.s.w.DefaultSecurityFilterChain [Test worker] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45e24f13, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@ac7cf7e, org.springframework.security.web.context.SecurityContextHolderFilter@5bfb78ab, org.springframework.security.web.header.HeaderWriterFilter@5aede398, org.springframework.web.filter.CorsFilter@33610f0a, org.springframework.security.web.authentication.logout.LogoutFilter@2ee819f8, ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.filters.JwtRequestFilter@12d5a2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77454d61, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5014bb38, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6feac78d, org.springframework.security.web.session.SessionManagementFilter@2796ac62, org.springframework.security.web.access.ExceptionTranslationFilter@63ffa4e4, org.springframework.security.web.access.intercept.AuthorizationFilter@103bea23]
+2024-06-11 00:57:39,721 INFO o.s.m.w.MockServletContext [Test worker] Initializing Spring TestDispatcherServlet ''
+2024-06-11 00:57:39,723 INFO o.s.w.s.FrameworkServlet [Test worker] Initializing Servlet ''
+2024-06-11 00:57:39,730 INFO o.s.w.s.FrameworkServlet [Test worker] Completed initialization in 6 ms
+2024-06-11 00:57:39,934 INFO o.s.b.StartupInfoLogger [Test worker] Started CryptoControllerTest in 13.544 seconds (process running for 88.726)
+2024-06-11 00:57:40,414 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-06-11 00:57:40,432 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-06-11 00:57:40,434 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: BNBUSDT
+2024-06-11 00:57:40,457 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.CryptoController.currency(SYMBOL) executed in 10ms 
+2024-06-11 00:57:40,461 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,CryptoCurrency(symbol=BNBUSDT, price=10, lastUpdateDateAndTime=2024-06-11T00:57:40.018139700),[]>.toString()
+2024-06-11 00:57:40,462 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-06-11 00:57:40,464 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-06-11 00:57:40,661 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-06-11 00:57:40,663 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-06-11 00:57:40,665 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: BNBUSDT
+2024-06-11 00:57:40,667 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.CryptoController.getHourlyQuotes(String) executed in 2ms 
+2024-06-11 00:57:40,668 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,[CurrentCryptoQuotePrice(dateTime=2024-06-11T00:57:40.628183900, price='10')],[]>.toString()
+2024-06-11 00:57:40,670 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-06-11 00:57:40,671 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-06-11 00:57:40,725 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-06-11 00:57:40,726 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-06-11 00:57:40,728 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.CryptoController.currencies() executed in 1ms 
+2024-06-11 00:57:40,729 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,ar.edu.unq.desapp.grupoc.backenddesappapi.model.CryptoCurrencyList@484ef032,[]>.toString()
+2024-06-11 00:57:40,731 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-06-11 00:57:40,732 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-06-11 00:57:40,791 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [Test worker] Could not detect default configuration classes for test class [ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.IntentControllerTest]: IntentControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-06-11 00:57:40,800 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [Test worker] Found @SpringBootConfiguration ar.edu.unq.desapp.grupoc.backenddesappapi.BackendDesappApiApplication for test class ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.IntentControllerTest
+2024-06-11 00:57:40,875 INFO o.s.b.StartupInfoLogger [Test worker] Starting IntentControllerTest using Java 17.0.6 with PID 20288 (started by usuario in K:\UNQ\CUATRI20241RO\desa-grupo-c)
+2024-06-11 00:57:40,876 INFO o.s.b.SpringApplication [Test worker] No active profile set, falling back to 1 default profile: "default"
+2024-06-11 00:57:42,781 INFO o.s.d.r.c.RepositoryConfigurationDelegate [Test worker] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-11 00:57:42,878 INFO o.s.d.r.c.RepositoryConfigurationDelegate [Test worker] Finished Spring Data repository scanning in 94 ms. Found 5 JPA repository interfaces.
+2024-06-11 00:57:43,391 INFO o.e.j.Eh107CacheManager [Test worker] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=hourlyQuotes
+2024-06-11 00:57:43,393 INFO o.e.j.Eh107CacheManager [Test worker] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=cryptoCurrency
+2024-06-11 00:57:43,624 INFO o.h.j.i.u.LogHelper [Test worker] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-11 00:57:43,642 INFO o.h.c.i.RegionFactoryInitiator [Test worker] HHH000026: Second-level cache disabled
+2024-06-11 00:57:43,666 INFO o.s.o.j.p.SpringPersistenceUnitInfo [Test worker] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-11 00:57:43,670 INFO c.z.h.HikariDataSource [Test worker] HikariPool-3 - Starting...
+2024-06-11 00:57:43,672 INFO c.z.h.p.HikariPool [Test worker] HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-06-11 00:57:43,674 INFO c.z.h.HikariDataSource [Test worker] HikariPool-3 - Start completed.
+2024-06-11 00:57:43,675 WARN o.h.e.j.d.i.DialectFactoryImpl [Test worker] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-11 00:57:43,919 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Test worker] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-11 00:57:43,981 INFO o.s.o.j.AbstractEntityManagerFactoryBean [Test worker] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:57:45,900 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [Test worker] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-11 00:57:46,358 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [Test worker] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-06-11 00:57:47,125 INFO o.s.b.a.e.w.EndpointLinksResolver [Test worker] Exposing 13 endpoint(s) beneath base path '/actuator'
+2024-06-11 00:57:47,330 INFO o.s.s.w.DefaultSecurityFilterChain [Test worker] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5d21180f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@754f5283, org.springframework.security.web.context.SecurityContextHolderFilter@1e79d083, org.springframework.security.web.header.HeaderWriterFilter@657ddb0f, org.springframework.web.filter.CorsFilter@3ad8e90e, org.springframework.security.web.authentication.logout.LogoutFilter@2211b101, ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.filters.JwtRequestFilter@661ffa00, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6defc0cc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7380fa6f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@48b56c8c, org.springframework.security.web.session.SessionManagementFilter@303e4e97, org.springframework.security.web.access.ExceptionTranslationFilter@638e509f, org.springframework.security.web.access.intercept.AuthorizationFilter@53bf7f2f]
+2024-06-11 00:57:49,015 INFO o.s.m.w.MockServletContext [Test worker] Initializing Spring TestDispatcherServlet ''
+2024-06-11 00:57:49,018 INFO o.s.w.s.FrameworkServlet [Test worker] Initializing Servlet ''
+2024-06-11 00:57:49,023 INFO o.s.w.s.FrameworkServlet [Test worker] Completed initialization in 4 ms
+2024-06-11 00:57:49,099 INFO o.s.b.StartupInfoLogger [Test worker] Started IntentControllerTest in 8.289 seconds (process running for 97.891)
+2024-06-11 00:57:49,237 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-06-11 00:57:49,238 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-06-11 00:57:49,239 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: 1
+2024-06-11 00:57:49,240 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.IntentController.listIntents(long) executed in 1ms 
+2024-06-11 00:57:49,269 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,ResponseListCryptoActiveIntentionDTO(firstName=John, lastName=Doe, reputation=10, listActiveIntention=[ResponseActiveIntentionDTO(id=1, createdDate=2024-06-11T00:57:49.188238200, symbol=BTCUSDT, nominalAmount=2.0, cryptoQuote=50000.0, localAmount=100000.0)]),[]>.toString()
+2024-06-11 00:57:49,270 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-06-11 00:57:49,272 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-06-11 00:57:49,564 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-06-11 00:57:49,565 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-06-11 00:57:49,566 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: 1
+2024-06-11 00:57:49,568 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestExpressIntentionDTO(cryptoAsset=BTCUSDT, nominalAmount=2.0, operationType=BUY)
+2024-06-11 00:57:49,569 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.IntentController.expressIntent(long,RequestExpressIntentionDTO) executed in 3ms 
+2024-06-11 00:57:49,586 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,ResponseExpressIntentionDTO(id=1, cryptoAsset=BTCUSDT, nominalAmount=2.0, cryptoQuote=50000.0, operationAmountARS=100000.0, firstName=John, lastName=Doe, operationType=BUY),[]>.toString()
+2024-06-11 00:57:49,587 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-06-11 00:57:49,588 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-06-11 00:57:49,643 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [Test worker] Could not detect default configuration classes for test class [ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.TransactionControllerTest]: TransactionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-06-11 00:57:49,656 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [Test worker] Found @SpringBootConfiguration ar.edu.unq.desapp.grupoc.backenddesappapi.BackendDesappApiApplication for test class ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.TransactionControllerTest
+2024-06-11 00:57:49,727 INFO o.s.b.StartupInfoLogger [Test worker] Starting TransactionControllerTest using Java 17.0.6 with PID 20288 (started by usuario in K:\UNQ\CUATRI20241RO\desa-grupo-c)
+2024-06-11 00:57:49,728 INFO o.s.b.SpringApplication [Test worker] No active profile set, falling back to 1 default profile: "default"
+2024-06-11 00:57:51,383 INFO o.s.d.r.c.RepositoryConfigurationDelegate [Test worker] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-11 00:57:51,477 INFO o.s.d.r.c.RepositoryConfigurationDelegate [Test worker] Finished Spring Data repository scanning in 90 ms. Found 5 JPA repository interfaces.
+2024-06-11 00:57:52,020 INFO o.e.j.Eh107CacheManager [Test worker] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=hourlyQuotes
+2024-06-11 00:57:52,022 INFO o.e.j.Eh107CacheManager [Test worker] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=cryptoCurrency
+2024-06-11 00:57:52,305 INFO o.h.j.i.u.LogHelper [Test worker] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-11 00:57:52,326 INFO o.h.c.i.RegionFactoryInitiator [Test worker] HHH000026: Second-level cache disabled
+2024-06-11 00:57:52,369 INFO o.s.o.j.p.SpringPersistenceUnitInfo [Test worker] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-11 00:57:52,382 INFO c.z.h.HikariDataSource [Test worker] HikariPool-4 - Starting...
+2024-06-11 00:57:52,390 INFO c.z.h.p.HikariPool [Test worker] HikariPool-4 - Added connection conn30: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-06-11 00:57:52,399 INFO c.z.h.HikariDataSource [Test worker] HikariPool-4 - Start completed.
+2024-06-11 00:57:52,401 WARN o.h.e.j.d.i.DialectFactoryImpl [Test worker] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-11 00:57:52,710 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Test worker] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-11 00:57:52,803 INFO o.s.o.j.AbstractEntityManagerFactoryBean [Test worker] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:57:54,360 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [Test worker] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-11 00:57:54,815 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [Test worker] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-06-11 00:57:55,572 INFO o.s.b.a.e.w.EndpointLinksResolver [Test worker] Exposing 13 endpoint(s) beneath base path '/actuator'
+2024-06-11 00:57:55,721 INFO o.s.s.w.DefaultSecurityFilterChain [Test worker] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7c018b5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3c510265, org.springframework.security.web.context.SecurityContextHolderFilter@230d34aa, org.springframework.security.web.header.HeaderWriterFilter@52b76796, org.springframework.web.filter.CorsFilter@486e528c, org.springframework.security.web.authentication.logout.LogoutFilter@68120a4d, ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.filters.JwtRequestFilter@5a110299, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@387c087e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@46714b0a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3addf369, org.springframework.security.web.session.SessionManagementFilter@6399538d, org.springframework.security.web.access.ExceptionTranslationFilter@25a1995e, org.springframework.security.web.access.intercept.AuthorizationFilter@6caaf018]
+2024-06-11 00:57:57,112 INFO o.s.m.w.MockServletContext [Test worker] Initializing Spring TestDispatcherServlet ''
+2024-06-11 00:57:57,114 INFO o.s.w.s.FrameworkServlet [Test worker] Initializing Servlet ''
+2024-06-11 00:57:57,120 INFO o.s.w.s.FrameworkServlet [Test worker] Completed initialization in 5 ms
+2024-06-11 00:57:57,225 INFO o.s.b.StartupInfoLogger [Test worker] Started TransactionControllerTest in 7.559 seconds (process running for 106.016)
+2024-06-11 00:57:57,460 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-06-11 00:57:57,462 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-06-11 00:57:57,463 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: 1
+2024-06-11 00:57:57,465 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestProcessDTO(action=TRANSFER_SENT, userId=100)
+2024-06-11 00:57:57,489 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.TransactionController.processTransaction(long,RequestProcessDTO) executed in 26ms 
+2024-06-11 00:57:57,490 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,[]>.toString()
+2024-06-11 00:57:57,491 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-06-11 00:57:57,494 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-06-11 00:57:57,567 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-06-11 00:57:57,568 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-06-11 00:57:57,570 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: 100
+2024-06-11 00:57:57,571 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestVolumeDTO(from=2024-06-11, to=2024-06-11)
+2024-06-11 00:57:57,575 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.TransactionController.informUserVolume(long,RequestVolumeDTO) executed in 5ms 
+2024-06-11 00:57:57,577 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,ResponseVolumeDTO(date=2024-06-11T00:57:57.537213800, totalOperated=0, localTotalOperated=0, operatedCryptos=[]),[]>.toString()
+2024-06-11 00:57:57,578 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-06-11 00:57:57,579 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-06-11 00:57:57,645 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-06-11 00:57:57,646 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-06-11 00:57:57,648 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestCreateTransactionDTO(userId=100, operationId=50)
+2024-06-11 00:57:57,652 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.TransactionController.generateTransaction(RequestCreateTransactionDTO) executed in 5ms 
+2024-06-11 00:57:57,654 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.dto.response.ResponseTransactionDTO@17ccd63f,[]>.toString()
+2024-06-11 00:57:57,655 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-06-11 00:57:57,656 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-06-11 00:57:57,675 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [Test worker] Could not detect default configuration classes for test class [ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-06-11 00:57:57,682 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [Test worker] Found @SpringBootConfiguration ar.edu.unq.desapp.grupoc.backenddesappapi.BackendDesappApiApplication for test class ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserControllerTest
+2024-06-11 00:57:57,741 INFO o.s.b.StartupInfoLogger [Test worker] Starting UserControllerTest using Java 17.0.6 with PID 20288 (started by usuario in K:\UNQ\CUATRI20241RO\desa-grupo-c)
+2024-06-11 00:57:57,742 INFO o.s.b.SpringApplication [Test worker] No active profile set, falling back to 1 default profile: "default"
+2024-06-11 00:57:59,339 INFO o.s.d.r.c.RepositoryConfigurationDelegate [Test worker] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-11 00:57:59,437 INFO o.s.d.r.c.RepositoryConfigurationDelegate [Test worker] Finished Spring Data repository scanning in 97 ms. Found 5 JPA repository interfaces.
+2024-06-11 00:58:00,142 INFO o.e.j.Eh107CacheManager [Test worker] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=hourlyQuotes
+2024-06-11 00:58:00,143 INFO o.e.j.Eh107CacheManager [Test worker] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=cryptoCurrency
+2024-06-11 00:58:00,330 INFO o.h.j.i.u.LogHelper [Test worker] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-11 00:58:00,343 INFO o.h.c.i.RegionFactoryInitiator [Test worker] HHH000026: Second-level cache disabled
+2024-06-11 00:58:00,362 INFO o.s.o.j.p.SpringPersistenceUnitInfo [Test worker] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-11 00:58:00,366 INFO c.z.h.HikariDataSource [Test worker] HikariPool-5 - Starting...
+2024-06-11 00:58:00,369 INFO c.z.h.p.HikariPool [Test worker] HikariPool-5 - Added connection conn40: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-06-11 00:58:00,370 INFO c.z.h.HikariDataSource [Test worker] HikariPool-5 - Start completed.
+2024-06-11 00:58:00,371 WARN o.h.e.j.d.i.DialectFactoryImpl [Test worker] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-11 00:58:00,572 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Test worker] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-11 00:58:00,636 INFO o.s.o.j.AbstractEntityManagerFactoryBean [Test worker] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:58:01,716 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [Test worker] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-11 00:58:02,070 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [Test worker] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-06-11 00:58:02,618 INFO o.s.b.a.e.w.EndpointLinksResolver [Test worker] Exposing 13 endpoint(s) beneath base path '/actuator'
+2024-06-11 00:58:02,805 INFO o.s.s.w.DefaultSecurityFilterChain [Test worker] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2c2a9ffc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b056b99, org.springframework.security.web.context.SecurityContextHolderFilter@188f513d, org.springframework.security.web.header.HeaderWriterFilter@5badc48, org.springframework.web.filter.CorsFilter@1b187e, org.springframework.security.web.authentication.logout.LogoutFilter@733e6102, ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.filters.JwtRequestFilter@4c8f5565, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4d98e3c3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c78456d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64ff553e, org.springframework.security.web.session.SessionManagementFilter@24b48491, org.springframework.security.web.access.ExceptionTranslationFilter@5228110b, org.springframework.security.web.access.intercept.AuthorizationFilter@44d661c9]
+2024-06-11 00:58:04,461 INFO o.s.m.w.MockServletContext [Test worker] Initializing Spring TestDispatcherServlet ''
+2024-06-11 00:58:04,462 INFO o.s.w.s.FrameworkServlet [Test worker] Initializing Servlet ''
+2024-06-11 00:58:04,467 INFO o.s.w.s.FrameworkServlet [Test worker] Completed initialization in 4 ms
+2024-06-11 00:58:04,543 INFO o.s.b.StartupInfoLogger [Test worker] Started UserControllerTest in 6.85 seconds (process running for 113.336)
+2024-06-11 00:58:04,738 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-06-11 00:58:04,739 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-06-11 00:58:04,741 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestLoginUserDTO(email=juan@gmail.com, password=123456sD!)
+2024-06-11 00:58:04,750 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.loginUser(RequestLoginUserDTO) executed in 10ms 
+2024-06-11 00:58:04,767 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,ResponseUserDTO(id=1, name=Jose, lastName=Marces, email=juan@gmail.com, address=Wilde 12, account=ResponseAccountDTO(id=1, cvu=1111111111111111111111, walletAddress=12345678, reputation=0)),[Authorization:"Bearer mocked-jwt-token"]>.toString()
+2024-06-11 00:58:04,768 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-06-11 00:58:04,769 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-06-11 00:58:05,144 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-06-11 00:58:05,145 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-06-11 00:58:05,146 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestLoginUserDTO(email=email@notexist.com, password=123456sD!)
+2024-06-11 00:58:05,155 ERROR a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - EXCEPTION: User not found
+2024-06-11 00:58:05,157 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.loginUser(RequestLoginUserDTO) executed in 10ms 
+2024-06-11 00:58:05,160 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-06-11 00:58:05,161 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-06-11 00:58:05,208 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - BEFORE POINTCUT /////
+2024-06-11 00:58:05,209 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND START  logExecutionTime annotation //////
+2024-06-11 00:58:05,224 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ARGUMENT: RequestRegisterUserDTO(name=Jose, lastName=Marces, email=juan@gmail.com, password=123456sD!, cvu=1111111111111111111111, address=Wilde 12, walletAddress=12345678)
+2024-06-11 00:58:05,229 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - ResponseEntity ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.UserController.registerUser(RequestRegisterUserDTO) executed in 19ms 
+2024-06-11 00:58:05,230 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - RETURN: <200 OK OK,ResponseUserDTO(id=1, name=Jose, lastName=Marces, email=juan@gmail.com, address=Wilde 12, account=ResponseAccountDTO(id=1, cvu=1111111111111111111111, walletAddress=12345678, reputation=0)),[Authorization:"Bearer mocked-jwt-token"]>.toString()
+2024-06-11 00:58:05,231 INFO a.e.u.d.g.b.c.l.LogExecutionTimeAspectAnnotation [Test worker] /////// LogExecutionTimeAspectAnnotation - AROUND FINISH  logExecutionTime annotation ///////
+2024-06-11 00:58:05,232 INFO a.e.u.d.g.b.c.l.LogInfoAspectCustomPointcut [Test worker] /////// LogInfoAspectCustomPointcut - AFTER POINTCUT /////
+2024-06-11 00:58:05,544 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:58:05,557 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-06-11 00:58:05,561 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-06-11 00:58:07,139 INFO o.e.c.EhcacheManager [SpringApplicationShutdownHook] Cache 'hourlyQuotes' removed from EhcacheManager.
+2024-06-11 00:58:07,143 INFO o.e.c.EhcacheManager [SpringApplicationShutdownHook] Cache 'cryptoCurrency' removed from EhcacheManager.
+2024-06-11 00:58:07,157 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:58:07,159 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-2 - Shutdown initiated...
+2024-06-11 00:58:07,161 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-2 - Shutdown completed.
+2024-06-11 00:58:07,168 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:58:07,170 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-3 - Shutdown initiated...
+2024-06-11 00:58:07,172 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-3 - Shutdown completed.
+2024-06-11 00:58:07,176 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:58:07,178 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-4 - Shutdown initiated...
+2024-06-11 00:58:07,179 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-4 - Shutdown completed.
+2024-06-11 00:58:07,186 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:58:07,188 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-5 - Shutdown initiated...
+2024-06-11 00:58:07,196 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-5 - Shutdown completed.
+2024-06-11 00:58:46,133 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-06-11 00:58:46,241 INFO o.s.b.StartupInfoLogger [restartedMain] Starting BackendDesappApiApplicationKt using Java 17.0.6 with PID 19616 (K:\UNQ\CUATRI20241RO\desa-grupo-c\build\classes\kotlin\main started by usuario in K:\UNQ\CUATRI20241RO\desa-grupo-c)
+2024-06-11 00:58:46,242 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-06-11 00:58:46,389 INFO o.s.b.l.DeferredLog [restartedMain] The Class-Path manifest attribute in C:\Users\usuario\.gradle\caches\modules-2\files-2.1\com.sun.xml.bind\jaxb-core\2.3.0.1\23574ca124d0a694721ce3ef13cd720095f18fdd\jaxb-core-2.3.0.1.jar referenced one or more files that do not exist: file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-core/2.3.0.1/23574ca124d0a694721ce3ef13cd720095f18fdd/jaxb-api.jar
+2024-06-11 00:58:46,390 INFO o.s.b.l.DeferredLog [restartedMain] The Class-Path manifest attribute in C:\Users\usuario\.gradle\caches\modules-2\files-2.1\com.sun.xml.bind\jaxb-impl\2.3.2\9d70d9b54cbc91b0e647d97af87395f39ea189f9\jaxb-impl-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/jaxb-runtime-2.3.2.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/txw2-2.3.2.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/istack-commons-runtime-3.0.8.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/stax-ex-1.8.1.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/FastInfoset-1.2.16.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/jakarta.activation-api-1.2.1.jar
+2024-06-11 00:58:46,391 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-11 00:58:46,392 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-11 00:58:50,555 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-11 00:58:50,747 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 175 ms. Found 5 JPA repository interfaces.
+2024-06-11 00:58:53,340 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port 8080 (http)
+2024-06-11 00:58:53,367 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-11 00:58:53,371 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-06-11 00:58:53,372 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-11 00:58:53,552 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-06-11 00:58:53,553 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 7160 ms
+2024-06-11 00:58:54,063 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-06-11 00:58:54,572 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-06-11 00:58:54,577 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-06-11 00:58:54,599 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-06-11 00:58:56,013 INFO o.e.s.o.t.o.p.UpfrontAllocatingPageSource [restartedMain] Allocating 10.0MB in chunks
+2024-06-11 00:58:56,071 INFO o.e.c.EhcacheManager [restartedMain] Cache 'hourlyQuotes' created in EhcacheManager.
+2024-06-11 00:58:56,080 INFO o.e.s.o.t.o.p.UpfrontAllocatingPageSource [restartedMain] Allocating 10.0MB in chunks
+2024-06-11 00:58:56,087 INFO o.e.c.EhcacheManager [restartedMain] Cache 'cryptoCurrency' created in EhcacheManager.
+2024-06-11 00:58:56,152 INFO o.e.j.Eh107CacheManager [restartedMain] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=hourlyQuotes
+2024-06-11 00:58:56,156 INFO o.e.j.Eh107CacheManager [restartedMain] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=cryptoCurrency
+2024-06-11 00:58:56,182 INFO o.e.j.Eh107CacheManager [restartedMain] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=hourlyQuotes
+2024-06-11 00:58:56,184 INFO o.e.j.Eh107CacheManager [restartedMain] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=cryptoCurrency
+2024-06-11 00:58:56,536 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-11 00:58:56,699 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-11 00:58:56,808 INFO o.h.c.i.RegionFactoryInitiator [restartedMain] HHH000026: Second-level cache disabled
+2024-06-11 00:58:57,499 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-11 00:58:57,610 WARN o.h.e.j.d.i.DialectFactoryImpl [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-11 00:59:00,360 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-11 00:59:00,530 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 00:59:03,301 INFO o.s.d.j.r.q.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-11 00:59:04,046 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-11 00:59:05,577 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-06-11 00:59:05,842 INFO o.s.s.w.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4efc3d7f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6230a32f, org.springframework.security.web.context.SecurityContextHolderFilter@5d1ddbb5, org.springframework.security.web.header.HeaderWriterFilter@5bd63ed0, org.springframework.web.filter.CorsFilter@527a6408, org.springframework.security.web.authentication.logout.LogoutFilter@e308220, ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.filters.JwtRequestFilter@5b4fc59e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5f45cee, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c406113, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11cede35, org.springframework.security.web.session.SessionManagementFilter@5f9b071a, org.springframework.security.web.access.ExceptionTranslationFilter@52103ec8, org.springframework.security.web.access.intercept.AuthorizationFilter@188cd013]
+2024-06-11 00:59:08,379 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-06-11 00:59:08,549 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2024-06-11 00:59:08,597 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port 8080 (http) with context path ''
+2024-06-11 00:59:08,641 INFO o.s.b.StartupInfoLogger [restartedMain] Started BackendDesappApiApplicationKt in 23.585 seconds (process running for 25.26)
+2024-06-11 00:59:23,539 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-11 00:59:23,540 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-06-11 00:59:23,556 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 9 ms
+2024-06-11 01:00:54,971 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 01:00:54,981 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos ya esta cerrada (para des-habilitar el cerrado automatico durante el shutdown de la VM, agregue ";DB_CLOSE_ON_EXIT=FALSE" a la URL de conexión)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-06-11 01:00:54,989 INFO o.e.c.EhcacheManager [SpringApplicationShutdownHook] Cache 'hourlyQuotes' removed from EhcacheManager.
+2024-06-11 01:00:54,990 INFO o.e.c.EhcacheManager [SpringApplicationShutdownHook] Cache 'cryptoCurrency' removed from EhcacheManager.
+2024-06-11 01:00:54,994 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-06-11 01:00:54,997 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-06-11 01:01:05,111 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-06-11 01:01:05,209 INFO o.s.b.StartupInfoLogger [restartedMain] Starting BackendDesappApiApplicationKt using Java 17.0.6 with PID 4032 (K:\UNQ\CUATRI20241RO\desa-grupo-c\build\classes\kotlin\main started by usuario in K:\UNQ\CUATRI20241RO\desa-grupo-c)
+2024-06-11 01:01:05,211 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-06-11 01:01:05,360 INFO o.s.b.l.DeferredLog [restartedMain] The Class-Path manifest attribute in C:\Users\usuario\.gradle\caches\modules-2\files-2.1\com.sun.xml.bind\jaxb-core\2.3.0.1\23574ca124d0a694721ce3ef13cd720095f18fdd\jaxb-core-2.3.0.1.jar referenced one or more files that do not exist: file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-core/2.3.0.1/23574ca124d0a694721ce3ef13cd720095f18fdd/jaxb-api.jar
+2024-06-11 01:01:05,361 INFO o.s.b.l.DeferredLog [restartedMain] The Class-Path manifest attribute in C:\Users\usuario\.gradle\caches\modules-2\files-2.1\com.sun.xml.bind\jaxb-impl\2.3.2\9d70d9b54cbc91b0e647d97af87395f39ea189f9\jaxb-impl-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/jaxb-runtime-2.3.2.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/txw2-2.3.2.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/istack-commons-runtime-3.0.8.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/stax-ex-1.8.1.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/FastInfoset-1.2.16.jar,file:/C:/Users/usuario/.gradle/caches/modules-2/files-2.1/com.sun.xml.bind/jaxb-impl/2.3.2/9d70d9b54cbc91b0e647d97af87395f39ea189f9/jakarta.activation-api-1.2.1.jar
+2024-06-11 01:01:05,362 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-11 01:01:05,363 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-11 01:01:08,479 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-11 01:01:08,630 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 136 ms. Found 5 JPA repository interfaces.
+2024-06-11 01:01:10,356 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port 8080 (http)
+2024-06-11 01:01:10,371 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-11 01:01:10,375 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-06-11 01:01:10,375 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-11 01:01:10,471 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-06-11 01:01:10,472 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 5107 ms
+2024-06-11 01:01:10,853 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-06-11 01:01:11,301 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:desapp.api.db user=SA
+2024-06-11 01:01:11,304 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-06-11 01:01:11,322 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:desapp.api.db'
+2024-06-11 01:01:12,304 INFO o.e.s.o.t.o.p.UpfrontAllocatingPageSource [restartedMain] Allocating 10.0MB in chunks
+2024-06-11 01:01:12,340 INFO o.e.c.EhcacheManager [restartedMain] Cache 'hourlyQuotes' created in EhcacheManager.
+2024-06-11 01:01:12,349 INFO o.e.s.o.t.o.p.UpfrontAllocatingPageSource [restartedMain] Allocating 10.0MB in chunks
+2024-06-11 01:01:12,353 INFO o.e.c.EhcacheManager [restartedMain] Cache 'cryptoCurrency' created in EhcacheManager.
+2024-06-11 01:01:12,387 INFO o.e.j.Eh107CacheManager [restartedMain] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=hourlyQuotes
+2024-06-11 01:01:12,390 INFO o.e.j.Eh107CacheManager [restartedMain] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=cryptoCurrency
+2024-06-11 01:01:12,410 INFO o.e.j.Eh107CacheManager [restartedMain] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=hourlyQuotes
+2024-06-11 01:01:12,411 INFO o.e.j.Eh107CacheManager [restartedMain] Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./K./UNQ/CUATRI20241RO/desa-grupo-c/build/resources/main/ehcache.xml,Cache=cryptoCurrency
+2024-06-11 01:01:12,607 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-11 01:01:12,698 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-11 01:01:12,764 INFO o.h.c.i.RegionFactoryInitiator [restartedMain] HHH000026: Second-level cache disabled
+2024-06-11 01:01:13,222 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-11 01:01:13,299 WARN o.h.e.j.d.i.DialectFactoryImpl [restartedMain] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-11 01:01:15,157 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-11 01:01:15,273 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 01:01:17,065 INFO o.s.d.j.r.q.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-11 01:01:17,662 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-11 01:01:18,795 INFO o.s.b.a.e.w.EndpointLinksResolver [restartedMain] Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-06-11 01:01:18,997 INFO o.s.s.w.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4f0adea4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@40d7d6ce, org.springframework.security.web.context.SecurityContextHolderFilter@7ef0ca42, org.springframework.security.web.header.HeaderWriterFilter@59899d1e, org.springframework.web.filter.CorsFilter@1992ace6, org.springframework.security.web.authentication.logout.LogoutFilter@22925c3c, ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.filters.JwtRequestFilter@52669fa9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1dd96aa8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@322b7e51, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37b7cdd5, org.springframework.security.web.session.SessionManagementFilter@7add5e85, org.springframework.security.web.access.ExceptionTranslationFilter@2f111d8b, org.springframework.security.web.access.intercept.AuthorizationFilter@8cd8c68]
+2024-06-11 01:01:20,443 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-06-11 01:01:20,535 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2024-06-11 01:01:20,563 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port 8080 (http) with context path ''
+2024-06-11 01:01:20,590 INFO o.s.b.StartupInfoLogger [restartedMain] Started BackendDesappApiApplicationKt in 16.633 seconds (process running for 18.945)
+2024-06-11 01:01:21,571 INFO o.a.j.l.DirectJDKLog [RMI TCP Connection(3)-192.168.0.22] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-11 01:01:21,572 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(3)-192.168.0.22] Initializing Servlet 'dispatcherServlet'
+2024-06-11 01:01:21,576 INFO o.s.w.s.FrameworkServlet [RMI TCP Connection(3)-192.168.0.22] Completed initialization in 4 ms
+2024-06-11 01:01:59,303 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 01:01:59,313 WARN o.s.b.f.s.DisposableBeanAdapter [SpringApplicationShutdownHook] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos ya esta cerrada (para des-habilitar el cerrado automatico durante el shutdown de la VM, agregue ";DB_CLOSE_ON_EXIT=FALSE" a la URL de conexión)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-06-11 01:01:59,326 INFO o.e.c.EhcacheManager [SpringApplicationShutdownHook] Cache 'hourlyQuotes' removed from EhcacheManager.
+2024-06-11 01:01:59,327 INFO o.e.c.EhcacheManager [SpringApplicationShutdownHook] Cache 'cryptoCurrency' removed from EhcacheManager.
+2024-06-11 01:01:59,332 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-06-11 01:01:59,335 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.

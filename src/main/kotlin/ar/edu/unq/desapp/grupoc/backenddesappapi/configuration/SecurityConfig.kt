@@ -43,7 +43,7 @@ class SecurityConfig (
         http.csrf { it.disable()}
         http.authorizeHttpRequests {
             it.requestMatchers("/users/auth/**").permitAll()
-                .requestMatchers("/crypto/**").permitAll()
+                .requestMatchers("/crypto/**").permitAll().requestMatchers("/actuator/**").permitAll()
             .anyRequest().authenticated()
         }.sessionManagement {
             it.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
