@@ -20,6 +20,9 @@ class CryptoServiceImpl : CryptoService {
     @Autowired
     lateinit var binanceProxyService: BinanceProxyService
 
+    @Autowired
+    lateinit var customMetricsService: CustomMetricsService
+
 
     override fun getAllCryptoCurrencyPrices(): CryptoCurrencyList {
         val entity: List<CryptoCurrency> = binanceProxyService.getAllCryptoCurrencyValues() as List<CryptoCurrency>
@@ -31,6 +34,7 @@ class CryptoServiceImpl : CryptoService {
     }
 
     override fun getCryptoCurrencyPrice(symbol: SYMBOL): CryptoCurrency? {
+        customMetricsService.incrementCustomMetric(symbol)
         val entity: CryptoCurrency? = binanceProxyService.getCryptoCurrencyValue(symbol)
         if (entity == null) throw CryptoCurrencyNotFoundException()
         entity.lastUpdateDateAndTime = LocalDateTime.now()
