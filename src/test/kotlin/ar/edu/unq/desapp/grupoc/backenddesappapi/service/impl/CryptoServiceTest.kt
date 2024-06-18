@@ -31,6 +31,9 @@ class CryptoServiceTest {
     @Mock
     lateinit var binanceProxyService: BinanceProxyService
 
+    @Mock
+    lateinit var customMetricsService: CustomMetricsService
+
     @Test
     fun `should return all crypto currency prices`() {
         val mockCryptoList = listOf(
