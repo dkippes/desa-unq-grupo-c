@@ -53,7 +53,7 @@
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
 | Crear un test de arquitectura - J                                                                                                                                       | 🟢 |
 | Auditoria de Web-Services. Loguear <timestamp,user,operación/metodo, parámetros, tiempoDeEjecicion> de los servicios publicados con Spring utilizando Log4j/logback - D | 🟢 |
-| TAG en GitHub y Confeccionar Release Notes de entrega 3 - J                                                                                                             | 🔴 |
+| TAG en GitHub y Confeccionar Release Notes de entrega 3 - J                                                                                                             | 🟢 |
 | Segurizar el acceso a la API (JWT) - J                                                                                                                                  | 🟢 |
 | Mostrar las cotizaciones de las últimas 24hs para un cripto activo dado - D                                                                                             | 🟢 |
 | Listado de cotizaciones (alta performance - implementar cache) - D                                                                                                      | 🟢 |
@@ -71,3 +71,14 @@
 ### H2
 
 1. Correrlo desde http://localhost:8080/h2-console
+
+### Actuator
+
+1. [Actuator](http://localhost:8080/actuator)
+2. [Grafana](http://localhost:3000/login)
+3. [Grafana-Dashboard](http://localhost:3000/dashboards)
+
+### Prometheus
+
+1. Ejecutar el exe de la carpeta: E:\prometheus
+2. Importar dashboards a grafana

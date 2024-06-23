@@ -27,3 +27,17 @@
 #### KNOWN ISSUES:
 * Posibles refactors menores.
 * No pudimos implementar una action para buildear la imagen de Docker.
+
+<hr>
+
+## TAG 3.0.0
+
+#### NEW FEATURES:
+* Implementación de test de arquitectura.
+* Implementación de JWT para seguridad.
+* Implementación de cache para alta performance para cotizaciones.
+* Implementación de auditoria de Web-Services.
+* Implementación de listado de cotizaciones de las últimas 24hs.
+* Agregado de dashboard para visualizar cotizaciones y logins de usuarios.
+#### NOTES:
+* No se encontro servicio de deploy disponible.

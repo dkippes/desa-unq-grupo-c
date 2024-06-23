@@ -14,11 +14,13 @@ class CustomMetricsServiceImpl(meterRegistry: MeterRegistry) {
             .tags("symbol", symbol.name)
             .register(meterRegistry)
     }
-    private val loginSuccessCounter = Counter.builder("counter.login.success")
+    private val loginSuccessCounter = Counter.builder("counter.login")
         .description("Custom metric for login success")
+        .tags("login", "success")
         .register(meterRegistry)
-    private val loginFailuresCounter = Counter.builder("counter.login.failures")
-        .description("Custom metric for login success")
+    private val loginFailuresCounter = Counter.builder("counter.login")
+        .description("Custom metric for login failures")
+        .tags("login", "failures")
         .register(meterRegistry)
 
     fun incrementCustomMetric(enumValue: SYMBOL) {
