@@ -20,6 +20,8 @@ class LogInfoAspectCustomPointcut {
 
     @Pointcut("execution(* ar.edu.unq.desapp.grupoc.backenddesappapi.webservice.*.*(..))")
     fun methodsStarterServicePointcut() {
+        // Este método está vacío porque su única función es definir el punto de corte
+        // para la anotación @Pointcut. No necesita implementación adicional.
     }
 
     @PostConstruct

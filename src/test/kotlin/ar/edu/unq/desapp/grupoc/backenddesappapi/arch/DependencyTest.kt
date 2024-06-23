@@ -29,14 +29,18 @@ class DependencyTest {
     @Test
     fun persistanceClassesShouldEndWithRepo() {
         classes().that().resideInAPackage("..persistence..")
-            .should().haveSimpleNameEndingWith("Repository").check(baseClasses)
+            .should()
+            .beAnnotatedWith("org.springframework.stereotype.Repository")
+            .andShould().haveSimpleNameEndingWith("Repository").check(baseClasses)
     }
 
 
     @Test
     fun webserviceClassesShouldEndWithController() {
         classes().that().resideInAPackage("..webservice")
-            .should().haveSimpleNameEndingWith("Controller").check(baseClasses)
+            .should().haveSimpleNameEndingWith("Controller")
+            .andShould().beAnnotatedWith("org.springframework.web.bind.annotation.RestController")
+            .check(baseClasses)
     }
 
     @Test
@@ -54,9 +58,9 @@ class DependencyTest {
 
 
     @Test
-    fun controllerClassesShouldHaveSpringControllerAnnotation() {
-        classes().that().resideInAPackage("..webservice")
-            .should().beAnnotatedWith("org.springframework.web.bind.annotation.RestController")
+    fun serviceClassesShouldEndWithService() {
+        classes().that().resideInAPackage("..service")
+            .should().haveSimpleNameEndingWith("Service")
             .check(baseClasses)
     }
 }

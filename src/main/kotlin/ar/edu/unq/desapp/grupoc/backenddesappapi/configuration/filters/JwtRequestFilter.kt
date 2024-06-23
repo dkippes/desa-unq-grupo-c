@@ -2,7 +2,6 @@ package ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.filters
 
 import ar.edu.unq.desapp.grupoc.backenddesappapi.configuration.utils.JwtUtil
 import ar.edu.unq.desapp.grupoc.backenddesappapi.service.UserService
-import io.jsonwebtoken.ExpiredJwtException
 import jakarta.servlet.FilterChain
 import jakarta.servlet.ServletException
 import jakarta.servlet.http.HttpServletRequest
@@ -33,11 +32,7 @@ class JwtRequestFilter (
 
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             jwt = authorizationHeader.substring(7)
-            try {
-                email = jwtUtil.extractEmail(jwt)
-            } catch (e: ExpiredJwtException) {
-                //TODO: Handle exception
-            }
+            email = jwtUtil.extractEmail(jwt)
         }
 
         if (email != null && SecurityContextHolder.getContext().authentication == null) {

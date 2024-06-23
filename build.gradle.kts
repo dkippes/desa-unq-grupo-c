@@ -16,6 +16,12 @@ val junitVersion = "4.13.2"
 val archunitVersion = "1.0.1"
 val jwtVersion = "0.9.1"
 val jaxbVersion = "2.1"
+val cache = "2.6.0"
+val cacheApi = "1.1.1"
+val cacheEh = "3.8.1"
+val jaxbApi = "2.3.1"
+val jaxbCore = "2.3.0.1"
+val jaxbImpl = "2.3.2"
 
 sonar {
     properties {
@@ -50,12 +56,12 @@ dependencies {
     implementation("io.jsonwebtoken:jjwt:${jwtVersion}")
     implementation("org.springframework.boot:spring-boot-starter-cache")
     implementation("javax.xml.bind:jaxb-api:${jaxbVersion}")
-    implementation("org.springframework.boot:spring-boot-starter-cache:2.6.0")
-    implementation("javax.cache:cache-api:1.1.1")
-    implementation("org.ehcache:ehcache:3.8.1")
-    implementation("javax.xml.bind:jaxb-api:2.3.1")
-    implementation("com.sun.xml.bind:jaxb-core:2.3.0.1")
-    implementation("com.sun.xml.bind:jaxb-impl:2.3.2")
+    implementation("org.springframework.boot:spring-boot-starter-cache:${cache}")
+    implementation("javax.cache:cache-api:${cacheApi}")
+    implementation("org.ehcache:ehcache:${cacheEh}")
+    implementation("javax.xml.bind:jaxb-api:${jaxbApi}")
+    implementation("com.sun.xml.bind:jaxb-core:${jaxbCore}")
+    implementation("com.sun.xml.bind:jaxb-impl:${jaxbImpl}")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("io.micrometer:micrometer-registry-prometheus")
     implementation("org.springframework.boot:spring-boot-starter-webflux")

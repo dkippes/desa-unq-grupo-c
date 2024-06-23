@@ -21,7 +21,7 @@ class CryptoServiceImpl : CryptoService {
     lateinit var binanceProxyService: BinanceProxyService
 
     @Autowired
-    lateinit var customMetricsService: CustomMetricsService
+    lateinit var customMetricsService: CustomMetricsServiceImpl
 
 
     override fun getAllCryptoCurrencyPrices(): CryptoCurrencyList {

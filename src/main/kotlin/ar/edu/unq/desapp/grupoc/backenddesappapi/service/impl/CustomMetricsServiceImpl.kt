@@ -6,7 +6,7 @@ import io.micrometer.core.instrument.MeterRegistry
 import org.springframework.stereotype.Component
 
 @Component
-class CustomMetricsService(meterRegistry: MeterRegistry) {
+class CustomMetricsServiceImpl(meterRegistry: MeterRegistry) {
 
     private val symbolCounters: Map<SYMBOL, Counter> = SYMBOL.entries.associateWith { symbol ->
         Counter.builder("custom_metric_symbol")

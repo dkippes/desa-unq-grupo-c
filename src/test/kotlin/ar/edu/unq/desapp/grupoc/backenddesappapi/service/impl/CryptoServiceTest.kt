@@ -32,7 +32,7 @@ class CryptoServiceTest {
     lateinit var binanceProxyService: BinanceProxyService
 
     @Mock
-    lateinit var customMetricsService: CustomMetricsService
+    lateinit var customMetricsService: CustomMetricsServiceImpl
 
     @Test
     fun `should return all crypto currency prices`() {

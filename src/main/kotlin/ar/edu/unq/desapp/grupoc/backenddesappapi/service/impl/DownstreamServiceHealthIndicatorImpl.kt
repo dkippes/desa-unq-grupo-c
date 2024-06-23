@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono
 
 
 @Component
-class DownstreamServiceHealthIndicator : ReactiveHealthIndicator {
+class DownstreamServiceHealthIndicatorImpl : ReactiveHealthIndicator {
     override fun health(): Mono<Health> {
         return checkDownstreamServiceHealth().onErrorResume { ex -> Mono.just(Health.Builder().down(ex).build()) }
     }

@@ -23,7 +23,7 @@ class UserServiceImpl : UserService {
     private lateinit var userRepository: UserRepository
     private val passwordEncoder: PasswordEncoder = BCryptPasswordEncoder()
     @Autowired
-    private lateinit var customMetricsService: CustomMetricsService
+    private lateinit var customMetricsService: CustomMetricsServiceImpl
 
 
     override fun registerUser(registerUserDTO: RequestRegisterUserDTO): ResponseUserDTO {
